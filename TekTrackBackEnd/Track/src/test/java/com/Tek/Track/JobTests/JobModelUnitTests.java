@@ -18,11 +18,11 @@ public class JobModelUnitTests {
         User user = new User();
         Date dateApplied = new Date();
 
-        jobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true);
+        jobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
 
-        identicalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true);
+        identicalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
 
-        differentJobInfo = new JobInfo(2L, "Different Company", "Different Job Title", "http://differentjoblink.com", "Different Job Description", new Date(), "Different Contact Name", "different@example.com", "0987654321", "Different Referral Name", false, false);
+        differentJobInfo = new JobInfo(2L, "Different Company", "Different Job Title", "http://differentjoblink.com", "Different Job Description", new Date(), "Different Contact Name", "different@example.com", "0987654321", "Different Referral Name", false, false, null);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class JobModelUnitTests {
         Assert.assertEquals(identicalJobInfo, jobInfo);
 
         // Test transitive property
-        JobInfo thirdIdenticalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", jobInfo.getDateApplied(), "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true);
+        JobInfo thirdIdenticalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", jobInfo.getDateApplied(), "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
         Assert.assertEquals(jobInfo, identicalJobInfo);
         Assert.assertEquals(identicalJobInfo, thirdIdenticalJobInfo);
         Assert.assertEquals(jobInfo, thirdIdenticalJobInfo);
@@ -94,7 +94,7 @@ public class JobModelUnitTests {
         User user = new User();
         Date dateApplied = new Date();
 
-        JobInfo jobInfo = new JobInfo("Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true);
+        JobInfo jobInfo = new JobInfo("Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
 
         Assert.assertEquals("Company", jobInfo.getCompany());
         Assert.assertEquals("Job Title", jobInfo.getJobTitle());
@@ -107,5 +107,6 @@ public class JobModelUnitTests {
         Assert.assertEquals("Referral Name", jobInfo.getReferral());
         Assert.assertEquals(true, jobInfo.getRemote());
         Assert.assertEquals(true, jobInfo.getGotResponse());
+        Assert.assertNull(jobInfo.getUser());
     }
 }

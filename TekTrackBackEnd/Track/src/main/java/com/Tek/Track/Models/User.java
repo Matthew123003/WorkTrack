@@ -33,8 +33,8 @@ public class User {
     @Column(name = "password_hash", length = 60, nullable = false) // Maps the `password` field to the "password_hash" column in the database, with a max length of 60 characters and not null.
     private String password; // Defines the `password` field to store the user's password.
 
-//    @ManyToOne(fetch = FetchType.LAZY) // Specifies a many-to-one relationship between User and JobInfo, with lazy loading.
-//    private List<JobInfo> jobInfo; // Defines the `jobInfo` field to store the user's job information as a list.
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<JobInfo> jobInfo;
 
     public User() {} // Default constructor, required by JPA.
 
@@ -50,22 +50,24 @@ public class User {
         this.password = password; // Sets the user's password.
     }
 
-//    public User(String firstName, String lastName, String email, String userName, String password) { // Constructor to initialize a User object without `userId`.
+//    public User(String firstName, String lastName, String email, String userName, String password, JobInfo jobInfo) { // Constructor to initialize a User object without `userId`.
 //        this.firstName = firstName; // Sets the user's first name.
 //        this.lastName = lastName; // Sets the user's last name.
 //        this.email = email; // Sets the user's email address.
 //        this.userName = userName; // Sets the user's username.
 //        this.password = password; // Sets the user's password.
+//        this.jobInfo = jobInfo;
 //
 //    }
 
-//    public User(long userId, String firstName, String lastName, String email, String userName, String password) {
+//    public User(long userId, String firstName, String lastName, String email, String userName, String password, JobInfo jobInfo) {
 //        this.userId = userId; // Sets the user's ID.
 //        this.firstName = firstName; // Sets the user's first name.
 //        this.lastName = lastName; // Sets the user's last name.
 //        this.email = email; // Sets the user's email address.
 //        this.userName = userName; // Sets the user's username.
 //        this.password = password; // Sets the user's password.
+//        this.jobInfo = jobInfo;
 //    }
 
     public User(long userId, String firstName, String lastName, String email, String userName, String password) { // Constructor to initialize a User object with `userId`.
