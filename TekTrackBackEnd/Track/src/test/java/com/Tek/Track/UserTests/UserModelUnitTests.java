@@ -11,16 +11,16 @@ public void testGettersAndSetters() {
     // Create a User object with sample data
     User user = new User();
     user.setUserId(1L);
-    user.setfirstName("John");
-    user.setlastName("Doe");
+    user.setFirstName("John");
+    user.setLastName("Doe");
     user.setEmail("john.doe@example.com");
     user.setUserName("johndoe");
     user.setPassword("securepassword");
     
     // Assert that getters return the expected values
     Assert.assertEquals(1L, user.getUserId());
-    Assert.assertEquals("John", user.getfirstName());
-    Assert.assertEquals("Doe", user.getlastName());
+    Assert.assertEquals("John", user.getFirstName());
+    Assert.assertEquals("Doe", user.getLastName());
     Assert.assertEquals("john.doe@example.com", user.getEmail());
     Assert.assertEquals("johndoe", user.getUserName());
     Assert.assertEquals("securepassword", user.getPassword());
@@ -49,8 +49,8 @@ public void testDefaultConstructor() {
     
     // Check that default values are initialized (typically, these would be null for objects and 0 for primitives)
     Assert.assertEquals(0L, user.getUserId());
-    Assert.assertNull(user.getfirstName());
-    Assert.assertNull(user.getlastName());
+    Assert.assertNull(user.getFirstName());
+    Assert.assertNull(user.getLastName());
     Assert.assertNull(user.getEmail());
     Assert.assertNull(user.getUserName());
     Assert.assertNull(user.getPassword());

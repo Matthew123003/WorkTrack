@@ -60,8 +60,8 @@ public class UserServiceUnitTests {
         User retrievedUser = userService.findById(mockId);
 
         Assert.assertNotNull(retrievedUser);
-        Assert.assertEquals(mockFirstName, retrievedUser.getfirstName());
-        Assert.assertEquals(mockLastName, retrievedUser.getlastName());
+        Assert.assertEquals(mockFirstName, retrievedUser.getFirstName());
+        Assert.assertEquals(mockLastName, retrievedUser.getLastName());
         Assert.assertEquals(mockEmail, retrievedUser.getEmail());
         Assert.assertEquals(mockUserName, retrievedUser.getUserName());
         Assert.assertEquals(mockPassword, retrievedUser.getPassword());
@@ -94,8 +94,8 @@ public class UserServiceUnitTests {
         User result = userService.update(mockId, updatedUser);
 
         Assert.assertNotNull(result);
-        Assert.assertEquals(updatedUser.getfirstName(), result.getfirstName());
-        Assert.assertEquals(updatedUser.getlastName(), result.getlastName());
+        Assert.assertEquals(updatedUser.getFirstName(), result.getFirstName());
+        Assert.assertEquals(updatedUser.getLastName(), result.getLastName());
         Assert.assertEquals(updatedUser.getEmail(), result.getEmail());
         Assert.assertEquals(updatedUser.getUserName(), result.getUserName());
         Assert.assertEquals(updatedUser.getPassword(), result.getPassword());

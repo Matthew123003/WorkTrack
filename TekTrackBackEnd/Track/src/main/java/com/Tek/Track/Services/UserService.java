@@ -92,8 +92,8 @@ public class UserService {
         }
 
         User originalUser = optionalUser.get();  // Retrieves the existing user from the Optional
-        originalUser.setfirstName(newUserData.getfirstName());  // Updates the first name
-        originalUser.setlastName(newUserData.getlastName());  // Updates the last name
+        originalUser.setFirstName(newUserData.getFirstName());  // Updates the first name
+        originalUser.setLastName(newUserData.getLastName());  // Updates the last name
         originalUser.setUserName(newUserData.getUserName());  // Updates the username
         originalUser.setPassword(newUserData.getPassword());  // Updates the password
         return userRepository.save(originalUser);  // Saves the updated user and returns the saved user

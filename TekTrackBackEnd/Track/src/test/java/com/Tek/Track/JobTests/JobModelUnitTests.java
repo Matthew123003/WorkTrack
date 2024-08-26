@@ -18,11 +18,11 @@ public class JobModelUnitTests {
         User user = new User();
         Date dateApplied = new Date();
 
-        jobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
+        jobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, user);
 
-        identicalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
+        identicalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, user);
 
-        differentJobInfo = new JobInfo(2L, "Different Company", "Different Job Title", "http://differentjoblink.com", "Different Job Description", new Date(), "Different Contact Name", "different@example.com", "0987654321", "Different Referral Name", false, false, null);
+        differentJobInfo = new JobInfo(2L, "Different Company", "Different Job Title", "http://differentjoblink.com", "Different Job Description", new Date(), "Different Contact Name", "different@example.com", "0987654321", "Different Referral Name", false, false, user);
     }
 
     @Test
@@ -42,6 +42,7 @@ public class JobModelUnitTests {
         jobInfo.setReferral("Different Referral Name");
         jobInfo.setRemote(false);
         jobInfo.setGotResponse(false);
+        jobInfo.setUser(user);
 
         Assert.assertEquals(2L, jobInfo.getJobInfoId());
         Assert.assertEquals("Different Company", jobInfo.getCompany());
@@ -55,7 +56,7 @@ public class JobModelUnitTests {
         Assert.assertEquals("Different Referral Name", jobInfo.getReferral());
         Assert.assertEquals(false, jobInfo.getRemote());
         Assert.assertEquals(false, jobInfo.getGotResponse());
-
+        Assert.assertEquals(user, jobInfo.getUser());
     }
 
     @Test
@@ -94,7 +95,7 @@ public class JobModelUnitTests {
         User user = new User();
         Date dateApplied = new Date();
 
-        JobInfo jobInfo = new JobInfo("Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, null);
+        JobInfo jobInfo = new JobInfo("Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, user);
 
         Assert.assertEquals("Company", jobInfo.getCompany());
         Assert.assertEquals("Job Title", jobInfo.getJobTitle());
@@ -107,6 +108,6 @@ public class JobModelUnitTests {
         Assert.assertEquals("Referral Name", jobInfo.getReferral());
         Assert.assertEquals(true, jobInfo.getRemote());
         Assert.assertEquals(true, jobInfo.getGotResponse());
-        Assert.assertNull(jobInfo.getUser());
+        Assert.assertEquals(user, jobInfo.getUser());
     }
 }
