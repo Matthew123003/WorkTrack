@@ -2,11 +2,9 @@ package com.Tek.Track.Models;
 
 import java.util.Date;
 import java.util.Objects;
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 
 @Entity
 @Table(name = "Job_Information")
