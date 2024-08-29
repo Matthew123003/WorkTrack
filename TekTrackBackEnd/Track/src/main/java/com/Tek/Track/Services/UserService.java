@@ -2,12 +2,16 @@ package com.Tek.Track.Services;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Repositories.UserRepository;
 
 @Service  // Marks this class as a service component, so it can be detected and managed by Spring
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired  // Automatically injects the UserRepository dependency into this field
     private UserRepository userRepository;
@@ -94,8 +98,19 @@ public class UserService {
         User originalUser = optionalUser.get();  // Retrieves the existing user from the Optional
         originalUser.setFirstName(newUserData.getFirstName());  // Updates the first name
         originalUser.setLastName(newUserData.getLastName());  // Updates the last name
-        originalUser.setUserName(newUserData.getUserName());  // Updates the username
+        originalUser.setUsername(newUserData.getUsername());  // Updates the username
         originalUser.setPassword(newUserData.getPassword());  // Updates the password
         return userRepository.save(originalUser);  // Saves the updated user and returns the saved user
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUserName(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username);
+        }
+
+        return user;  // Since User implements UserDetails, you can return it directly.
     }
 }
