@@ -33,11 +33,11 @@ public class UserServiceUnitTests {
         String mockUserName = "Username";
 
         User mockUser = new User();
-        mockUser.setUserName(mockUserName);
+        mockUser.setUsername(mockUserName);
 
         Mockito.when(userRepository.findByUserName(mockUserName)).thenReturn(mockUser);
 
-        String testName = userService.findByUserName(mockUserName).getUserName();
+        String testName = userService.findByUserName(mockUserName).getUsername();
 
         Assert.assertEquals(mockUserName, testName);
     }
@@ -63,7 +63,7 @@ public class UserServiceUnitTests {
         Assert.assertEquals(mockFirstName, retrievedUser.getFirstName());
         Assert.assertEquals(mockLastName, retrievedUser.getLastName());
         Assert.assertEquals(mockEmail, retrievedUser.getEmail());
-        Assert.assertEquals(mockUserName, retrievedUser.getUserName());
+        Assert.assertEquals(mockUserName, retrievedUser.getUsername());
         Assert.assertEquals(mockPassword, retrievedUser.getPassword());
     }
 
@@ -76,7 +76,7 @@ public class UserServiceUnitTests {
         User createdUser = userService.create(mockUser);
 
         Assert.assertNotNull(createdUser);
-        Assert.assertEquals(mockUser.getUserName(), createdUser.getUserName());
+        Assert.assertEquals(mockUser.getUsername(), createdUser.getUsername());
     }
 
     @Test // Test Update method in User Service
@@ -97,7 +97,7 @@ public class UserServiceUnitTests {
         Assert.assertEquals(updatedUser.getFirstName(), result.getFirstName());
         Assert.assertEquals(updatedUser.getLastName(), result.getLastName());
         Assert.assertEquals(updatedUser.getEmail(), result.getEmail());
-        Assert.assertEquals(updatedUser.getUserName(), result.getUserName());
+        Assert.assertEquals(updatedUser.getUsername(), result.getUsername());
         Assert.assertEquals(updatedUser.getPassword(), result.getPassword());
     }
 

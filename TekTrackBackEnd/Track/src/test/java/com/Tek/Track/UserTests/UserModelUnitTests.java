@@ -14,7 +14,7 @@ public void testGettersAndSetters() {
     user.setFirstName("John");
     user.setLastName("Doe");
     user.setEmail("john.doe@example.com");
-    user.setUserName("johndoe");
+    user.setUsername("johndoe");
     user.setPassword("securepassword");
     
     // Assert that getters return the expected values
@@ -22,7 +22,7 @@ public void testGettersAndSetters() {
     Assert.assertEquals("John", user.getFirstName());
     Assert.assertEquals("Doe", user.getLastName());
     Assert.assertEquals("john.doe@example.com", user.getEmail());
-    Assert.assertEquals("johndoe", user.getUserName());
+    Assert.assertEquals("johndoe", user.getUsername());
     Assert.assertEquals("securepassword", user.getPassword());
 }
 
@@ -52,7 +52,7 @@ public void testDefaultConstructor() {
     Assert.assertNull(user.getFirstName());
     Assert.assertNull(user.getLastName());
     Assert.assertNull(user.getEmail());
-    Assert.assertNull(user.getUserName());
+    Assert.assertNull(user.getUsername());
     Assert.assertNull(user.getPassword());
 }
 
