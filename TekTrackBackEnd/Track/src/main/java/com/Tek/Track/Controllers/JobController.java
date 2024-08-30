@@ -1,9 +1,11 @@
 package com.Tek.Track.Controllers;
 
+import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.JobService;
 
 import java.util.List;
 
+import com.Tek.Track.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,8 +20,12 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-    public JobController(JobService jobService) {
+    @Autowired
+    UserService userService;
+
+    public JobController(JobService jobService, UserService userService) {
         this.jobService = jobService;
+        this.userService = userService;
     }
 
     @GetMapping("/authjobs")
@@ -28,8 +34,12 @@ public class JobController {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
 
+        // Fetch the user by username to get the userId
+        User user = userService.findByUserName(username);
+        Long userId = user.getUserId();
+
         // Fetch and return jobs for the authenticated user
-        return new ResponseEntity<>(jobService.findJobsByUserName(username), HttpStatus.OK);
+        return new ResponseEntity<>(jobService.findJobsByUserId(userId), HttpStatus.OK);
     }
 
     @GetMapping("/jobs")

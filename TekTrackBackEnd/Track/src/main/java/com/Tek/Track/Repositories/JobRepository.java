@@ -11,4 +11,6 @@ import java.util.List;
 public interface JobRepository extends CrudRepository<JobInfo, Long> {
 
     List<JobInfo> findByUserUsername(String username);
+
+    List<JobInfo> findByUserUserId(Long userId);
 }
