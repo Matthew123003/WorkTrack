@@ -3,7 +3,6 @@
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtRequest.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtResponse.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtUtil.java
-/Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/SecurityConfig.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/InternshipController.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/InterviewController.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/JobController.java
