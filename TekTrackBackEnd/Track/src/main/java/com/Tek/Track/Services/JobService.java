@@ -16,6 +16,11 @@ public class JobService {
         this.jobRepository = jobRepository;
     }
 
+    public List<JobInfo> findJobsByUserName(String username) {
+        // Implement the logic to find jobs by username
+        return jobRepository.findByUserUsername(username);
+    }
+
     public List<JobInfo> findAll() { // Method adjusted to return a list of all users
         Iterable<JobInfo> jobInfoIterable = jobRepository.findAll();
         List<JobInfo> jobInfoList = new ArrayList<>();
