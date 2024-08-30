@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Repositories.UserRepository;
 
-@Service  // Marks this class as a service component, so it can be detected and managed by Spring
+@Service
 public class UserService implements UserDetailsService {
 
-    @Autowired  // Automatically injects the UserRepository dependency into this field
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    // Constructor for UserService to initialize the userRepository field
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
