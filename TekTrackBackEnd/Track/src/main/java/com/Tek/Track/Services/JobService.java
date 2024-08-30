@@ -12,12 +12,8 @@ public class JobService {
     @Autowired
     private JobRepository jobRepository;
 
-    @Autowired
-    private UserService userService; // To fetch user by username
-
-    public JobService(JobRepository jobRepository, UserService userService) {
+    public JobService(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
-        this.userService = userService;
     }
 
     public List<JobInfo> findJobsByUserId(Long userId) {

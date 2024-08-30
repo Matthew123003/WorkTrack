@@ -2,7 +2,6 @@ package com.Tek.Track.Services;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +19,7 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    // Method to retrieve all users from the repository
+
     public List<User> findAll() { // Method adjusted to return a list of all users
         Iterable<User> usersIterable = userRepository.findAll();
         List<User> usersList = new ArrayList<>();
@@ -28,7 +27,7 @@ public class UserService implements UserDetailsService {
         return usersList; 
     }
 
-    // Method to find a user by their ID
+
     public User findById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);  // Attempts to find a user by ID, wrapped in an Optional
 
@@ -64,12 +63,6 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(id);  // Deletes the user with the given ID from the repository
         return true;  // Returns true to indicate successful deletion
     }
-
-    // // Method to delete a user by the user object
-    // public Boolean deleteByUserName(User user) {
-    //     userRepository.delete(user);  // Deletes the given user object from the repository
-    //     return true;  // Returns true to indicate successful deletion
-    // }
 
     public Boolean deleteByUserName(String userName) {
         // Find the user by username

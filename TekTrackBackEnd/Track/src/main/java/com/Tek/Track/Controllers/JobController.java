@@ -2,9 +2,7 @@ package com.Tek.Track.Controllers;
 
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.JobService;
-
 import java.util.List;
-
 import com.Tek.Track.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
