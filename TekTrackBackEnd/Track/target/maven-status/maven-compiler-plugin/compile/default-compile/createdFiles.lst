@@ -18,7 +18,7 @@ com/Tek/Track/Models/Interview.class
 com/Tek/Track/Repositories/UserRepository.class
 com/Tek/Track/TrackApplication.class
 com/Tek/Track/Authentication/JwtAuthenticationFilter.class
-com/Tek/Track/Services/JwtTokenService.class
 com/Tek/Track/Services/JobService.class
 com/Tek/Track/Services/InterviewService.class
+com/Tek/Track/Authentication/JwtTokenService.class
 com/Tek/Track/Services/UserService.class

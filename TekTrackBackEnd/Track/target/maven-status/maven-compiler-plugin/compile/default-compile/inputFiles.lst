@@ -2,6 +2,7 @@
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtAuthenticationFilter.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtRequest.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtResponse.java
+/Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtTokenService.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtUtil.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/SecurityConfig.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/InternshipController.java
@@ -19,6 +20,5 @@
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Services/InternshipService.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Services/InterviewService.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Services/JobService.java
-/Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Services/JwtTokenService.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/Services/UserService.java
 /Users/matthew123003/IdeaProjects/TekTrack/TekTrackBackEnd/Track/src/main/java/com/Tek/Track/TrackApplication.java

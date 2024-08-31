@@ -1,4 +1,4 @@
-package com.Tek.Track.Services;
+package com.Tek.Track.Authentication;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
