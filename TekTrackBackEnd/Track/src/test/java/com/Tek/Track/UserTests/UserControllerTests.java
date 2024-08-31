@@ -5,13 +5,10 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.UserService;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +21,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ActiveProfiles;
-
 import com.Tek.Track.Controllers.UserController;
 
 @WebMvcTest(controllers = UserController.class)
