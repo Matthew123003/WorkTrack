@@ -28,34 +28,34 @@ public class Internship {
     @Column(nullable = false)
     private String duration; //(Dropbox season)
 
-    @Column()
+    @Column(name = "assessment")
     private String assessment;
 
-    @Column()
+    @Column(name = "assessment_completed")
     private Boolean assessment_completed;
 
-    @Column()
+    @Column(name = "contact_person_name")
     private String contactPersonName;
 
-    @Column()
+    @Column(name = "contact_person_email")
     private String contactPersonEmail;
 
-    @Column()
+    @Column(name = "contact_person_phone_number")
     private String contactPersonPhone;
 
-    @Column(length = 250)
+    @Column(name = "job_description", length = 254)
     private String jobDescription;
 
-    @Column()
+    @Column(name = "status")
     private String status;
 
-    @Column()
+    @Column(name = "remote")
     private Boolean remote;
 
-    @Column()
+    @Column(name = "response")
     private Boolean response;
 
-    @Column(length = 100)
+    @Column(name = "job_url_link", length = 254)
     private String jobLink;
 
     @ManyToOne(fetch = FetchType.LAZY)
