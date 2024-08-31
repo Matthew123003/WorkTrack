@@ -1,6 +1,8 @@
 package com.Tek.Track.Services;
 
 import java.util.*;
+
+import com.Tek.Track.Models.JobInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.Tek.Track.Models.Internship;
 import com.Tek.Track.Repositories.InternshipRepository;
@@ -16,6 +18,10 @@ public class InternshipService {
     //Constructor for interviewService to initialize interviewRepository
     public InternshipService(InternshipRepository internshipRepository) {
         this.internshipRepository = internshipRepository;
+    }
+
+    public List<Internship> findJobsByUserId(Long userId) {
+        return internshipRepository.findByUserUserId(userId);
     }
 
     //Retrieve all interviews from the repository

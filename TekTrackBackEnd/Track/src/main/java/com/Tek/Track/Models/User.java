@@ -40,6 +40,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<JobInfo> jobInfo;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Internship> internshipList;
+
     public User() {} // Default constructor, required by JPA.
 
     public User(String userName) { // Created only for basic Mockito test
@@ -139,6 +142,14 @@ public class User implements UserDetails {
 
     public void setJobInfo(List<JobInfo> jobInfo) { // Setter method for job information.
         this.jobInfo = jobInfo; // Sets the user's job information.
+    }
+
+    public List<Internship> getInternshipList() {
+        return internshipList;
+    }
+
+    public void setInternshipList(List<Internship> internshipList) {
+        this.internshipList = internshipList;
     }
 
     @Override

@@ -1,8 +1,12 @@
 package com.Tek.Track.Controllers;
 
 import java.util.List;
+import com.Tek.Track.Models.User;
+import com.Tek.Track.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import com.Tek.Track.Models.Internship;
 import com.Tek.Track.Services.InternshipService;
@@ -14,8 +18,26 @@ public class InternshipController {
     @Autowired //Inject Service dependency
     private InternshipService internshipService;
 
-    public InternshipController(InternshipService internshipService) {
+    @Autowired
+    UserService userService;
+
+    public InternshipController(InternshipService internshipService, UserService userService) {
         this.internshipService = internshipService;
+        this.userService = userService;
+    }
+
+    @GetMapping("/authintern")
+    public ResponseEntity<List<Internship>> getJobsForAuthenticatedUser() throws Exception {
+        // Get the currently authenticated user
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+
+        // Fetch the user by username to get the userId
+        User user = userService.findByUserName(username);
+        Long userId = user.getUserId();
+
+        // Fetch and return jobs for the authenticated user
+        return new ResponseEntity<>(internshipService.findJobsByUserId(userId), HttpStatus.OK);
     }
 
     @GetMapping("/internship")
