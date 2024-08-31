@@ -70,5 +70,4 @@ public class JobService {
         return jobRepository.save(originalJobInfo);
     }
 
-    
 }
