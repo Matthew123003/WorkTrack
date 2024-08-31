@@ -1,8 +1,6 @@
 package com.Tek.Track.Services;
 
 import java.util.*;
-
-import com.Tek.Track.Models.JobInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.Tek.Track.Models.Internship;
 import com.Tek.Track.Repositories.InternshipRepository;
@@ -11,11 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class InternshipService {
 
-        //Inject interviewRepository
     @Autowired 
     private InternshipRepository internshipRepository;
 
-    //Constructor for interviewService to initialize interviewRepository
     public InternshipService(InternshipRepository internshipRepository) {
         this.internshipRepository = internshipRepository;
     }
