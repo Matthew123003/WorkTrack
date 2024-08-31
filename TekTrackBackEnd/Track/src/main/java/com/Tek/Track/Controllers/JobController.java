@@ -64,7 +64,4 @@ public class JobController {
     public ResponseEntity<Boolean> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(jobService.deleteById(id), HttpStatus.OK);
     }
-
-    
-
 }
