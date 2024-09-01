@@ -47,4 +47,10 @@ public class InterviewController {
         return new ResponseEntity<>(interviewService.deleteById(id), HttpStatus.OK);
     }
 
+    @PostMapping("/interviews")
+    public ResponseEntity<Interview> createInterview(@RequestBody Interview interview) {
+        Interview savedInterview = interviewService.create(interview);
+        return new ResponseEntity<>(savedInterview, HttpStatus.CREATED);
+    }
+
 }

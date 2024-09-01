@@ -2,6 +2,7 @@ package com.Tek.Track.Models;
 
 
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import jakarta.persistence.*;
@@ -41,14 +42,20 @@ public class Interview {
     @Column(name = "interview_contact_email")
     private String interviewContactEmail;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_info_id")
+    @JsonBackReference
+    private JobInfo jobInfo;
 
-    //Job Info instance //Many to many
-    //Internship Instance //Many to many
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "internship_id")
+    @JsonBackReference
+    private Internship internship;
    
     //Constructors
     public Interview() {}
 
-    public Interview(LocalDate interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail) {
+    public Interview(LocalDate interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail, JobInfo jobInfo, Internship internship) {
         this.interviewDate = interviewDate;
         this.stage = stage;
         this.tyNote = tyNote;
@@ -57,6 +64,8 @@ public class Interview {
         this.interviewStatus = interviewStatus;
         this.interviewContactName = interviewContactName;
         this.interviewContactEmail = interviewContactEmail;
+        this.jobInfo = jobInfo;
+        this.internship = internship;
     }
     
     // Getters and Setters 
@@ -131,6 +140,61 @@ public class Interview {
     public void setInterviewContactEmail(String interviewContactEmail) {
         this.interviewContactEmail = interviewContactEmail;
     }
+
+    public JobInfo getJobInfo() {
+        return jobInfo;
+    }
+
+    public void setJobInfo(JobInfo jobInfo) {
+        this.jobInfo = jobInfo;
+    }
+
+    public Internship getInternship() {
+        return internship;
+    }
+
+    public void setInternship(Internship internship) {
+        this.internship = internship;
+    }
+
+//Creating an interview for a job
+//JobInfo job = jobService.findById(jobId);
+//Interview interview = new Interview();
+//interview.setInterviewDate(LocalDate.now());
+//interview.setStage("First Round");
+//interview.setJobInfo(job);
+//interviewService.create(interview);
+//
+//Creating an interview for an internship
+//Internship internship = internshipService.findById(internshipId);
+//Interview interview = new Interview();
+//interview.setInterviewDate(LocalDate.now());
+//interview.setStage("Final Round");
+//interview.setInternship(internship);
+//interviewService.create(interview);
+
+//    public enum Stage {
+//        FIRST_ROUND,
+//        SECOND_ROUND,
+//        FINAL_ROUND,
+//        HR_INTERVIEW
+//    }
+//
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "interview_stage", nullable = false, length = 50)
+//    private Stage stage;
+//
+//    public enum InterviewType {
+//        IN_PERSON,
+//        VIRTUAL,
+//        PHONE,
+//        ZOOM,
+//        GOOGLE_MEET
+//    }
+//
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "interview_type", nullable = false, length = 50)
+//    private InterviewType interviewType;
 }
 
 

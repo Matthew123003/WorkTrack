@@ -1,6 +1,9 @@
 package com.Tek.Track.Models;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import jakarta.persistence.*;
@@ -62,6 +65,11 @@ public class Internship {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "internship", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Interview> interviews;
+
+
     //Constructors
     public Internship() {} //Default constructor, required by JPA
 
@@ -79,7 +87,7 @@ public class Internship {
         this.status = status;
         this.remote = remote;
         this.response = response;
-        
+        this.jobLink = jobLink;
     }
 
     //Getters and Setters
@@ -209,5 +217,23 @@ public class Internship {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Interview> getInterviews() {
+        return interviews;
+    }
+
+    public void setInterviews(List<Interview> interviews) {
+        this.interviews = interviews;
+    }
+
+    public void addInterview(Interview interview) {
+        interviews.add(interview);
+        interview.setInternship(this);
+    }
+
+    public void removeInterview(Interview interview) {
+        interviews.remove(interview);
+        interview.setInternship(null);
     }
 }

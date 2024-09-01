@@ -1,7 +1,10 @@
 package com.Tek.Track.Models;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -51,6 +54,10 @@ public class JobInfo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "jobInfo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Interview> interviews;
 
 
     public JobInfo() {
@@ -189,6 +196,24 @@ public class JobInfo {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Interview> getInterviews() {
+        return interviews;
+    }
+
+    public void setInterviews(List<Interview> interviews) {
+        this.interviews = interviews;
+    }
+
+    public void addInterview(Interview interview) {
+        interviews.add(interview);
+        interview.setJobInfo(this);
+    }
+
+    public void removeInterview(Interview interview) {
+        interviews.remove(interview);
+        interview.setJobInfo(null);
     }
 
     @Override
