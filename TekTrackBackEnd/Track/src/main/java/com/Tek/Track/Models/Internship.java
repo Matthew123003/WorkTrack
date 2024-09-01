@@ -2,7 +2,6 @@ package com.Tek.Track.Models;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -13,12 +12,11 @@ import jakarta.persistence.*;
 @Table(name = "Internship")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE) //Stores in temp memory before sending to DB to avoid concurrecy(uses softlocks)
 public class Internship {
-    //Unique table ID
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @Column(name = "internship_id")
     private Long internshipId;
 
-    //Table columns
     @Column(nullable = false, length = 100)
     private String company;
     
@@ -67,7 +65,7 @@ public class Internship {
 
     @OneToMany(mappedBy = "internship", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Interview> interviews;
+    private List<Interview> interviewList;
 
 
     //Constructors
@@ -88,6 +86,24 @@ public class Internship {
         this.remote = remote;
         this.response = response;
         this.jobLink = jobLink;
+    }
+
+    public Internship(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink, List<Interview> interviewList) {
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.dateApplied = dateApplied;
+        this.duration = duration;
+        this.assessment = assessment;
+        this.assessment_completed = assessment_completed;
+        this.contactPersonName = contactPersonName;
+        this.contactPersonEmail = contactPersonEmail;
+        this.contactPersonPhone = contactPersonPhone;
+        this.jobDescription = jobDescription;
+        this.status = status;
+        this.remote = remote;
+        this.response = response;
+        this.jobLink = jobLink;
+        this.interviewList = interviewList;
     }
 
     //Getters and Setters
@@ -220,20 +236,20 @@ public class Internship {
     }
 
     public List<Interview> getInterviews() {
-        return interviews;
+        return interviewList;
     }
 
-    public void setInterviews(List<Interview> interviews) {
-        this.interviews = interviews;
+    public void setInterviews(List<Interview> interviewList) {
+        this.interviewList = interviewList;
     }
 
     public void addInterview(Interview interview) {
-        interviews.add(interview);
+        interviewList.add(interview);
         interview.setInternship(this);
     }
 
     public void removeInterview(Interview interview) {
-        interviews.remove(interview);
+        interviewList.remove(interview);
         interview.setInternship(null);
     }
 }
