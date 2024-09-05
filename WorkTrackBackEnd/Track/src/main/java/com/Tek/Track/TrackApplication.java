@@ -9,6 +9,6 @@ public class TrackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TrackApplication.class, args);
 	}
-	// OAUTH2 JWT WORKING AND RUNNING, ADDED AUTH SERVICE
+	// OAUTH2 JWT WORKING AND RUNNING, ADDED AUTH SERVICE FOR REDUNDANCY AND CODE SIMPLICITY
 	// EVERYTHING STILL WORKING, NEED TO TEST WITH POSTMAN
 }
