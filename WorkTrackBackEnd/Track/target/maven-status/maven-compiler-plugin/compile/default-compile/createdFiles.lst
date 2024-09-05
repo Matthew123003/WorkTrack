@@ -21,4 +21,5 @@ com/Tek/Track/Authentication/JwtAuthenticationFilter.class
 com/Tek/Track/Services/JobService.class
 com/Tek/Track/Services/InterviewService.class
 com/Tek/Track/Authentication/JwtTokenService.class
+com/Tek/Track/Authentication/AuthService.class
 com/Tek/Track/Services/UserService.class

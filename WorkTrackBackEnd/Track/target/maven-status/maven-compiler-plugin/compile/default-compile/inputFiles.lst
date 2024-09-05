@@ -1,4 +1,5 @@
 /Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/AuthController.java
+/Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/AuthService.java
 /Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtAuthenticationFilter.java
 /Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtRequest.java
 /Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtResponse.java

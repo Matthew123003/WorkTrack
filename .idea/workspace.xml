@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
+    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/A_OAuth2Notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/JwtUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,25 +45,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.TrackApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/matthew123003/IdeaProjects/WorkTrack",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.TrackApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/matthew123003/IdeaProjects/WorkTrack&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TrackApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Tek.Track.TrackApplication" />
