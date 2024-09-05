@@ -1,6 +1,5 @@
 package com.Tek.Track.Authentication;
 
-import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
