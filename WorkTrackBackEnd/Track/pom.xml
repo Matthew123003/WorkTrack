@@ -172,6 +172,12 @@
 			<artifactId>spring-kafka</artifactId>
 			<version>3.2.3</version>
 		</dependency>
+		<!-- JWT support with Jose (JSON Web Encryption) -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
