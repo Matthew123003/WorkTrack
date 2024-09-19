@@ -1,0 +1,1 @@
+Android emulator working and recognized when running the expo front end
