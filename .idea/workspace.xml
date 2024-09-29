@@ -4,7 +4,257 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
+    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidGradleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinGradleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidGradleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinGradleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/sources/org/gradle/accessors/dm/LibrariesForLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$AndroidPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$AndroidxAppcompatLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$AndroidxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$AndroidxTestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$AndroidxVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$BinaryCompatibilityPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$BinaryCompatibilityVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$BinaryPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$BinaryVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$FrescoImagepipelineLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$FrescoLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$FrescoUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$InferLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$InferVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$JavaxAnnotationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$JavaxAnnotationVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$JavaxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$JavaxVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$NexusPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$NexusVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$Okhttp3LibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$YogaLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$YogaProguardLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$YogaProguardVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs$YogaVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$AndroidPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$AndroidxAppcompatLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$AndroidxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$AndroidxTestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$AndroidxVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$BinaryCompatibilityPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$BinaryCompatibilityVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$BinaryPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$BinaryVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$FrescoImagepipelineLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$FrescoLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$FrescoUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$InferLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$InferVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$JavaxAnnotationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$JavaxAnnotationVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$JavaxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$JavaxVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$NexusPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$NexusVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$Okhttp3LibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$YogaLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$YogaProguardLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$YogaProguardVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock$YogaVersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/sources/org/gradle/accessors/dm/LibrariesForReactAndroidLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/sources/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/8.6/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/noVersion/buildLogic.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/android/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/sign-in.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/sign-up.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/interships.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/interviews.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/jobs.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/search/[query].jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/search/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/fonts/Poppins-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/bookmark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/eye-hide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/left-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/logout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/right-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/icons/upload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/images/finding-job.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/images/logo-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/images/logoWhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/assets/images/video-conference.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/Collapsible.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/ExternalLink.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/HelloWave.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/ParallaxScrollView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/ThemedText.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/ThemedView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/__tests__/ThemedText-test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/__tests__/__snapshots__/ThemedText-test.tsx.snap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/components/navigation/TabBarIcon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/constants/icons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/constants/images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/constants/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/hooks/useColorScheme.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/hooks/useColorScheme.web.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/hooks/useThemeColor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/scripts/reset-project.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/sources/org/gradle/accessors/dm/LibrariesForLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/423f0288fa7dffe069445ffa4b72952b4629a15a/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/classes/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/sources/org/gradle/accessors/dm/LibrariesForReactAndroidLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/63bfea9ebd7ffa1cdafd0ae8ce62aa3c210042bd/sources/org/gradle/accessors/dm/LibrariesForReactAndroidLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/8.6/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/noVersion/buildLogic.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/android/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(auth)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(auth)/sign-in.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(auth)/sign-up.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(tabs)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(tabs)/interships.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(tabs)/interviews.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/(tabs)/jobs.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/search/[query].jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/app/search/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/adaptive-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/fonts/Poppins-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/bookmark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/eye-hide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/left-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/logout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/right-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/icons/upload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/images/finding-job.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/images/logo-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/images/logoWhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/images/video-conference.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/assets/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/constants/icons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/constants/images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/constants/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack01/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackWeb/WorkTrack/src/setupTests.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,13 +304,22 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/matthew123003/IdeaProjects/WorkTrack&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/matthew123003/IdeaProjects/WorkTrack/WorkTrackFrontEnd&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd" />
+      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="TrackApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Tek.Track.TrackApplication" />
