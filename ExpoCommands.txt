@@ -11,3 +11,5 @@ Then make sure the react native / expo dev dependencies are installed and
 showing on the package.json file
 The run npx expo prebuild to make sure that the android and ios folders are created to
 initialize the project correctly
+Then run npx expo start:android to start everything running and indexing and
+executing and building
