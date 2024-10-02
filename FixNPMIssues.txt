@@ -1,0 +1,17 @@
+matthew123003@Matthews-MacBook-Air WorkTrack % npm cache clean --force
+
+npm WARN using --force Recommended protections disabled.
+npm ERR! code EACCES
+npm ERR! syscall unlink
+npm ERR! path /Users/matthew123003/.npm/_cacache/content-v2/sha512/03/8d/0c6a7e6f30ed56587c150c9affed8d8deafc070900d7e204352ccf469e01051d130ada5c71fed315576bfe505da0d65afce115511b332f3bfb55f4b62268
+npm ERR! errno -13
+npm ERR! 
+npm ERR! Your cache folder contains root-owned files, due to a bug in
+npm ERR! previous versions of npm which has since been addressed.
+npm ERR! 
+npm ERR! To permanently fix this problem, please run:
+npm ERR!   sudo chown -R 501:20 "/Users/matthew123003/.npm"
+
+npm ERR! A complete log of this run can be found in: /Users/matthew123003/.npm/_logs/2024-10-02T18_52_44_891Z-debug-0.log
+matthew123003@Matthews-MacBook-Air WorkTrack % sudo chown -R 501:20 "/Users/matthew123003/.npm"
+Password:

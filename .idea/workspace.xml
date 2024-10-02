@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
+    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/worktrackweb/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/next.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/fonts/GeistMonoVF.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/fonts/GeistVF.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/src/app/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktrackweb/tailwind.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
