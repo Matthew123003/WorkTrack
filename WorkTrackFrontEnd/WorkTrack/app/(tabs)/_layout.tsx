@@ -36,6 +36,17 @@ export default function TabLayout() {
         }}
       />
 
+      {/* Jobs Tab */}
+      <Tabs.Screen
+        name="jobs"
+        options={{
+          title: 'Jobs',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'briefcase' : 'briefcase-outline'} color={color} />
+          ),
+        }}
+      />
+      
       {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
