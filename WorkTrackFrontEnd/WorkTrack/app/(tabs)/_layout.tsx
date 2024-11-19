@@ -25,17 +25,6 @@ export default function TabLayout() {
         }}
       />
 
-      {/* Explore Tab */}
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-
       {/* Jobs Tab */}
       <Tabs.Screen
         name="jobs"
@@ -46,7 +35,18 @@ export default function TabLayout() {
           ),
         }}
       />
-      
+
+      {/* Interviews Tab */}
+      <Tabs.Screen
+        name="interviews"
+        options={{
+          title: 'Interviews',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'chatbox' : 'chatbox-outline'} color={color} />
+          ),
+        }}
+      />
+
       {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
