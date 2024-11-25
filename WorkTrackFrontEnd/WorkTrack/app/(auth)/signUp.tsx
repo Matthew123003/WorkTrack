@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-const SignUp = () => {
+export default function signUp() {
   return (
-    <View>
-      <Text>SignUp</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Welcome to the Sign Up Screen!</Text>
     </View>
-  )
+  );
 }
 
-export default SignUp
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
