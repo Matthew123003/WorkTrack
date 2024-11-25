@@ -16,29 +16,38 @@ executing and building
 
 Still giving some errors on emulator, will check fixes and options.
 ************************************************************************************
-WorkTrack/WorkTrackFrontEnd/WorkTrack/
-├── .expo/                                # Expo's internal configuration and build files
-├── android/                              # Android-specific files for Expo (native Android app)
-├── app/                                  # Core application screens and layout components
-│   ├── _layout.tsx                       # Main layout file that sets up routing and context providers
-│   ├── (auth)/                           # Folder for authentication-related screens
-│   │   └── login.tsx                     # Login screen for user authentication
-│   └── (tabs)/                           # Folder for main app screens after login
-│       └── index.tsx                     # Main screen or dashboard shown after user login
-├── assets/                               # Static assets like images, icons, fonts
-│   └── (various assets like images, icons, fonts, etc.)
-├── components/                           # Reusable UI components
-│   └── (various UI components like buttons, headers, form elements, etc.)
-├── constants/                            # Project constants like API URLs, color themes, etc.
-│   └── (various constants like colors, API endpoints, etc.)
-├── context/                              # Contexts for managing global state (e.g., login state)
-│   └── LoginContext.tsx                  # Manages login state across the app (isLoggedIn, setIsLoggedIn)
-├── hooks/                                # Custom React hooks for reusability
-│   └── (various hooks for app logic like useLogin, etc.)
-├── scripts/                              # Utility scripts for development, testing, or setup
-│   └── (various scripts like build, deployment, etc.)
-├── node_modules/                         # Project dependencies managed by npm/yarn
-├── package.json                          # Project's dependencies and scripts configuration
-├── app.json                              # Expo configuration file (app settings like name, splash screen, etc.)
-└── (other files for configuration and setup)
-******************************************************************************************
+WorkTrack FrontEnd Project Structure
+
+WorkTrack (Root Directory)
+├── .expo                         # Expo configuration directory
+├── android                       # Android-specific files (Expo Ejected Projects)
+├── app                           # Main application directory
+│   ├── (auth)                    # Authentication-specific screens
+│   │   ├── _layout.tsx          # Layout file for auth screens
+│   │   ├── login.tsx            # Login screen
+│   │   ├── signUp.tsx           # Sign-up screen
+│   ├── (tabs)                    # Tab-specific screens (main app navigation)
+│   │   ├── _layout.tsx          # Layout file for tab screens
+│   │   ├── interviews.tsx       # Interviews screen
+│   │   ├── jobs.tsx             # Jobs screen
+│   │   ├── profile.tsx          # Profile screen
+│   │   ├── settings.tsx         # Settings screen
+│   ├── _layout.tsx              # Root layout for the application
+│   ├── +html.tsx                # Custom HTML handler for the app
+│   ├── +not-found.tsx           # Not Found handler for unmatched routes
+│   ├── index.tsx                # Home or default entry screen
+├── assets                        # Static assets (images, fonts, etc.)
+├── components                    # Reusable React components
+├── constants                     # Application constants and config values
+├── context                       # Context API files for global state management
+│   ├── LoginContext.tsx         # Login state context
+├── hooks                         # Custom React hooks
+├── node_modules                  # Node.js dependencies
+├── scripts                       # Utility and automation scripts
+├── app.json                      # Expo project configuration
+├── babel.config.js               # Babel configuration for JavaScript/TypeScript
+├── eas.json                      # Expo Application Services (EAS) config file
+├── package-lock.json             # Lockfile for npm dependencies
+├── package.json                  # npm project configuration
+├── tsconfig.json                 # TypeScript configuration file
+******************************************************************
