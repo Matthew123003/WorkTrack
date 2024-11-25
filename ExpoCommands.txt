@@ -68,6 +68,7 @@ WorkTrack
 |   ├── (tabs)/
 |   |   |
 |   |   ├── _layout.tsx
+|   |   ├── home.tsx
 |   |   ├── interviews.tsx
 |   |   ├── jobs.tsx
 |   |   ├── profile.tsx
