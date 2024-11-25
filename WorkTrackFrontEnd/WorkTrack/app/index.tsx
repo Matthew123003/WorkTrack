@@ -1,69 +1,76 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React, { useState } from 'react';
+import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';  // Use expo-router's useRouter hook
 
-export default function HomeScreen() {
+const IndexPage = () => {
+  const router = useRouter(); // Initialize router from expo-router
+  const [username, setUsername] = useState(''); // State for username
+  const [password, setPassword] = useState(''); // State for password
+
+  // Function to handle navigation to the Sign Up page
+  const handleSignUpNavigation = () => {
+    router.push('/(auth)/signUp'); // Navigate to the sign-up screen
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">HELLO WORLD!!!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome to WorkTrack!</Text>
+      
+      {/* Username input box */}
+      <TextInput
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername} // Update username state
+      />
+      
+      {/* Password input box */}
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword} // Update password state
+      />
+
+      <Button
+        title="Sign In"
+        onPress={() => {
+          // Handle login logic here or navigate if needed
+          console.log("Login logic here with username: ", username, " and password: ", password);
+        }}
+      />
+      <Button
+        title="Sign Up"
+        onPress={handleSignUpNavigation} // Navigate to Sign Up page
+        color="blue"
+      />
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
+    backgroundColor: '#f5f5f5',
+    padding: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  input: {
+    width: '100%',
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingLeft: 10,
+    marginBottom: 15,
   },
 });
+
+export default IndexPage;
