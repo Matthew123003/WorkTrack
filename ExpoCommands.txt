@@ -93,3 +93,12 @@ WorkTrack
 ├── package-lock.json
 ├── package.json
 └── tsconfig.json
+
+******************************************************************
+Based on the behavior you're describing, the issue is likely related
+ to how your AuthLayout component is structured. In an Expo Router 
+ project, _layout.tsx acts as a layout file for the routes nested 
+ under its directory, providing a common layout for all child routes.
+  If the layout isn't configured to render the child screens, it will
+   only display the content of the layout file itself (e.g.,
+    "AuthLayout" in this case).
