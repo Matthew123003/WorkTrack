@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
 const IndexPage = () => {
@@ -7,28 +7,21 @@ const IndexPage = () => {
   const [username, setUsername] = useState(''); // State for username
   const [password, setPassword] = useState(''); // State for password
 
-  // Function to handle navigation to the Sign Up page
-  const handleSignUpNavigation = () => {
-    try {
-      router.push('/(auth)/signUp'); // Navigate to the sign-up screen
-    } catch (error) {
-      console.error("Navigation to Sign Up failed:", error);
-      Alert.alert('Error', 'Unable to navigate to the Sign Up page. Please try again.');
+  // Function to handle login
+  const handleLogin = () => {
+    // Mock login validation
+    if (username === 'user' && password === 'password') {
+      console.log('Login successful!');
+      router.push('/(tabs)/home'); // Navigate to the home screen
+    } else {
+      console.log('Invalid username or password');
+      // Optionally, show an error message
     }
   };
 
-  // Function to handle the login process
-  const handleLogin = () => {
-    if (!username || !password) {
-      Alert.alert('Validation Error', 'Please enter both username and password.'); // Validation for empty fields
-      return;
-    }
-
-    // Simulate login logic here (replace with actual authentication later)
-    console.log("Login attempt with username:", username, "and password:", password);
-
-    // Provide feedback for login
-    Alert.alert('Login Successful', `Welcome, ${username}!`);
+  // Function to handle navigation to the Sign Up page
+  const handleSignUpNavigation = () => {
+    router.push('/(auth)/signUp'); // Navigate to the sign-up screen
   };
 
   return (
@@ -58,7 +51,10 @@ const IndexPage = () => {
       </TouchableOpacity>
 
       {/* Sign Up button */}
-      <TouchableOpacity style={[styles.button, styles.signUpButton]} onPress={handleSignUpNavigation}>
+      <TouchableOpacity
+        style={[styles.button, styles.signUpButton]}
+        onPress={handleSignUpNavigation}
+      >
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
