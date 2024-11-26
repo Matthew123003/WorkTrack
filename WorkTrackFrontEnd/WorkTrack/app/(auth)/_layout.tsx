@@ -1,15 +1,25 @@
-//Auth pages for Authentication screens: Welcome, SignIn, SignUp
-///Which wont have the navigation bar at the bottom available when a user signs in
-import { View, Text } from 'react-native'
-import React from 'react'
+// /app/(auth)/_layout.tsx
+import { Slot } from 'expo-router';
+import { View, StyleSheet } from 'react-native';
+import React from 'react';
 
 const AuthLayout = () => {
   return (
-    <View>
-      <Text>AuthLayout
-      </Text>
+    <View style={styles.container}>
+      {/* The Slot component is where child routes like signUp.tsx will be rendered */}
+      <Slot />
     </View>
-  )
-}
+  );
+};
 
-export default AuthLayout
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5', // Optional background color
+    padding: 20,
+  },
+});
+
+export default AuthLayout;
