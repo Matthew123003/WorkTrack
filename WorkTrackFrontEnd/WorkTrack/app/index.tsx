@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';  // Use expo-router's useRouter hook
 
 const IndexPage = () => {
@@ -33,18 +33,24 @@ const IndexPage = () => {
         onChangeText={setPassword} // Update password state
       />
 
-      <Button
-        title="Sign In"
+      {/* Sign In button */}
+      <TouchableOpacity 
+        style={styles.button} 
         onPress={() => {
           // Handle login logic here or navigate if needed
           console.log("Login logic here with username: ", username, " and password: ", password);
         }}
-      />
-      <Button
-        title="Sign Up"
-        onPress={handleSignUpNavigation} // Navigate to Sign Up page
-        color="blue"
-      />
+      >
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+
+      {/* Sign Up button */}
+      <TouchableOpacity 
+        style={[styles.button, styles.signUpButton]} 
+        onPress={handleSignUpNavigation}
+      >
+        <Text style={styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -70,6 +76,22 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingLeft: 10,
     marginBottom: 15,
+  },
+  button: {
+    width: '100%',
+    paddingVertical: 12,
+    borderRadius: 5,
+    backgroundColor: '#007BFF',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  signUpButton: {
+    backgroundColor: '#28A745', // Green color for Sign Up button
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
