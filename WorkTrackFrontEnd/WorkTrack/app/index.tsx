@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';  // Use expo-router's useRouter hook
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
 const IndexPage = () => {
   const router = useRouter(); // Initialize router from expo-router
@@ -9,13 +9,32 @@ const IndexPage = () => {
 
   // Function to handle navigation to the Sign Up page
   const handleSignUpNavigation = () => {
-    router.push('/(auth)/signUp'); // Navigate to the sign-up screen
+    try {
+      router.push('/(auth)/signUp'); // Navigate to the sign-up screen
+    } catch (error) {
+      console.error("Navigation to Sign Up failed:", error);
+      Alert.alert('Error', 'Unable to navigate to the Sign Up page. Please try again.');
+    }
+  };
+
+  // Function to handle the login process
+  const handleLogin = () => {
+    if (!username || !password) {
+      Alert.alert('Validation Error', 'Please enter both username and password.'); // Validation for empty fields
+      return;
+    }
+
+    // Simulate login logic here (replace with actual authentication later)
+    console.log("Login attempt with username:", username, "and password:", password);
+
+    // Provide feedback for login
+    Alert.alert('Login Successful', `Welcome, ${username}!`);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to WorkTrack!</Text>
-      
+
       {/* Username input box */}
       <TextInput
         style={styles.input}
@@ -23,7 +42,7 @@ const IndexPage = () => {
         value={username}
         onChangeText={setUsername} // Update username state
       />
-      
+
       {/* Password input box */}
       <TextInput
         style={styles.input}
@@ -34,21 +53,12 @@ const IndexPage = () => {
       />
 
       {/* Sign In button */}
-      <TouchableOpacity 
-        style={styles.button} 
-        onPress={() => {
-          // Handle login logic here or navigate if needed
-          console.log("Login logic here with username: ", username, " and password: ", password);
-        }}
-      >
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
 
       {/* Sign Up button */}
-      <TouchableOpacity 
-        style={[styles.button, styles.signUpButton]} 
-        onPress={handleSignUpNavigation}
-      >
+      <TouchableOpacity style={[styles.button, styles.signUpButton]} onPress={handleSignUpNavigation}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
