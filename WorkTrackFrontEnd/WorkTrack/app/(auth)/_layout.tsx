@@ -15,10 +15,9 @@ const AuthLayout = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'center', // Center vertically
     backgroundColor: '#f5f5f5', // Optional background color
-    padding: 20,
+    // Removed padding to allow child components to utilize full width
   },
 });
 
