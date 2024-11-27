@@ -39,7 +39,7 @@ export default function SignUp() {
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Sign Up</Text>
+          <Text style={styles.title}>Sign Up Page</Text>
         </View>
 
         {/* Input fields with labels */}
@@ -140,7 +140,7 @@ export default function SignUp() {
 
         {/* Submit button */}
         <TouchableOpacity 
-          style={[styles.button, styles.signUpButton]} 
+          style={[styles.button, styles.submitButton]} 
           onPress={handleSignUpSubmit}
         >
           <Text style={styles.buttonText}>Submit</Text>
@@ -193,23 +193,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-    width: '100%',
-    height: 40, // Match the input height
-    borderRadius: 5, // Keep the rounded corners
-    backgroundColor: '#007BFF',
-    alignItems: 'center', // Center the content
-    justifyContent: 'center', // Vertically align the text
+    width: '90%',
+    height: 50, // Adjusted height to match consistency
+    borderRadius: 5,
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    alignSelf: 'center',
     marginTop: 20,
-    paddingHorizontal: 20, // Match input field padding
-  },
-  signUpButton: {
-    backgroundColor: '#28A745',
   },
   backButton: {
-    backgroundColor: '#FF5722',
+    backgroundColor: '#007BFF', // Blue color for the Back button
     marginTop: 50, // Add space from the top of the screen
-    alignSelf: 'center',
-    width: '90%', // Matches Submit button width for consistency
+  },
+  submitButton: {
+    backgroundColor: '#28A745', // Default green for Submit
+    marginBottom: 50, // Add space from the bottom of the screen
   },
   buttonText: {
     color: '#fff',
