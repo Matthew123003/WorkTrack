@@ -141,25 +141,26 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    padding: 20,
+    padding: 0, // No horizontal padding
     justifyContent: 'center',
-    alignItems: 'center',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#333',
+    textAlign: 'center',
   },
   fieldContainer: {
-    width: '100%',
-    marginBottom: 20, // Add space between fields
+    flex: 1,
+    marginBottom: 20,
+    paddingHorizontal: 20, // Add padding for input fields
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#555',
-    marginBottom: 5, // Space between label and input box
+    marginBottom: 5,
   },
   input: {
     width: '100%',
@@ -178,9 +179,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#007BFF',
     alignItems: 'center',
     marginTop: 20,
+    paddingHorizontal: 20,
   },
   signUpButton: {
-    backgroundColor: '#28A745', // Green color for the Submit button
+    backgroundColor: '#28A745',
   },
   buttonText: {
     color: '#fff',
