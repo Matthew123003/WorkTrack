@@ -15,6 +15,11 @@ export default function SignUp() {
     console.log('Sign Up form submitted');
   };
 
+  const handleBackPress = () => {
+    console.log('Back button pressed');
+    // Add navigation logic here if using a navigation library like React Navigation
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -24,6 +29,14 @@ export default function SignUp() {
         contentContainerStyle={styles.scrollContainer} 
         keyboardShouldPersistTaps="handled"
       >
+        {/* Back Button */}
+        <TouchableOpacity 
+          style={[styles.button, styles.backButton]} 
+          onPress={handleBackPress}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>Sign Up</Text>
@@ -147,7 +160,7 @@ const styles = StyleSheet.create({
     padding: 0, // No horizontal padding
   },
   header: {
-    paddingTop: 50, // Space from the top
+    paddingTop: 20,
     paddingBottom: 20, // Space below the header
     backgroundColor: '#f5f5f5', // Optional: matches the page background
     alignItems: 'center', // Center-aligns the header content
@@ -181,15 +194,22 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    paddingVertical: 12,
-    borderRadius: 5,
+    height: 40, // Match the input height
+    borderRadius: 5, // Keep the rounded corners
     backgroundColor: '#007BFF',
-    alignItems: 'center',
+    alignItems: 'center', // Center the content
+    justifyContent: 'center', // Vertically align the text
     marginTop: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20, // Match input field padding
   },
   signUpButton: {
     backgroundColor: '#28A745',
+  },
+  backButton: {
+    backgroundColor: '#FF5722',
+    marginTop: 50, // Add space from the top of the screen
+    alignSelf: 'center',
+    width: '90%', // Matches Submit button width for consistency
   },
   buttonText: {
     color: '#fff',
