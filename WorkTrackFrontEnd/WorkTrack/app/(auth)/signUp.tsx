@@ -18,7 +18,7 @@ export default function SignUp() {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined} // Handles keyboard on iOS, no effect on Android
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ScrollView 
         contentContainerStyle={styles.scrollContainer} 
@@ -26,65 +26,101 @@ export default function SignUp() {
       >
         <Text style={styles.title}>Sign Up</Text>
 
-        {/* Input fields */}
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          placeholderTextColor="#888"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="#888"
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm Password"
-          placeholderTextColor="#888"
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="First Name"
-          placeholderTextColor="#888"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Last Name"
-          placeholderTextColor="#888"
-        />
+        {/* Input fields with labels */}
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Username</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your username"
+            placeholderTextColor="#888"
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your password"
+            placeholderTextColor="#888"
+            secureTextEntry
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Confirm Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm your password"
+            placeholderTextColor="#888"
+            secureTextEntry
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>First Name</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your first name"
+            placeholderTextColor="#888"
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Last Name</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your last name"
+            placeholderTextColor="#888"
+          />
+        </View>
 
         {/* Address fields */}
-        <TextInput
-          style={styles.input}
-          placeholder="Street Address"
-          placeholderTextColor="#888"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="City"
-          placeholderTextColor="#888"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="State"
-          placeholderTextColor="#888"
-        />
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Street Address</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your street address"
+            placeholderTextColor="#888"
+          />
+        </View>
 
-        {/* Additional fields */}
-        <TextInput
-          style={styles.input}
-          placeholder="Phone Number"
-          placeholderTextColor="#888"
-          keyboardType="phone-pad"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#888"
-          keyboardType="email-address"
-        />
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>City</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your city"
+            placeholderTextColor="#888"
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>State</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your state"
+            placeholderTextColor="#888"
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Phone Number</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your phone number"
+            placeholderTextColor="#888"
+            keyboardType="phone-pad"
+          />
+        </View>
+
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your email address"
+            placeholderTextColor="#888"
+            keyboardType="email-address"
+          />
+        </View>
 
         {/* Submit button */}
         <TouchableOpacity 
@@ -115,6 +151,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#333',
   },
+  fieldContainer: {
+    width: '100%',
+    marginBottom: 20, // Add space between fields
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+    marginBottom: 5, // Space between label and input box
+  },
   input: {
     width: '100%',
     height: 40,
@@ -122,7 +168,6 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
     paddingLeft: 10,
-    marginBottom: 15,
     fontSize: 16,
     backgroundColor: '#fff',
   },
