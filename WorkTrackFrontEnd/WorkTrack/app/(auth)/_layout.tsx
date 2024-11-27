@@ -1,12 +1,18 @@
 // /app/(auth)/_layout.tsx
-import { Slot } from 'expo-router';
+import { Slot, useNavigation } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AuthLayout = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    // Hide the header for all pages in the (auth) section
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
-      {/* The Slot component is where child routes like signUp.tsx will be rendered */}
       <Slot />
     </View>
   );
@@ -15,9 +21,8 @@ const AuthLayout = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // Center vertically
-    backgroundColor: '#f5f5f5', // Optional background color
-    // Removed padding to allow child components to utilize full width
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
   },
 });
 
