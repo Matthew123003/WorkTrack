@@ -24,7 +24,10 @@ export default function SignUp() {
         contentContainerStyle={styles.scrollContainer} 
         keyboardShouldPersistTaps="handled"
       >
-        <Text style={styles.title}>Sign Up</Text>
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.title}>Sign Up</Text>
+        </View>
 
         {/* Input fields with labels */}
         <View style={styles.fieldContainer}>
@@ -142,12 +145,16 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     padding: 0, // No horizontal padding
-    justifyContent: 'center',
+  },
+  header: {
+    paddingTop: 50, // Space from the top
+    paddingBottom: 20, // Space below the header
+    backgroundColor: '#f5f5f5', // Optional: matches the page background
+    alignItems: 'center', // Center-aligns the header content
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
     color: '#333',
     textAlign: 'center',
   },
