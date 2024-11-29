@@ -29,7 +29,7 @@ const IndexPage = () => {
       {/* Logo Section */}
       <View style={styles.logoContainer}>
         <Image
-          source={require('../assets/logo.png')} // Replace with the actual path to your logo
+          source={require('../assets/images/react-logo.png')} // Replace with the actual path to your logo
           style={styles.logo}
           resizeMode="contain"
         />
