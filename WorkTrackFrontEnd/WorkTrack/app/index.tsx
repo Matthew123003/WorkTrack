@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
 const IndexPage = () => {
@@ -26,6 +26,16 @@ const IndexPage = () => {
 
   return (
     <View style={styles.container}>
+      {/* Logo Section */}
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../assets/logo.png')} // Replace with the actual path to your logo
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+
+      {/* Welcome Text */}
       <Text style={styles.title}>Welcome to WorkTrack!</Text>
 
       {/* Username input box */}
@@ -68,6 +78,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
     padding: 20,
+  },
+  logoContainer: {
+    marginBottom: 20, // Space between the logo and the "Welcome to WorkTrack!" text
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100, // Adjust the width of your logo
+    height: 100, // Adjust the height of your logo
   },
   title: {
     fontSize: 24,
