@@ -102,3 +102,7 @@ Based on the behavior you're describing, the issue is likely related
   If the layout isn't configured to render the child screens, it will
    only display the content of the layout file itself (e.g.,
     "AuthLayout" in this case).
+********************************************************************
+If you are looking to create a development build locally, rather
+ than remotely on EAS, you can create local builds with
+  npx expo run:[android|ios] or with eas build --local.
