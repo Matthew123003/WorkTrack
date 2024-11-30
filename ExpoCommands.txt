@@ -44,7 +44,7 @@ WorkTrack (Root Directory)
 ├── hooks                         # Custom React hooks
 ├── node_modules                  # Node.js dependencies
 ├── scripts                       # Utility and automation scripts
-├── app.json                      # Expo project configuration
+├── app.json                      # Expo project configuration, APP ICON
 ├── babel.config.js               # Babel configuration for JavaScript/TypeScript
 ├── eas.json                      # Expo Application Services (EAS) config file
 ├── package-lock.json             # Lockfile for npm dependencies
