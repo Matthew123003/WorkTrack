@@ -37,3 +37,212 @@ seamlessly with the file-based routing system of expo-router, making
  your app's navigation intuitive and efficient.
 
 *******************************************************************
+### What Are Hooks in React?
+
+**Hooks** are special functions introduced in React 16.8 that let you "hook into" React's features and lifecycle directly within **functional components**. They allow you to use state and other React features without writing class components.
+
+---
+
+### Why Were Hooks Introduced?
+
+Before hooks:
+- Functional components were "stateless" and couldn't access React's lifecycle methods or local state.
+- Class components were required for more advanced features, which added complexity, verbosity, and boilerplate code.
+
+Hooks solve this by enabling functional components to be just as powerful as class components.
+
+---
+
+### Commonly Used Hooks
+
+Here are some key hooks and their use cases:
+
+#### 1. **`useState`**: Manage State
+- Adds local state to a functional component.
+
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // Declare state
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+**How It Works:**
+- `useState(initialValue)` returns an array:
+  - The current state value (`count`).
+  - A function to update the state (`setCount`).
+
+---
+
+#### 2. **`useEffect`**: Handle Side Effects
+- Allows you to run side effects like fetching data, subscriptions, or manual DOM updates.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(t => t + 1), 1000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []); // Empty dependency array means this runs only once.
+
+  return <p>Time: {time}s</p>;
+}
+```
+
+**Key Points:**
+- Runs **after rendering**.
+- Return a cleanup function to prevent memory leaks.
+- Dependency array (`[]`) determines when the effect runs:
+  - `[]`: Runs only on mount.
+  - `[value]`: Runs whenever `value` changes.
+
+---
+
+#### 3. **`useContext`**: Access Context
+- Provides a way to consume context values.
+
+```jsx
+import React, { useContext, createContext } from 'react';
+
+const ThemeContext = createContext('light');
+
+function ThemeDisplay() {
+  const theme = useContext(ThemeContext); // Access context value
+  return <p>Current Theme: {theme}</p>;
+}
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <ThemeDisplay />
+    </ThemeContext.Provider>
+  );
+}
+```
+
+---
+
+#### 4. **`useRef`**: Persist Values Without Re-Renders
+- Holds a mutable reference that doesn't trigger a re-render when changed.
+
+```jsx
+import React, { useRef } from 'react';
+
+function FocusInput() {
+  const inputRef = useRef(null); // Reference to a DOM element
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} />
+      <button onClick={focusInput}>Focus</button>
+    </div>
+  );
+}
+```
+
+---
+
+#### 5. **`useReducer`**: Manage Complex State
+- A more advanced alternative to `useState`, similar to Redux reducers.
+
+```jsx
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </div>
+  );
+}
+```
+
+---
+
+### Hook Rules
+
+There are two rules for using hooks:
+1. **Only Call Hooks at the Top Level**:
+   - Don’t use hooks inside loops, conditions, or nested functions. This ensures they execute in the same order during every render.
+2. **Only Call Hooks in React Functions**:
+   - Hooks should only be used in functional components or custom hooks.
+
+---
+
+### Custom Hooks
+
+You can create your own hooks by combining existing ones. This is 
+useful for reusing logic.
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function useFetchData(url) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(setData);
+  }, [url]);
+
+  return data;
+}
+
+function App() {
+  const data = useFetchData('https://api.example.com/data');
+
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+}
+```
+
+---
+
+### Why Use Hooks?
+
+1. **Cleaner Code**:
+   - Replace verbose class-based components with concise functional components.
+2. **Reusable Logic**:
+   - Encapsulate logic into custom hooks.
+3. **Better Composition**:
+   - Combine hooks for modularity and readability.
+
+---
+
+### Summary
+
+Hooks are a way to bring state, lifecycle, and other advanced React 
+features into functional components, making your code cleaner and
+ easier to maintain. Mastering hooks like `useState`, `useEffect`, 
+ and `useRouter` empowers you to build modern and efficient React apps!
