@@ -12,11 +12,11 @@ import {
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
 export default function SignUp() {
+  const router = useRouter(); // Initialize router from expo-router
+  
   const handleSignUpSubmit = () => {
     console.log('Sign Up form submitted');
   };
-
-  const router = useRouter(); // Initialize router from expo-router
 
   const handleBackPress = () => {
     router.push('/'); // Navigate to the home screen
