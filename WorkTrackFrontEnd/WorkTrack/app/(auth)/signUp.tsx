@@ -9,13 +9,17 @@ import {
   Platform, 
   TouchableOpacity 
 } from 'react-native';
+import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
 export default function SignUp() {
   const handleSignUpSubmit = () => {
     console.log('Sign Up form submitted');
   };
 
+  const router = useRouter(); // Initialize router from expo-router
+
   const handleBackPress = () => {
+    router.push('/'); // Navigate to the home screen
     console.log('Back button pressed');
     // Add navigation logic here if using a navigation library like React Navigation
   };
