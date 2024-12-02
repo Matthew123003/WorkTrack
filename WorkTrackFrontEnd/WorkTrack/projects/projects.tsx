@@ -1,1 +1,0 @@
-// projects.tsx created for future implementations of projects
