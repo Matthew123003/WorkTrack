@@ -45,6 +45,9 @@ public class User implements UserDetails {
     @Column(name = "state", length = 255, nullable = false)
     private String state;
 
+    @Column(name = "zipcode", length = 15, nullable = false)
+    private int zipcode;
+
     @Column(name = "phone_number", length = 255, nullable = false)
     private String phoneNumber;
 
@@ -137,6 +140,39 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password; // Existing setter
     }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState(){
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZipcode(){
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
+
     public List<JobInfo> getJobList() { // Getter method to retrieve job information.
         return jobList;
     }
