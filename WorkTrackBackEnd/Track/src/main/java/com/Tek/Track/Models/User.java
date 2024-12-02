@@ -36,6 +36,18 @@ public class User implements UserDetails {
     @Column(name = "password_hash", length = 60, nullable = false)
     private String password;
 
+    @Column(name = "street_address", length = 255, nullable = false)
+    private String streetAddress;
+
+    @Column(name = "city", length = 255, nullable = false)
+    private String city;
+
+    @Column(name = "state", length = 255, nullable = false)
+    private String state;
+
+    @Column(name = "phone_number", length = 255, nullable = false)
+    private String phoneNumber;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<JobInfo> jobList;
 
