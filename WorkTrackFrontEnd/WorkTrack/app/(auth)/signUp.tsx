@@ -122,6 +122,17 @@ export default function SignUp() {
           />
         </View>
 
+        {/* Zipcode Field */}
+        <View style={styles.fieldContainer}>
+          <Text style={styles.label}>ZIP Code</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your ZIP code"
+            placeholderTextColor="#888"
+            keyboardType="numeric"
+          />
+        </View>
+
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Phone Number</Text>
           <TextInput
