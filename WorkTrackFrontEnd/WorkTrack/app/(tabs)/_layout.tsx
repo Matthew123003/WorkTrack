@@ -47,13 +47,13 @@ export default function TabLayout() {
         }}
       />
 
-      {/* Profile Tab */}
+      {/* Search Tab */}
       <Tabs.Screen
-        name="profile"
+        name="search"
         options={{
-          title: 'Profile',
+          title: 'Search',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
+            <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
           ),
         }}
       />
