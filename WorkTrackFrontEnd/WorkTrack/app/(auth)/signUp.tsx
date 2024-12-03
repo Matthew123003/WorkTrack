@@ -15,13 +15,14 @@ export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router
   
   const handleSignUpSubmit = () => {
+    router.push('/'); // Navigate to the home screen
     console.log('Sign Up form submitted');
+    // Add API call here to add sign up information, create a new user in database
   };
 
   const handleBackPress = () => {
     router.push('/'); // Navigate to the home screen
     console.log('Back button pressed');
-    // Add navigation logic here if using a navigation library like React Navigation
   };
 
   return (
