@@ -26,47 +26,47 @@ const IndexPage = () => {
 
   return (
     <View style={styles.container}>
-      {/* Logo Section */}
-      <View style={styles.logoContainer}>
+      <View style={styles.contentContainer}>
+        {/* Logo Section */}
         <Image
           source={require('../assets/images/react-logo.png')} // Replace with the actual path to your logo
           style={styles.logo}
           resizeMode="contain"
         />
+
+        {/* Welcome Text */}
+        <Text style={styles.title}>Welcome to WorkTrack!</Text>
+
+        {/* Username input box */}
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername} // Update username state
+        />
+
+        {/* Password input box */}
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword} // Update password state
+        />
+
+        {/* Sign In button */}
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Sign In</Text>
+        </TouchableOpacity>
+
+        {/* Sign Up button */}
+        <TouchableOpacity
+          style={[styles.button, styles.signUpButton]}
+          onPress={handleSignUpNavigation}
+        >
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
-
-      {/* Welcome Text */}
-      <Text style={styles.title}>Welcome to WorkTrack!</Text>
-
-      {/* Username input box */}
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername} // Update username state
-      />
-
-      {/* Password input box */}
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword} // Update password state
-      />
-
-      {/* Sign In button */}
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
-
-      {/* Sign Up button */}
-      <TouchableOpacity
-        style={[styles.button, styles.signUpButton]}
-        onPress={handleSignUpNavigation}
-      >
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -74,37 +74,40 @@ const IndexPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'center', // Center content vertically
+    alignItems: 'center', // Center content horizontally
     backgroundColor: '#f5f5f5',
     padding: 20,
   },
-  logoContainer: {
-    marginBottom: 20, // Space between the logo and the "Welcome to WorkTrack!" text
-    justifyContent: 'center',
-    alignItems: 'center',
+  contentContainer: {
+    width: '100%',
+    maxWidth: 400, // Limit the maximum width for larger screens
+    alignItems: 'center', // Center items inside this container
   },
   logo: {
     width: 100, // Adjust the width of your logo
     height: 100, // Adjust the height of your logo
+    marginBottom: 20, // Space below the logo
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
     width: '100%',
-    height: 40,
+    height: 50,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 5,
-    paddingLeft: 10,
+    paddingHorizontal: 10,
     marginBottom: 15,
+    backgroundColor: '#fff',
   },
   button: {
     width: '100%',
-    paddingVertical: 12,
+    paddingVertical: 15,
     borderRadius: 5,
     backgroundColor: '#007BFF',
     alignItems: 'center',
