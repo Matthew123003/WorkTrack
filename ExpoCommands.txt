@@ -124,3 +124,9 @@ Using expo modules
   - expo-web-browser (13.0.3)
 *********************************************************************
 eas build --platform android
+*********************************************************************
+npx expo prebuild
+
+This will allow expo to create android and ios folders needed for
+project to compile
+*********************************************************************
