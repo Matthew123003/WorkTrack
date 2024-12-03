@@ -69,7 +69,7 @@ const IndexPage = () => {
 
         <TouchableOpacity
         style={[styles.button, styles.forgotButton]}
-        onPress={() => router.push('/')}
+        onPress={() => router.push('/(auth)/forgot')}
         >
         <Text style={styles.buttonText}>Forgot Password?</Text>
         </TouchableOpacity>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#28A745', // Green color for Sign Up button
   },
   forgotButton: {
-    backgroundColor: '#28A745', // Green color for Sign Up button
+    backgroundColor: '#FF0000', // Red color for Forgot button
   },
   buttonText: {
     color: '#fff',

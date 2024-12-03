@@ -13,7 +13,7 @@ const ForgotPasswordPage = () => {
   const handleSubmit = () => {
     // Add logic for handling password reset request
     console.log('Submitted:', { username, email, zipcode, lastName });
-    // Optionally navigate or show success message
+    router.push("/(auth)/password");
   };
 
   return (
@@ -24,7 +24,7 @@ const ForgotPasswordPage = () => {
 
         {/* Explanatory Paragraph */}
         <Text style={styles.description}>
-          Please enter all the required information below to help us locate your account. Once verified, we will send a recovery email or reset your password.
+          Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
         </Text>
 
         {/* Username input */}
