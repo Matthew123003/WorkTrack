@@ -16,26 +16,26 @@ executing and building
 
 Still giving some errors on emulator, will check fixes and options.
 ************************************************************************************
-WorkTrack FrontEnd Project Structure
-
 WorkTrack (Root Directory)
 ├── .expo                         # Expo configuration directory
 ├── android                       # Android-specific files (Expo Ejected Projects)
 ├── app                           # Main application directory
 │   ├── (auth)                    # Authentication-specific screens
 │   │   ├── _layout.tsx          # Layout file for auth screens
-│   │   ├── login.tsx            # Login screen
 │   │   ├── signUp.tsx           # Sign-up screen
+│   │   ├── forgot.tsx           # Account lookup screen for password recovery
+│   │   ├── password.tsx         # Password reset screen
 │   ├── (tabs)                    # Tab-specific screens (main app navigation)
 │   │   ├── _layout.tsx          # Layout file for tab screens
 │   │   ├── interviews.tsx       # Interviews screen
 │   │   ├── jobs.tsx             # Jobs screen
 │   │   ├── profile.tsx          # Profile screen
-│   │   ├── settings.tsx         # Settings screen
+│   │   ├── home.tsx             # Home screen
+│   │   ├── search.tsx           # Search screen
 │   ├── _layout.tsx              # Root layout for the application
 │   ├── +html.tsx                # Custom HTML handler for the app
 │   ├── +not-found.tsx           # Not Found handler for unmatched routes
-│   ├── index.tsx                # Home or default entry screen
+│   ├── index.tsx                # Login screen (default entry point)
 ├── assets                        # Static assets (images, fonts, etc.)
 ├── components                    # Reusable React components
 ├── constants                     # Application constants and config values
@@ -50,6 +50,7 @@ WorkTrack (Root Directory)
 ├── package-lock.json             # Lockfile for npm dependencies
 ├── package.json                  # npm project configuration
 ├── tsconfig.json                 # TypeScript configuration file
+
 ******************************************************************
 WorkTrack
 |
