@@ -9,6 +9,7 @@ export default function Interviews() {
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
       />
+      {/* Welcome text */}
       <Text style={styles.text}>Welcome to the Interviews Screen!</Text>
     </View>
   );
