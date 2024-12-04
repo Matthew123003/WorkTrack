@@ -130,3 +130,9 @@ npx expo prebuild
 This will allow expo to create android and ios folders needed for
 project to compile
 *********************************************************************
+npx expo run:android
+npx expo run:ios
+
+This will install a build onto your cell phone emulator without
+having to use expo app
+*********************************************************************
