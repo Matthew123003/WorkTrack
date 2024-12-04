@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Center content vertically by default
   },
   logo: {
-    width: 150, // Set desired width for the logo
-    height: 150, // Set desired height for the logo
+    width: 75, // Set desired width for the logo
+    height: 75, // Set desired height for the logo
     resizeMode: 'contain', // Keep the aspect ratio intact
     marginTop: 50, // Add padding from the top of the phone
     marginBottom: 20, // Add space between the logo and the welcome text
