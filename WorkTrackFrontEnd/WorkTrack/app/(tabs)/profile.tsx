@@ -22,7 +22,7 @@ const Profile = () => {
           <Text style={styles.rowText}>Personal Information</Text>
           <TouchableOpacity 
             style={styles.button} 
-            onPress={() => router.push('/')} // Replace with your actual navigation
+            onPress={() => router.push('/(auth)/personal')}
           >
             <Text style={styles.buttonText}>Edit</Text>
           </TouchableOpacity>
@@ -33,7 +33,7 @@ const Profile = () => {
           <Text style={styles.rowText}>Password Reset</Text>
           <TouchableOpacity 
             style={styles.button} 
-            onPress={() => router.push('/(auth)/password')} // Replace with your actual navigation
+            onPress={() => router.push('/(auth)/password')}
           >
             <Text style={styles.buttonText}>Change</Text>
           </TouchableOpacity>
@@ -44,7 +44,7 @@ const Profile = () => {
           <Text style={styles.rowText}>Settings</Text>
           <TouchableOpacity 
             style={styles.button} 
-            onPress={() => router.push('/')} // Replace with your actual navigation
+            onPress={() => router.push('/(auth)/settings')}
           >
             <Text style={styles.buttonText}>Open</Text>
           </TouchableOpacity>
@@ -56,7 +56,7 @@ const Profile = () => {
           <TouchableOpacity 
             style={styles.button} 
             onPress={() => {
-              // Add your logout logic here
+              router.push('/')
               console.log('Logged Out');
             }}
           >
