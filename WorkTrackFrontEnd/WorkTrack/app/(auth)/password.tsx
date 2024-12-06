@@ -9,6 +9,7 @@ const ResetPasswordPage = () => {
 
   // Function to handle password reset
   const handleResetPassword = () => {
+    // add logic to navigate to profile screen if you are logged in
     if (newPassword === confirmPassword) {
       console.log('Password reset successful!');
       router.push('/'); // Navigate to the home page
