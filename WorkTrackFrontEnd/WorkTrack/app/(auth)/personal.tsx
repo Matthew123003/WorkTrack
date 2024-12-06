@@ -10,6 +10,7 @@ import {
   TouchableOpacity, 
   Image 
 } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function Personal() {
   const handleBackPress = () => {
