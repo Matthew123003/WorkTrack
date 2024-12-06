@@ -138,7 +138,7 @@ export default function Personal() {
         {/* Submit Button */}
         <TouchableOpacity 
           style={[styles.button, styles.submitButton]} 
-          onPress={handleSubmit}
+          onPress={() => router.push('/(tabs)/profile')}
         >
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
