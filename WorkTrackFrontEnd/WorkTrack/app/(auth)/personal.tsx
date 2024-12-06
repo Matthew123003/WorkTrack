@@ -15,16 +15,6 @@ import { useRouter } from 'expo-router';
 export default function Personal() {
   const router = useRouter();
 
-  const handleBackPress = () => {
-    console.log('Back button pressed');
-    // Navigate to the previous screen
-  };
-
-  const handleSubmit = () => {
-    console.log('Submit button pressed');
-    // Add functionality for form submission if needed
-  };
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -45,7 +35,10 @@ export default function Personal() {
         {/* Back Button */}
         <TouchableOpacity 
           style={[styles.button, styles.backButton]} 
-          onPress={() => router.push('/(tabs)/profile')}
+          onPress={() => {
+            console.log('Back button pressed');
+            router.push('/(tabs)/profile'); // Navigate to the profile page
+          }}
         >
           <Text style={styles.buttonText}>Back</Text>
         </TouchableOpacity>
@@ -138,7 +131,10 @@ export default function Personal() {
         {/* Submit Button */}
         <TouchableOpacity 
           style={[styles.button, styles.submitButton]} 
-          onPress={() => router.push('/(tabs)/profile')}
+          onPress={() => {
+            console.log('Submit button pressed');
+            router.push('/(tabs)/profile'); // Navigate to the profile page
+          }}
         >
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
@@ -209,4 +205,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
