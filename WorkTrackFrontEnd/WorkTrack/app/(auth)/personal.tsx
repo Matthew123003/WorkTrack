@@ -45,7 +45,7 @@ export default function Personal() {
         {/* Back Button */}
         <TouchableOpacity 
           style={[styles.button, styles.backButton]} 
-          onPress={handleBackPress}
+          onPress={() => router.push('/(tabs)/profile')}
         >
           <Text style={styles.buttonText}>Back</Text>
         </TouchableOpacity>
