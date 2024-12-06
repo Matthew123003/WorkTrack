@@ -13,6 +13,8 @@ import {
 import { useRouter } from 'expo-router';
 
 export default function Personal() {
+  const router = useRouter();
+
   const handleBackPress = () => {
     console.log('Back button pressed');
     // Navigate to the previous screen
