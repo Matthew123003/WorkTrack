@@ -24,7 +24,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 1 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option1');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
