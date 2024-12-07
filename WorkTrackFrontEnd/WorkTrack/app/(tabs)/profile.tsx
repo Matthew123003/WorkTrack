@@ -33,7 +33,7 @@ const Profile = () => {
           <Text style={styles.rowText}>Password Reset</Text>
           <TouchableOpacity 
             style={styles.button} 
-            onPress={() => router.push('/(auth)/password')}
+            onPress={() => router.push('/(auth)/lipassword')}
           >
             <Text style={styles.buttonText}>Change</Text>
           </TouchableOpacity>
