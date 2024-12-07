@@ -59,21 +59,103 @@ const Settings = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Continue for all options */}
-        {[...Array(7)].map((_, i) => (
-          <View style={styles.row} key={`Option-${i + 4}`}>
-            <Text style={styles.rowText}>{`Option ${i + 4}`}</Text>
-            <TouchableOpacity 
-              style={styles.button} 
-              onPress={() => {
-                console.log(`Option ${i + 4} button pressed`);
-                router.push('/(tabs)/profile');
-              }}
-            >
-              <Text style={styles.buttonText}>Go</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
+        {/* Option 4 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 4</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 4 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 5 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 5</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 5 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 6 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 6</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 6 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 7 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 7</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 7 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 8 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 8</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 8 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 9 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 9</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 9 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 10 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 10</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 10 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
