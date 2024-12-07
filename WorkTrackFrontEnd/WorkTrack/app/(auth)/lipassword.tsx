@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ResetPasswordPage = () => {
@@ -21,6 +21,13 @@ const ResetPasswordPage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
+        
+        {/* Logo at the top with padding */}
+        <Image 
+        source={require('../../assets/images/react-logo.png')} 
+        style={styles.logo} 
+        />
+
         {/* Title */}
         <Text style={styles.title}>Reset Your Password</Text>
 
@@ -63,6 +70,13 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 400, // Limit max width for larger screens
     alignItems: 'center',
+  },
+  logo: {
+    width: 75,
+    height: 75,
+    resizeMode: 'contain',
+    marginTop: 50,
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
