@@ -2,67 +2,131 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function Settings() {
+const Settings = () => {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      {/* Logo */}
+      {/* Logo at the top with padding */}
       <Image 
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
       />
-
-      {/* Title */}
+      {/* Welcome text */}
       <Text style={styles.text}>Welcome to the Settings Screen!</Text>
 
-      {/* Back Button */}
-      <TouchableOpacity 
-        style={[styles.button, styles.backButton]} 
-        onPress={() => {
-          console.log('Back button pressed');
-          router.push('/(tabs)/profile'); // Navigate back to the profile page
-        }}
-      >
-        <Text style={styles.buttonText}>Back</Text>
-      </TouchableOpacity>
+      {/* Settings Options Table */}
+      <View style={styles.table}>
+        {/* Option 1 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 1</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 1 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 2 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 2</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 2 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Option 3 */}
+        <View style={styles.row}>
+          <Text style={styles.rowText}>Option 3</Text>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => {
+              console.log('Option 3 button pressed');
+              router.push('/(tabs)/profile');
+            }}
+          >
+            <Text style={styles.buttonText}>Go</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Continue for all options */}
+        {[...Array(7)].map((_, i) => (
+          <View style={styles.row} key={`Option-${i + 4}`}>
+            <Text style={styles.rowText}>{`Option ${i + 4}`}</Text>
+            <TouchableOpacity 
+              style={styles.button} 
+              onPress={() => {
+                console.log(`Option ${i + 4} button pressed`);
+                router.push('/(tabs)/profile');
+              }}
+            >
+              <Text style={styles.buttonText}>Go</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
     alignItems: 'center',
-    padding: 20,
+    backgroundColor: '#f9f9f9', // Optional: Background color
   },
   logo: {
-    width: 75, // Logo size to match the Personal page
+    width: 75,
     height: 75,
     resizeMode: 'contain',
-    marginTop: 50, // Top padding to align with Personal page
-    marginBottom: 20, // Space between logo and title
+    marginTop: 50,
+    marginBottom: 20,
   },
   text: {
-    fontSize: 20, // Match font size of the title on Personal page
+    fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 30, // Space between title and back button
+    marginBottom: 30,
+  },
+  table: {
+    width: '90%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  rowText: {
+    fontSize: 16,
+    color: '#333',
   },
   button: {
-    height: 50, // Match back button height
-    borderRadius: 5, 
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    width: '90%', // Match width of the button
-  },
-  backButton: {
-    backgroundColor: '#007BFF', // Same color as Personal page back button
+    backgroundColor: '#007BFF',
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 5,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
     fontWeight: 'bold',
+    fontSize: 14,
   },
 });
+
+export default Settings;
