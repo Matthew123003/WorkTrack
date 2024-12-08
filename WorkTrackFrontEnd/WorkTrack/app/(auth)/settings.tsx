@@ -22,7 +22,7 @@ const Settings = () => {
 
       {/* Back Button */}
       <TouchableOpacity 
-          style={[styles.button, styles.backButton]} 
+          style={[styles.backButton]} 
           onPress={handleBackPress}
         >
           <Text style={styles.buttonText}>Back</Text>
@@ -219,7 +219,13 @@ const styles = StyleSheet.create({
   },
   backButton: {
     backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 50, // Add space from the top of the screen
+    width: '90%',
+    height: 50, // Adjusted height to match consistency
+    borderRadius: 5,
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    alignSelf: 'center',
+    marginTop: 20,
   },
   buttonText: {
     color: '#fff',
