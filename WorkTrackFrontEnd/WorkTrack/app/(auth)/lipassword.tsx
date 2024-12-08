@@ -18,6 +18,11 @@ const ResetPasswordPage = () => {
     }
   };
 
+  const handleBackPress = () => {
+    router.push('/(tabs)/profile'); // Navigate to the home screen
+    console.log('Back button pressed');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
@@ -30,6 +35,15 @@ const ResetPasswordPage = () => {
 
         {/* Title */}
         <Text style={styles.title}>Reset Your Password</Text>
+
+         {/* Back Button */}
+         <TouchableOpacity 
+          style={[styles.button, styles.backButton]} 
+          onPress={handleBackPress}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+
 
         {/* New Password Input */}
         <TextInput
@@ -83,6 +97,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+  },
+  backButton: {
+    backgroundColor: '#007BFF', // Blue color for the Back button
+    marginTop: 50, // Add space from the top of the screen
   },
   input: {
     width: '100%',
