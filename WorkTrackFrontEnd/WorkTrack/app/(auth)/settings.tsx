@@ -5,6 +5,11 @@ import { useRouter } from 'expo-router';
 const Settings = () => {
   const router = useRouter();
 
+  const handleBackPress = () => {
+    router.push('/'); // Navigate to the home screen
+    console.log('Back button pressed');
+  };
+
   return (
     <View style={styles.container}>
       {/* Logo at the top with padding */}
@@ -14,6 +19,14 @@ const Settings = () => {
       />
       {/* Welcome text */}
       <Text style={styles.text}>Welcome to the Settings Screen!</Text>
+
+      {/* Back Button */}
+      <TouchableOpacity 
+          style={[styles.button, styles.backButton]} 
+          onPress={handleBackPress}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
 
       {/* Settings Options Table */}
       <View style={styles.table}>
@@ -203,6 +216,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,
+  },
+  backButton: {
+    backgroundColor: '#007BFF', // Blue color for the Back button
+    marginTop: 50, // Add space from the top of the screen
   },
   buttonText: {
     color: '#fff',
