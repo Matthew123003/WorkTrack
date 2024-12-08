@@ -38,7 +38,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 2 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option2');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -52,7 +52,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 3 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option3');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -66,7 +66,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 4 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option4');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -80,7 +80,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 5 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option5');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -94,7 +94,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 6 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option6');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -108,7 +108,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 7 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option7');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -122,7 +122,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 8 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option8');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -136,7 +136,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 9 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option9');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
@@ -150,7 +150,7 @@ const Settings = () => {
             style={styles.button} 
             onPress={() => {
               console.log('Option 10 button pressed');
-              router.push('/(tabs)/profile');
+              router.push('/(settings)/option10');
             }}
           >
             <Text style={styles.buttonText}>Go</Text>
