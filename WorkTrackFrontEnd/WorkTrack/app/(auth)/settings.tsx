@@ -17,8 +17,6 @@ const Settings = () => {
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
       />
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Settings Screen!</Text>
 
       {/* Back Button */}
       <TouchableOpacity 
@@ -26,7 +24,10 @@ const Settings = () => {
           onPress={handleBackPress}
         >
           <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
+
+      {/* Welcome text */}
+      <Text style={styles.text}>Welcome to the Settings Screen!</Text>
 
       {/* Settings Options Table */}
       <View style={styles.table}>
