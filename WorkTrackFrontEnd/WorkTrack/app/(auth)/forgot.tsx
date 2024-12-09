@@ -11,9 +11,13 @@ const ForgotPasswordPage = () => {
 
   // Function to handle submit
   const handleSubmit = () => {
-    // Add logic for handling password reset request
     console.log('Submitted:', { username, email, zipcode, lastName });
     router.push("/(auth)/password");
+  };
+
+  // Function to handle back navigation
+  const handleBack = () => {
+    router.push("/"); // Adjust route to your desired back page
   };
 
   return (
@@ -26,6 +30,11 @@ const ForgotPasswordPage = () => {
         <Text style={styles.description}>
           Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
         </Text>
+
+        {/* Back Button */}
+        <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+          <Text style={styles.backButtonText}>Back</Text>
+        </TouchableOpacity>
 
         {/* Username input */}
         <TextInput
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     width: '100%',
-    maxWidth: 400, // Limit max width for larger screens
+    maxWidth: 400,
     alignItems: 'center',
   },
   title: {
@@ -93,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#555',
     textAlign: 'center',
-    marginBottom: 20, // Space between paragraph and first input box
+    marginBottom: 20,
   },
   input: {
     width: '100%',
@@ -111,8 +120,21 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#007BFF',
     alignItems: 'center',
+    marginBottom: 10, // Add margin for spacing between buttons
   },
   buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  backButton: {
+    width: '100%',
+    paddingVertical: 15,
+    borderRadius: 5,
+    backgroundColor: '#6c757d',
+    alignItems: 'center',
+  },
+  backButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
