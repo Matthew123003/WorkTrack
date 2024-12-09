@@ -157,34 +157,6 @@ const Settings = () => {
                 <Text style={styles.buttonText}>Go</Text>
               </TouchableOpacity>
             </View>
-
-            {/* Option 9 */}
-            <View style={styles.row}>
-              <Text style={styles.rowText}>Option 9</Text>
-              <TouchableOpacity 
-                style={styles.button} 
-                onPress={() => {
-                  console.log('Option 9 button pressed');
-                  router.push('/(settings)/option9'); // Navigate back to profile
-                }}
-              >
-                <Text style={styles.buttonText}>Go</Text>
-              </TouchableOpacity>
-            </View>
-
-            {/* Option 10 */}
-            <View style={styles.row}>
-              <Text style={styles.rowText}>Option 10</Text>
-              <TouchableOpacity 
-                style={styles.button} 
-                onPress={() => {
-                  console.log('Option 10 button pressed');
-                  router.push('/(settings)/option10'); // Navigate back to profile
-                }}
-              >
-                <Text style={styles.buttonText}>Go</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </View>
       </ScrollView>
