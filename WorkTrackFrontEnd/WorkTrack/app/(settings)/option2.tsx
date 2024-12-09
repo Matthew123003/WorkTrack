@@ -6,7 +6,7 @@ export default function Option2() {
   const router = useRouter(); // Initialize router for navigation
 
   const handleBack = () => {
-    router.push("/(settings)"); // Adjust this route to your desired previous screen
+    router.push("/(auth)/settings"); 
   };
 
   return (
