@@ -53,7 +53,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 1 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option1'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -67,7 +67,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 2 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option2'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -81,7 +81,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 3 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option3'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -95,7 +95,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 4 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option4'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -109,7 +109,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 5 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option5'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -123,7 +123,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 6 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option6'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -137,7 +137,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 7 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option7'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -151,7 +151,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 8 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option8'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -165,7 +165,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 9 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option9'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -179,7 +179,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 10 button pressed');
-                  router.push('/(tabs)/profile'); // Navigate back to profile
+                  router.push('/(settings)/option10'); // Navigate back to profile
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
