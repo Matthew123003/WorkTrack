@@ -124,6 +124,8 @@ Using expo modules
   - expo-system-ui (3.0.7)
   - expo-web-browser (13.0.3)
 *********************************************************************
+BUILD FOR EXPO DASHBOARD
+
 eas build --platform android
 *********************************************************************
 npx expo prebuild
