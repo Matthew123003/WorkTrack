@@ -131,8 +131,9 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#6c757d',
+    backgroundColor: '#007BFF',
     alignItems: 'center',
+    marginBottom: 20,
   },
   backButtonText: {
     color: '#fff',
