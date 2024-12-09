@@ -137,3 +137,52 @@ npx expo run:ios
 This will install a build onto your cell phone emulator without
 having to use expo app
 *********************************************************************
+WorkTrack (Root Directory)
+├── .expo                         # Expo configuration directory
+├── android                       # Android-specific files (Expo Ejected Projects)
+├── app                           # Main application directory
+│   ├── (auth)                    # Authentication-specific screens
+│   │   ├── _layout.tsx          # Layout file for auth screens
+│   │   ├── signUp.tsx           # Sign-up screen
+│   │   ├── forgot.tsx           # Account lookup screen for password recovery
+│   │   ├── password.tsx         # Password reset screen
+│   │   ├── lipassword.tsx       # Password reset for logged in users
+│   │   ├── personal.tsx         # Personal information screen
+│   │   ├── settings.tsx         # Profile settings screen
+│   ├── (tabs)                    # Tab-specific screens (main app navigation)
+│   │   ├── _layout.tsx          # Layout file for tab screens
+│   │   ├── interviews.tsx       # Interviews screen
+│   │   ├── jobs.tsx             # Jobs screen
+│   │   ├── profile.tsx          # Profile screen
+│   │   ├── home.tsx             # Home screen
+│   │   ├── search.tsx           # Search screen
+│   ├── (settings)                # New: Settings-specific screens
+│   │   ├── _layout.tsx          # Layout file for settings screens
+│   │   ├── option1.tsx          # Settings option 1 screen
+│   │   ├── option2.tsx          # Settings option 2 screen
+│   │   ├── option3.tsx          # Settings option 3 screen
+│   │   ├── option4.tsx          # Settings option 4 screen
+│   │   ├── option5.tsx          # Settings option 5 screen
+│   │   ├── option6.tsx          # Settings option 6 screen
+│   │   ├── option7.tsx          # Settings option 7 screen
+│   │   ├── option8.tsx          # Settings option 8 screen
+│   │   ├── option9.tsx          # Settings option 9 screen
+│   │   ├── option10.tsx         # Settings option 10 screen
+│   ├── _layout.tsx              # Root layout for the application
+│   ├── +html.tsx                # Custom HTML handler for the app
+│   ├── +not-found.tsx           # Not Found handler for unmatched routes
+│   ├── index.tsx                # Login screen (default entry point)
+├── assets                        # Static assets (images, fonts, etc.)
+├── components                    # Reusable React components
+├── constants                     # Application constants and config values
+├── context                       # Context API files for global state management
+│   ├── LoginContext.tsx         # Login state context
+├── hooks                         # Custom React hooks
+├── node_modules                  # Node.js dependencies
+├── scripts                       # Utility and automation scripts
+├── app.json                      # Expo project configuration, APP ICON
+├── babel.config.js               # Babel configuration for JavaScript/TypeScript
+├── eas.json                      # Expo Application Services (EAS) config file
+├── package-lock.json             # Lockfile for npm dependencies
+├── package.json                  # npm project configuration
+├── tsconfig.json                 # TypeScript configuration file
