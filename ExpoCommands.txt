@@ -166,8 +166,6 @@ WorkTrack (Root Directory)
 │   │   ├── option6.tsx          # Settings option 6 screen
 │   │   ├── option7.tsx          # Settings option 7 screen
 │   │   ├── option8.tsx          # Settings option 8 screen
-│   │   ├── option9.tsx          # Settings option 9 screen
-│   │   ├── option10.tsx         # Settings option 10 screen
 │   ├── _layout.tsx              # Root layout for the application
 │   ├── +html.tsx                # Custom HTML handler for the app
 │   ├── +not-found.tsx           # Not Found handler for unmatched routes
