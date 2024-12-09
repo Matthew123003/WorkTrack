@@ -98,10 +98,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
   },
-  backButton: {
-    backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 50, // Add space from the top of the screen
-  },
   input: {
     width: '100%',
     height: 50,
@@ -118,6 +114,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#007BFF',
     alignItems: 'center',
+  },
+  backButton: {
+    backgroundColor: '#007BFF', // Blue color for the Back button
+    marginTop: 50, // Add space from the top of the screen
+    marginBottom: 20
   },
   buttonText: {
     color: '#fff',
