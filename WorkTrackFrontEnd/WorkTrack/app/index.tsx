@@ -7,6 +7,9 @@ const IndexPage = () => {
   const router = useRouter(); // Initialize router from expo-router
   const [username, setUsername] = useState(''); // State for username
   const [password, setPassword] = useState(''); // State for password
+  const API_URL = 'http://localhost:3000';
+  const API_AUTH = API_URL + '/users/authuser';
+  const API_REG = API_URL + '/api/register';
 
   // Function to handle login
   const handleLogin = () => {
