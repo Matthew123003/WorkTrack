@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
+import axios from 'axios'; // Import Axios for API requests
 
 const IndexPage = () => {
   const router = useRouter(); // Initialize router from expo-router
