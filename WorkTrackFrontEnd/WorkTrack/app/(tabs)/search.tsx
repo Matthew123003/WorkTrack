@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 
 const Search = () => {
-  const [isNewJobsSelected, setIsNewJobsSelected] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const toggleSearchType = () => {
-    setIsNewJobsSelected(!isNewJobsSelected);
-  };
-
-  const handleSearch = () => {
-    console.log(`Searching for ${isNewJobsSelected ? 'new' : 'applied'} jobs with query: ${searchQuery}`);
-    // Execute search logic here
-  };
+  const [activeTab, setActiveTab] = useState('newJobs'); // State to track the active toggle button
 
   return (
     <View style={styles.container}>
-      {/* Logo at the top with padding */}
+      {/* Logo at the top */}
       <Image 
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
@@ -27,31 +17,71 @@ const Search = () => {
       {/* Toggle Button */}
       <View style={styles.toggleContainer}>
         <TouchableOpacity
-          style={[styles.toggleButton, isNewJobsSelected && styles.activeButton]}
-          onPress={() => setIsNewJobsSelected(true)}
+          style={[
+            styles.toggleButton,
+            activeTab === 'newJobs' && styles.activeToggleButton,
+          ]}
+          onPress={() => setActiveTab('newJobs')}
         >
-          <Text style={[styles.toggleButtonText, isNewJobsSelected && styles.activeButtonText]}>New Jobs</Text>
+          <Text
+            style={[
+              styles.toggleText,
+              activeTab === 'newJobs' && styles.activeToggleText,
+            ]}
+          >
+            New Jobs
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.toggleButton, !isNewJobsSelected && styles.activeButton]}
-          onPress={() => setIsNewJobsSelected(false)}
+          style={[
+            styles.toggleButton,
+            activeTab === 'appliedJobs' && styles.activeToggleButton,
+          ]}
+          onPress={() => setActiveTab('appliedJobs')}
         >
-          <Text style={[styles.toggleButtonText, !isNewJobsSelected && styles.activeButtonText]}>Applied Jobs</Text>
+          <Text
+            style={[
+              styles.toggleText,
+              activeTab === 'appliedJobs' && styles.activeToggleText,
+            ]}
+          >
+            Applied Jobs
+          </Text>
         </TouchableOpacity>
       </View>
 
       {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
-        placeholder="Enter your search query"
-        value={searchQuery}
-        onChangeText={setSearchQuery}
+        placeholder="Enter your search query..."
       />
 
       {/* Search Button */}
-      <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+      <TouchableOpacity style={styles.searchButton}>
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
+
+      {/* Applied Jobs Display Area */}
+      {activeTab === 'appliedJobs' && (
+        <ScrollView style={styles.resultsContainer}>
+          <View style={styles.jobCard}>
+            <Text style={styles.jobTitle}>Software Engineer</Text>
+            <Text>Company: Placeholder Inc.</Text>
+            <Text>Description: Develop and maintain software solutions.</Text>
+            <Text>Date Applied: 2024-12-01</Text>
+            <Text>Contact: Jane Doe</Text>
+            <Text>Email: jane.doe@placeholder.com</Text>
+          </View>
+          <View style={styles.jobCard}>
+            <Text style={styles.jobTitle}>Project Manager</Text>
+            <Text>Company: Example Corp.</Text>
+            <Text>Description: Oversee project timelines and deliverables.</Text>
+            <Text>Date Applied: 2024-11-28</Text>
+            <Text>Contact: John Smith</Text>
+            <Text>Email: john.smith@example.com</Text>
+          </View>
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -59,66 +89,81 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
     backgroundColor: '#f5f5f5',
   },
   logo: {
-    width: 75, // Set desired width for the logo
-    height: 75, // Set desired height for the logo
-    resizeMode: 'contain', // Keep the aspect ratio intact
-    marginTop: 50, // Add padding from the top of the phone
-    marginBottom: 20, // Add space between the logo and the welcome text
+    width: 75,
+    height: 75,
+    resizeMode: 'contain',
+    alignSelf: 'center',
+    marginVertical: 20,
   },
   text: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
     marginBottom: 20,
   },
   toggleContainer: {
     flexDirection: 'row',
-    width: '100%',
-    backgroundColor: '#d3d3d3',
-    borderRadius: 5,
     marginBottom: 20,
   },
   toggleButton: {
     flex: 1,
     paddingVertical: 15,
+    backgroundColor: '#ddd',
     alignItems: 'center',
     borderRadius: 5,
+    marginHorizontal: 5,
   },
-  activeButton: {
-    backgroundColor: '#007bff', // Highlighted color
+  activeToggleButton: {
+    backgroundColor: '#007bff',
   },
-  toggleButtonText: {
+  toggleText: {
     fontSize: 16,
-    color: '#000',
+    color: '#333',
   },
-  activeButtonText: {
-    color: '#fff', // White text for the active button
+  activeToggleText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   searchBar: {
-    width: '100%',
-    padding: 10,
+    height: 50,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
+    paddingHorizontal: 15,
     marginBottom: 20,
-    backgroundColor: '#fff',
   },
   searchButton: {
-    width: '100%',
+    backgroundColor: '#007bff',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#28a745', // Green button
     alignItems: 'center',
+    marginBottom: 20,
   },
   searchButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  resultsContainer: {
+    flex: 1,
+    marginTop: 10,
+  },
+  jobCard: {
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 5,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  jobTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
   },
 });
 
