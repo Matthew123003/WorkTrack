@@ -9,8 +9,10 @@ const Search = () => {
   const handleSearch = () => {
     if (activeTab === 'newJobs') {
       console.log('Searching for new jobs with query:', query);
+      // API call to external job search API logic here
     } else if (activeTab === 'appliedJobs') {
       console.log('Searching for applied jobs with query:', query);
+      // internal API call to backend logic here
     }
   };
 
