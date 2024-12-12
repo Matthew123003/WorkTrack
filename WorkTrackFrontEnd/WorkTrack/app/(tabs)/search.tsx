@@ -86,14 +86,6 @@ const Search = () => {
             <Text>Contact: Jane Doe</Text>
             <Text>Email: jane.doe@placeholder.com</Text>
           </View>
-          <View style={styles.jobCard}>
-            <Text style={styles.jobTitle}>Project Manager</Text>
-            <Text>Company: Example Corp.</Text>
-            <Text>Description: Oversee project timelines and deliverables.</Text>
-            <Text>Date Applied: 2024-11-28</Text>
-            <Text>Contact: John Smith</Text>
-            <Text>Email: john.smith@example.com</Text>
-          </View>
         </ScrollView>
       )}
     </View>
