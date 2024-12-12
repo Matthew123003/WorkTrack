@@ -3,6 +3,16 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView 
 
 const Search = () => {
   const [activeTab, setActiveTab] = useState('newJobs'); // State to track the active toggle button
+  const [query, setQuery] = useState(''); // State to track the search input
+
+  // Function to handle the search button click
+  const handleSearch = () => {
+    if (activeTab === 'newJobs') {
+      console.log('Searching for new jobs with query:', query);
+    } else if (activeTab === 'appliedJobs') {
+      console.log('Searching for applied jobs with query:', query);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -54,10 +64,12 @@ const Search = () => {
       <TextInput
         style={styles.searchBar}
         placeholder="Enter your search query..."
+        value={query}
+        onChangeText={setQuery}
       />
 
       {/* Search Button */}
-      <TouchableOpacity style={styles.searchButton}>
+      <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
 
