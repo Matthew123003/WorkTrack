@@ -47,3 +47,4 @@
 ├── package-lock.json             # Lockfile for npm dependencies
 ├── package.json                  # npm project configuration
 ├── tsconfig.json                 # TypeScript configuration file
+**********************************************************************
