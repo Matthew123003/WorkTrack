@@ -24,6 +24,30 @@ const ResetPasswordPage = () => {
         {/* Title */}
         <Text style={styles.title}>Reset Your Password</Text>
 
+        {/* Explanation */}
+        <Text style={styles.description}>
+          Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to the login screen to access the app with your new password.
+        </Text>
+
+        {/* Password Requirements */}
+        <View style={styles.passwordRequirementsContainer}>
+          <Text style={styles.passwordRequirementText}>
+            • At least 8 characters
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One uppercase letter
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One lowercase letter
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One number
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One special character
+          </Text>
+        </View>
+
         {/* New Password Input */}
         <TextInput
           style={styles.input}
@@ -91,6 +115,22 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    margin: 10,
+  },
+  passwordRequirementsContainer: {
+    width: '100%',
+    marginVertical: 15,
+    paddingHorizontal: 10,
+  },
+  passwordRequirementText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 5,
   },
 });
 
