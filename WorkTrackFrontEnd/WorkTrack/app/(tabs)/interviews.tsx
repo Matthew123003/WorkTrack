@@ -20,11 +20,11 @@ export default function Interviews() {
     setDropdownVisible(false);
 
     // TODO: Add API call here to fetch and sort interview data based on 'value'.
-    // Example:
-    // fetch(`API_URL?sort_by=${value}`)
-    //   .then(response => response.json())
-    //   .then(data => setInterviews(data))
-    //   .catch(error => console.error('Error fetching interviews:', error));
+  };
+
+  // Helper function to capitalize the first letter
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   type Interview = {
@@ -38,25 +38,23 @@ export default function Interviews() {
     interviewContactName: string;
     interviewContactEmail: string;
   };
-  
 
   // Render an interview card
-const renderInterviewCard = ({ item }: { item: Interview }) => (
-  <View style={styles.card}>
-    <Text style={styles.title}>Interview ID: {item.interviewId}</Text>
-    <Text style={styles.details}>Date: {item.interviewDate}</Text>
-    <Text style={styles.details}>Stage: {item.stage}</Text>
-    <Text style={styles.details}>
-      Thank You Note Sent: {item.tyNote ? 'Yes' : 'No'}
-    </Text>
-    <Text style={styles.details}>Type: {item.interviewType}</Text>
-    <Text style={styles.details}>Link: {item.interviewLink}</Text>
-    <Text style={styles.details}>Status: {item.interviewStatus}</Text>
-    <Text style={styles.details}>Contact Name: {item.interviewContactName}</Text>
-    <Text style={styles.details}>Contact Email: {item.interviewContactEmail}</Text>
-  </View>
-);
-
+  const renderInterviewCard = ({ item }: { item: Interview }) => (
+    <View style={styles.card}>
+      <Text style={styles.title}>Interview ID: {item.interviewId}</Text>
+      <Text style={styles.details}>Date: {item.interviewDate}</Text>
+      <Text style={styles.details}>Stage: {item.stage}</Text>
+      <Text style={styles.details}>
+        Thank You Note Sent: {item.tyNote ? 'Yes' : 'No'}
+      </Text>
+      <Text style={styles.details}>Type: {item.interviewType}</Text>
+      <Text style={styles.details}>Link: {item.interviewLink}</Text>
+      <Text style={styles.details}>Status: {item.interviewStatus}</Text>
+      <Text style={styles.details}>Contact Name: {item.interviewContactName}</Text>
+      <Text style={styles.details}>Contact Email: {item.interviewContactEmail}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
@@ -75,7 +73,9 @@ const renderInterviewCard = ({ item }: { item: Interview }) => (
           style={styles.sortButton}
           onPress={() => setDropdownVisible(true)}
         >
-          <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
+          <Text style={styles.sortButtonText}>
+            Sort by: {capitalizeFirstLetter(sortOption)}
+          </Text>
         </TouchableOpacity>
       </View>
 
