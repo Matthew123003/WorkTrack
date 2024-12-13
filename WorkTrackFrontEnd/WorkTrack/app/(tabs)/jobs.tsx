@@ -1,8 +1,31 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Modal, FlatList } from 'react-native';
 
 export default function Jobs() {
   const [activeTab, setActiveTab] = useState('appliedJobs'); // State to track the active toggle
+  const [sortOption, setSortOption] = useState('date'); // State to track selected sort option
+  const [isDropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility
+
+  // Toggle active tab and fetch job data
+  const handleToggle = (tab: React.SetStateAction<string>) => {
+    setActiveTab(tab);
+    // TODO: Add API calls to fetch job data for the selected tab (appliedJobs/savedJobs)
+  };
+
+  // Options for sorting
+  const sortOptions = [
+    { label: 'Date Applied', value: 'date' },
+    { label: 'Company Name', value: 'company' },
+    { label: 'Job Title', value: 'title' },
+    { label: 'Remote', value: 'remote' },
+  ];
+
+  // Handle sort selection
+  const handleSortSelection = (value: React.SetStateAction<string>) => {
+    setSortOption(value);
+    setDropdownVisible(false);
+    // TODO: Add sorting logic here based on the selected option
+  };
 
   return (
     <View style={styles.container}>
@@ -11,7 +34,7 @@ export default function Jobs() {
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
       />
-      
+
       {/* Welcome text */}
       <Text style={styles.text}>Welcome to the Jobs Screen!</Text>
 
@@ -22,7 +45,7 @@ export default function Jobs() {
             styles.toggleButton,
             activeTab === 'appliedJobs' && styles.activeToggleButton,
           ]}
-          onPress={() => setActiveTab('appliedJobs')}
+          onPress={() => handleToggle('appliedJobs')}
         >
           <Text
             style={[
@@ -38,7 +61,7 @@ export default function Jobs() {
             styles.toggleButton,
             activeTab === 'savedJobs' && styles.activeToggleButton,
           ]}
-          onPress={() => setActiveTab('savedJobs')}
+          onPress={() => handleToggle('savedJobs')}
         >
           <Text
             style={[
@@ -50,6 +73,45 @@ export default function Jobs() {
           </Text>
         </TouchableOpacity>
       </View>
+
+      {/* Dropdown for Sorting */}
+      <View style={styles.sortContainer}>
+        <Text style={styles.sortLabel}>Sort by:</Text>
+        <TouchableOpacity
+          style={styles.sortDropdown}
+          onPress={() => setDropdownVisible(true)}
+        >
+          <Text>{sortOptions.find(option => option.value === sortOption)?.label}</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Dropdown Modal */}
+      <Modal
+        visible={isDropdownVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setDropdownVisible(false)}
+      >
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          onPress={() => setDropdownVisible(false)}
+        >
+          <View style={styles.dropdownList}>
+            <FlatList
+              data={sortOptions}
+              keyExtractor={(item) => item.value}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.dropdownItem}
+                  onPress={() => handleSortSelection(item.value)}
+                >
+                  <Text>{item.label}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
 
       {/* Display Area */}
       <ScrollView style={styles.jobsContainer}>
@@ -112,6 +174,40 @@ const styles = StyleSheet.create({
   activeToggleText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  sortContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  sortLabel: {
+    fontSize: 16,
+    marginRight: 10,
+  },
+  sortDropdown: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 5,
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  dropdownList: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 10,
+  },
+  dropdownItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
   jobsContainer: {
     flex: 1,
