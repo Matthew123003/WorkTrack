@@ -12,6 +12,7 @@ const ForgotPasswordPage = () => {
   // Function to handle submit
   const handleSubmit = () => {
     console.log('Submitted:', { username, email, zipcode, lastName });
+    // MAKE API CALL HERE
     router.push("/(auth)/password");
   };
 
