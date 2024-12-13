@@ -179,13 +179,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sortButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#00FF00',
     padding: 10,
     borderRadius: 5,
     width: '100%',
   },
   sortButtonText: {
-    color: '#FF0000',
+    color: '#fff',
     fontSize: 16,
   },
   modalOverlay: {
