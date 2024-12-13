@@ -1,0 +1,54 @@
+The quick fix in VS Code added types to the parameters of your functions, which resolves the TypeScript error about implicit types (ts(7006)). Here's why this works and what it means:
+What the Error Means
+
+The error:
+
+Parameter 'tab' implicitly has an 'any' type.ts(7006)
+
+occurs because TypeScript enforces type safety, and the tab and value parameters in your functions were not explicitly typed. By default, if you don't specify a type for a parameter, TypeScript treats it as any, which is unsafe. However, noImplicitAny is often enabled in TypeScript configurations (a good practice), so it requires you to explicitly define parameter types.
+What the Fix Does
+
+The fix adds type annotations to the parameters:
+
+const handleToggle = (tab: React.SetStateAction<string>) => {
+  setActiveTab(tab);
+};
+
+const handleSortSelection = (value: React.SetStateAction<string>) => {
+  setSortOption(value);
+  setDropdownVisible(false);
+};
+
+Explanation:
+
+    React.SetStateAction<string>:
+        This type is specific to React's useState setter function.
+        It allows the parameter to be either:
+            A string (a new value to set directly), or
+            A function that takes the current state and returns a new value.
+        This flexibility is useful for dynamic updates to state.
+
+    Result:
+        Now, TypeScript understands the type of tab and value as being compatible with the useState setter function.
+        This eliminates the error and ensures your code is type-safe.
+
+Will It Work?
+
+Yes, it will work. The type React.SetStateAction<string> is correct because:
+
+    Your useState hooks for activeTab and sortOption are both initialized as strings (useState('appliedJobs') and useState('date')).
+    The parameter types align with the expected argument for setActiveTab and setSortOption.
+
+Why TypeScript Enforces This
+
+TypeScript's strict typing helps:
+
+    Catch errors early during development.
+    Ensure your code is maintainable and predictable.
+    Prevent runtime errors that could arise from passing incorrect types to functions.
+
+Summary
+
+    The quick fix in VS Code is valid and correct for this situation.
+    The functions will now work without any implicit any type errors.
+    TypeScript enforces type safety to make your code more reliable and maintainable.
