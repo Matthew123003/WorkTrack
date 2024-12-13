@@ -15,7 +15,7 @@ export default function Interviews() {
   const [interviews, setInterviews] = useState([]); // State for interview data
 
   // Function to handle sort selection
-  const handleSortSelection = (value) => {
+  const handleSortSelection = (value: React.SetStateAction<string>) => {
     setSortOption(value);
     setDropdownVisible(false);
 
