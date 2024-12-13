@@ -74,14 +74,13 @@ export default function Jobs() {
         </TouchableOpacity>
       </View>
 
-      {/* Dropdown for Sorting */}
+      {/* Sort dropdown */}
       <View style={styles.sortContainer}>
-        <Text style={styles.sortLabel}>Sort by:</Text>
         <TouchableOpacity
-          style={styles.sortDropdown}
+          style={styles.sortButton}
           onPress={() => setDropdownVisible(true)}
         >
-          <Text>{sortOptions.find(option => option.value === sortOption)?.label}</Text>
+          <Text style={styles.sortButtonText}>Sort by: {sortOptions.find(option => option.value === sortOption)?.label}</Text>
         </TouchableOpacity>
       </View>
 
@@ -176,21 +175,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   sortContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
     marginBottom: 20,
+    alignItems: 'center',
   },
-  sortLabel: {
-    fontSize: 16,
-    marginRight: 10,
-  },
-  sortDropdown: {
-    flex: 1,
+  sortButton: {
+    backgroundColor: '#007bff',
     padding: 10,
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 5,
+    width: '100%',
+  },
+  sortButtonText: {
+    color: '#FF0000',
+    fontSize: 16,
   },
   modalOverlay: {
     flex: 1,

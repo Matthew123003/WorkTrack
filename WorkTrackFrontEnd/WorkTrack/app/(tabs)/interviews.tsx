@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   sortButtonText: {
-    color: '#fff',
+    color: '#FF0000',
     fontSize: 16,
   },
   modalContainer: {
