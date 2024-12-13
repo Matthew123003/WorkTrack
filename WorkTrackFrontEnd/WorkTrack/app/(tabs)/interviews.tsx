@@ -27,20 +27,36 @@ export default function Interviews() {
     //   .catch(error => console.error('Error fetching interviews:', error));
   };
 
+  type Interview = {
+    interviewId: number;
+    interviewDate: string; // Use `Date` if you plan to parse it into a `Date` object
+    stage: string;
+    tyNote: boolean;
+    interviewType: string;
+    interviewLink: string;
+    interviewStatus: string;
+    interviewContactName: string;
+    interviewContactEmail: string;
+  };
+  
+
   // Render an interview card
-  const renderInterviewCard = ({ item }) => (
-    <View style={styles.card}>
-      <Text style={styles.title}>Interview ID: {item.interviewId}</Text>
-      <Text style={styles.details}>Date: {item.interviewDate}</Text>
-      <Text style={styles.details}>Stage: {item.stage}</Text>
-      <Text style={styles.details}>Thank You Note Sent: {item.tyNote ? 'Yes' : 'No'}</Text>
-      <Text style={styles.details}>Type: {item.interviewType}</Text>
-      <Text style={styles.details}>Link: {item.interviewLink}</Text>
-      <Text style={styles.details}>Status: {item.interviewStatus}</Text>
-      <Text style={styles.details}>Contact Name: {item.interviewContactName}</Text>
-      <Text style={styles.details}>Contact Email: {item.interviewContactEmail}</Text>
-    </View>
-  );
+const renderInterviewCard = ({ item }: { item: Interview }) => (
+  <View style={styles.card}>
+    <Text style={styles.title}>Interview ID: {item.interviewId}</Text>
+    <Text style={styles.details}>Date: {item.interviewDate}</Text>
+    <Text style={styles.details}>Stage: {item.stage}</Text>
+    <Text style={styles.details}>
+      Thank You Note Sent: {item.tyNote ? 'Yes' : 'No'}
+    </Text>
+    <Text style={styles.details}>Type: {item.interviewType}</Text>
+    <Text style={styles.details}>Link: {item.interviewLink}</Text>
+    <Text style={styles.details}>Status: {item.interviewStatus}</Text>
+    <Text style={styles.details}>Contact Name: {item.interviewContactName}</Text>
+    <Text style={styles.details}>Contact Email: {item.interviewContactEmail}</Text>
+  </View>
+);
+
 
   return (
     <View style={styles.container}>
