@@ -36,6 +36,11 @@ const ResetPasswordPage = () => {
         {/* Title */}
         <Text style={styles.title}>Reset Your Password</Text>
 
+         {/* Explanation */}
+                <Text style={styles.description}>
+                  Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to the login screen to access the app with your new password.
+                </Text>
+
          {/* Back Button */}
          <TouchableOpacity 
           style={[styles.button, styles.backButton]} 
@@ -124,6 +129,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    margin: 10,
   },
 });
 
