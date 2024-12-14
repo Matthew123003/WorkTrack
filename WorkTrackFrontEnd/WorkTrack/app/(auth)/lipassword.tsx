@@ -88,7 +88,7 @@ const ResetPasswordPage = () => {
         />
 
         {/* Reset Password Button */}
-        <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
+        <TouchableOpacity style={[styles.button, styles.reset]} onPress={handleResetPassword}>
           <Text style={styles.buttonText}>Reset Password</Text>
         </TouchableOpacity>
       </View>
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
   },
   backButton: {
     backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 50, // Add space from the top of the screen
-    marginBottom: 20
+    marginTop: 20, // Add space from the top of the screen
+    marginBottom: 50
   },
   buttonText: {
     color: '#fff',
@@ -164,6 +164,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#555',
     marginBottom: 5,
+  },
+  reset: {
+    marginTop: 45,
   },
 });
 
