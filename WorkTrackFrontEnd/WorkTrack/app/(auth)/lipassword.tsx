@@ -38,7 +38,7 @@ const ResetPasswordPage = () => {
 
          {/* Explanation */}
                 <Text style={styles.description}>
-                  Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to the login screen to access the app with your new password.
+                  Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to back to the profile screen to continue using the app.
                 </Text>
 
          {/* Back Button */}
