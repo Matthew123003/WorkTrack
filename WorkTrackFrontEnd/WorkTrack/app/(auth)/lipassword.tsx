@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ResetPasswordPage = () => {
@@ -11,97 +21,106 @@ const ResetPasswordPage = () => {
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
       console.log('Password reset successful!');
-      router.push('/(tabs)/profile'); // Navigate to the home page
+      router.push('/(tabs)/profile'); // Navigate to the profile page
     } else {
       console.log('Passwords do not match!');
-      // Optionally, display an error message here
     }
   };
 
   const handleBackPress = () => {
-    router.push('/(tabs)/profile'); // Navigate to the home screen
+    router.push('/(tabs)/profile'); // Navigate back to the profile screen
     console.log('Back button pressed');
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contentContainer}>
-        
-        {/* Logo at the top with padding */}
-        <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-        />
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={60} // Adjust based on your app's layout
+    >
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.contentContainer}>
+          {/* Logo at the top with padding */}
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
 
-        {/* Title */}
-        <Text style={styles.title}>Reset Your Password</Text>
+          {/* Title */}
+          <Text style={styles.title}>Reset Your Password</Text>
 
-         {/* Explanation */}
+          {/* Explanation */}
           <Text style={styles.description}>
-              Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to back to the profile screen to continue using the app.
+            Please make sure both passwords you input match. See below for
+            password requirements. Once all requirements have been met,
+            password will be reset and you will be redirected back to the
+            profile screen to continue using the app.
           </Text>
 
           {/* Password Requirements */}
-                  <View style={styles.passwordRequirementsContainer}>
-                    <Text style={styles.passwordRequirementText}>
-                      • At least 8 characters
-                    </Text>
-                    <Text style={styles.passwordRequirementText}>
-                      • One uppercase letter
-                    </Text>
-                    <Text style={styles.passwordRequirementText}>
-                      • One lowercase letter
-                    </Text>
-                    <Text style={styles.passwordRequirementText}>
-                      • One number
-                    </Text>
-                    <Text style={styles.passwordRequirementText}>
-                      • One special character
-                    </Text>
-                  </View>
+          <View style={styles.passwordRequirementsContainer}>
+            <Text style={styles.passwordRequirementText}>• At least 8 characters
+            </Text>
+            <Text style={styles.passwordRequirementText}>• One uppercase letter
+            </Text>
+            <Text style={styles.passwordRequirementText}>• One lowercase letter
+            </Text>
+            <Text style={styles.passwordRequirementText}>• One number</Text>
+            <Text style={styles.passwordRequirementText}>• One special character
+            </Text>
+          </View>
 
-         {/* Back Button */}
-         <TouchableOpacity 
-          style={[styles.button, styles.backButton]} 
-          onPress={handleBackPress}
-        >
-          <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity>
+          {/* Back Button */}
+          <TouchableOpacity
+            style={[styles.button, styles.backButton]}
+            onPress={handleBackPress}
+          >
+            <Text style={styles.buttonText}>Back</Text>
+          </TouchableOpacity>
 
+          {/* New Password Input */}
+          <TextInput
+            style={styles.input}
+            placeholder="New Password"
+            secureTextEntry
+            value={newPassword}
+            onChangeText={setNewPassword}
+          />
 
-        {/* New Password Input */}
-        <TextInput
-          style={styles.input}
-          placeholder="New Password"
-          secureTextEntry
-          value={newPassword}
-          onChangeText={setNewPassword}
-        />
+          {/* Confirm Password Input */}
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm New Password"
+            secureTextEntry
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
 
-        {/* Confirm Password Input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm New Password"
-          secureTextEntry
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
-
-        {/* Reset Password Button */}
-        <TouchableOpacity style={[styles.button, styles.reset]} onPress={handleResetPassword}>
-          <Text style={styles.buttonText}>Reset Password</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+          {/* Reset Password Button */}
+          <TouchableOpacity
+            style={[styles.button, styles.reset]}
+            onPress={handleResetPassword}
+          >
+            <Text style={styles.buttonText}>Reset Password</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
     padding: 20,
   },
   contentContainer: {
@@ -140,9 +159,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   backButton: {
-    backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 20, // Add space from the top of the screen
-    marginBottom: 50
+    backgroundColor: '#007BFF',
+    marginTop: 20,
+    marginBottom: 50,
   },
   buttonText: {
     color: '#fff',
