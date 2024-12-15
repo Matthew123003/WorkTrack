@@ -49,7 +49,7 @@ export default function SignUp() {
 
         {/* Explanation */}
         <Text style={styles.description}>
-          Please make sure both passwords you input match. See below for password requirements. 
+          Please make sure both passwords you input match. See below for password requirements. Once you have added all information, click the "Submit" button. You will then be redirected to the main page to login in with your username and password. Information you enter will be used to help in a new job search, helping you by showing you the jobs closest to you first. 
         </Text>
         
         {/* Password Requirements */}
