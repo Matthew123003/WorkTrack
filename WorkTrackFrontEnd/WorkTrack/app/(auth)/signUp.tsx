@@ -7,7 +7,8 @@ import {
   ScrollView, 
   KeyboardAvoidingView, 
   Platform, 
-  TouchableOpacity 
+  TouchableOpacity,
+  Image 
 } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 
@@ -34,13 +35,20 @@ export default function SignUp() {
         contentContainerStyle={styles.scrollContainer} 
         keyboardShouldPersistTaps="handled"
       >
-        {/* Back Button */}
+        {/* Back Button
         <TouchableOpacity 
           style={[styles.button, styles.backButton]} 
           onPress={handleBackPress}
         >
           <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
+        {/* Logo Section */}
+        <Image
+        source={require('../assets/images/react-logo.png')} // Replace with the actual path to your logo
+        style={styles.logo}
+        resizeMode="contain"
+        />
 
         {/* Header */}
         <View style={styles.header}>
@@ -70,6 +78,14 @@ export default function SignUp() {
             • One special character
           </Text>
         </View>
+
+        {/* Back Button */}
+        <TouchableOpacity 
+          style={[styles.button, styles.backButton]} 
+          onPress={handleBackPress}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
 
         {/* Input fields with labels */}
         <View style={styles.fieldContainer}>
@@ -269,5 +285,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#555',
     marginBottom: 5,
+  },
+  logo: {
+    width: 100, // Adjust the width of your logo
+    height: 100, // Adjust the height of your logo
+    marginBottom: 20, // Space below the logo
   },
 });
