@@ -35,13 +35,6 @@ export default function SignUp() {
         contentContainerStyle={styles.scrollContainer} 
         keyboardShouldPersistTaps="handled"
       >
-        {/* Back Button
-        <TouchableOpacity 
-          style={[styles.button, styles.backButton]} 
-          onPress={handleBackPress}
-        >
-          <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity> */}
 
         {/* Logo Section */}
         <Image
@@ -54,6 +47,14 @@ export default function SignUp() {
         <View style={styles.header}>
           <Text style={styles.title}>Join WorkTrack</Text>
         </View>
+
+        {/* Back Button */}
+        <TouchableOpacity 
+          style={[styles.button, styles.backButton]} 
+          onPress={handleBackPress}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
 
         {/* Explanation */}
         <Text style={styles.description}>
@@ -78,14 +79,6 @@ export default function SignUp() {
             • One special character
           </Text>
         </View>
-
-        {/* Back Button */}
-        <TouchableOpacity 
-          style={[styles.button, styles.backButton]} 
-          onPress={handleBackPress}
-        >
-          <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity>
 
         {/* Input fields with labels */}
         <View style={styles.fieldContainer}>
@@ -259,7 +252,8 @@ const styles = StyleSheet.create({
   },
   backButton: {
     backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 50, // Add space from the top of the screen
+    marginTop: 20, // Add space from the top of the screen
+    marginBottom: 20,
   },
   submitButton: {
     backgroundColor: '#28A745', // Default green for Submit
@@ -287,8 +281,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   logo: {
-    width: 100, // Adjust the width of your logo
-    height: 100, // Adjust the height of your logo
-    marginBottom: 20, // Space below the logo
+    width: 50, // Adjust the width of your logo
+    height: 50, // Adjust the height of your logo
+    margin: 20, // Space below the logo
+    resizeMode: 'contain',
   },
 });

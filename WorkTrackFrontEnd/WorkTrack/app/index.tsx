@@ -33,7 +33,7 @@ const IndexPage = () => {
       <View style={styles.contentContainer}>
         {/* Logo Section */}
         <Image
-          source={require('../assets/images/react-logo.png')} // Replace with the actual path to your logo
+          source={require('../assets/images/react-logo.png')}
           style={styles.logo}
           resizeMode="contain"
         />
