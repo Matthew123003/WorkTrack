@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ResetPasswordPage = () => {
@@ -21,6 +21,14 @@ const ResetPasswordPage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
+
+        {/* Logo Section */}
+        <Image
+        source={require('../assets/images/react-logo.png')} // Replace with the actual path to your logo
+        style={styles.logo}
+        resizeMode="contain"
+        />
+
         {/* Title */}
         <Text style={styles.title}>Reset Your Password</Text>
 
@@ -131,6 +139,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#555',
     marginBottom: 5,
+  },
+  logo: {
+    width: 100, // Adjust the width of your logo
+    height: 100, // Adjust the height of your logo
+    marginBottom: 20, // Space below the logo
   },
 });
 
