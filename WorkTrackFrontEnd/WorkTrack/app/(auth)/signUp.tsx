@@ -281,8 +281,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   logo: {
-    width: 50, // Adjust the width of your logo
-    height: 50, // Adjust the height of your logo
+    width: 100, // Adjust the width of your logo
+    height: 100, // Adjust the height of your logo
     margin: 20, // Space below the logo
     resizeMode: 'contain',
   },
