@@ -25,7 +25,7 @@ const ForgotPasswordPage = () => {
     <View style={styles.container}>
       <View style={styles.contentContainer}>
         {/* Title */}
-        <Text style={styles.title}>Reset Your Password</Text>
+        <Text style={styles.title}>Locate Your Account</Text>
 
         {/* Explanatory Paragraph */}
         <Text style={styles.description}>
