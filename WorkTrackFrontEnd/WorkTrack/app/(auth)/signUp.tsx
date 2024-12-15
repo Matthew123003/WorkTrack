@@ -44,7 +44,7 @@ export default function SignUp() {
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Sign Up Page</Text>
+          <Text style={styles.title}>Join WorkTrack</Text>
         </View>
 
         {/* Explanation */}
