@@ -47,6 +47,30 @@ export default function SignUp() {
           <Text style={styles.title}>Sign Up Page</Text>
         </View>
 
+        {/* Explanation */}
+        <Text style={styles.description}>
+          Please make sure both passwords you input match. See below for password requirements. 
+        </Text>
+        
+        {/* Password Requirements */}
+        <View style={styles.passwordRequirementsContainer}>
+          <Text style={styles.passwordRequirementText}>
+            • At least 8 characters
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One uppercase letter
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One lowercase letter
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+             • One number
+          </Text>
+          <Text style={styles.passwordRequirementText}>
+            • One special character
+          </Text>
+        </View>
+
         {/* Input fields with labels */}
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Username</Text>
@@ -229,5 +253,21 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    margin: 10,
+  },
+  passwordRequirementsContainer: {
+    width: '100%',
+    marginVertical: 15,
+    paddingHorizontal: 10,
+  },
+  passwordRequirementText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 5,
   },
 });
