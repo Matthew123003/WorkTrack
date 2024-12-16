@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const Profile = () => {
@@ -7,63 +7,71 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      {/* Logo at the top with padding */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Profile Screen!</Text>
-
-      {/* Profile Options Table */}
-      <View style={styles.table}>
-        {/* Personal Information */}
-        <View style={styles.row}>
-          <Text style={styles.rowText}>Personal Information</Text>
-          <TouchableOpacity 
-            style={styles.button} 
-            onPress={() => router.push('/(auth)/personal')}
-          >
-            <Text style={styles.buttonText}>Edit</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Password Reset */}
-        <View style={styles.row}>
-          <Text style={styles.rowText}>Password Reset</Text>
-          <TouchableOpacity 
-            style={styles.button} 
-            onPress={() => router.push('/(auth)/lipassword')}
-          >
-            <Text style={styles.buttonText}>Change</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Settings */}
-        <View style={styles.row}>
-          <Text style={styles.rowText}>Settings</Text>
-          <TouchableOpacity 
-            style={styles.button} 
-            onPress={() => router.push('/(auth)/settings')}
-          >
-            <Text style={styles.buttonText}>Open</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Log Out */}
-        <View style={styles.row}>
-          <Text style={styles.rowText}>Log Out</Text>
-          <TouchableOpacity 
-            style={styles.button} 
-            onPress={() => {
-              router.push('/')
-              console.log('Logged Out');
-            }}
-          >
-            <Text style={styles.buttonText}>Log Out</Text>
-          </TouchableOpacity>
+      {/* Header Section */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Profile</Text>
         </View>
       </View>
+
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.content}>
+        <Text style={styles.welcomeText}>Welcome to your Profile!</Text>
+
+        {/* Profile Options Table */}
+        <View style={styles.table}>
+          {/* Personal Information */}
+          <View style={styles.row}>
+            <Text style={styles.rowText}>Personal Information</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => router.push('/(auth)/personal')}
+            >
+              <Text style={styles.buttonText}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Password Reset */}
+          <View style={styles.row}>
+            <Text style={styles.rowText}>Password Reset</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => router.push('/(auth)/lipassword')}
+            >
+              <Text style={styles.buttonText}>Change</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Settings */}
+          <View style={styles.row}>
+            <Text style={styles.rowText}>Settings</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => router.push('/(auth)/settings')}
+            >
+              <Text style={styles.buttonText}>Open</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Log Out */}
+          <View style={styles.row}>
+            <Text style={styles.rowText}>Log Out</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                router.push('/');
+                console.log('Logged Out');
+              }}
+            >
+              <Text style={styles.buttonText}>Log Out</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -71,23 +79,42 @@ const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#f9f9f9', // Optional: Background color
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
-    width: 75,
-    height: 75,
-    resizeMode: 'contain',
-    marginTop: 50,
-    marginBottom: 20,
+    width: 30,
+    height: 30,
+    marginRight: 4,
   },
-  text: {
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  content: {
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+  },
+  welcomeText: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 20,
+    color: '#333',
   },
   table: {
-    width: '90%',
+    width: '100%',
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
@@ -106,7 +133,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#6200ee',
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,
