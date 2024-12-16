@@ -176,7 +176,7 @@ const JobsScreen = () => {
         style={styles.sortButton}
         onPress={() => setSortModalVisible(true)}
       >
-        <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
+        <Text style={styles.sortButtonText}>Sort By: {sortOption}</Text>
       </TouchableOpacity>
 
       {/* Scrollable Jobs List */}
@@ -284,6 +284,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     textAlign: 'center',
+    fontWeight: '600',
   },
   searchBar: {
     padding: 10,
@@ -375,7 +376,6 @@ const styles = StyleSheet.create({
   },
   modalOptionText: {
     fontSize: 16,
-    color: '#6200ee',
     textAlign: 'center', // Center the option text
   },
   modalOptionBorder: {

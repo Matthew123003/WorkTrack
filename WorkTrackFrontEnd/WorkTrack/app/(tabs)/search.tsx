@@ -29,7 +29,7 @@ const SearchScreen: React.FC = () => {
   const [toggleState, setToggleState] = useState<'New Jobs' | 'Applied Jobs'>('New Jobs'); // Toggle state
   const [appliedJobs, setAppliedJobs] = useState<AppliedJob[]>([]); // State for applied jobs
   const [newJobs, setNewJobs] = useState<any[]>([]); // Placeholder state for new jobs
-
+  const [sortOption, setSortOption] = useState('Date Applied');
   const [sortModalVisible, setSortModalVisible] = useState(false); // State for the sort modal visibility
   const [sortedAppliedJobs, setSortedAppliedJobs] = useState<AppliedJob[]>([]); // State for sorted applied jobs
 
@@ -81,6 +81,7 @@ const SearchScreen: React.FC = () => {
     }
     setSortedAppliedJobs(sortedJobs);
     setSortModalVisible(false);
+    setSortOption(criteria);
   };
 
   return (
@@ -148,7 +149,7 @@ const SearchScreen: React.FC = () => {
           style={styles.sortButton}
           onPress={() => setSortModalVisible(true)}
         >
-          <Text style={styles.sortButtonText}>Sort Jobs</Text>
+          <Text style={styles.sortButtonText}>Sort By: {sortOption}</Text>
         </TouchableOpacity>
       )}
 
@@ -311,10 +312,10 @@ const styles = StyleSheet.create({
   toggleButtonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   activeToggleButtonText: {
-    fontWeight: '900',
+    fontWeight: '600',
   },
   scrollContainer: {
     padding: 16,
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
   sortButtonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   modalOverlay: {
     flex: 1,
