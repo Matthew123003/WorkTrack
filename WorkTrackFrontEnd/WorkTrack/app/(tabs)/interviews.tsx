@@ -1,8 +1,5 @@
-// interviews.tsx
-// React Native screen for displaying and managing interviews, styled and implemented similarly to the Jobs screen.
-
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet, Image, ScrollView } from 'react-native';
 
 interface Interview {
   id: string;
@@ -12,7 +9,6 @@ interface Interview {
 }
 
 const InterviewsScreen = () => {
-  // Sample interview data
   const [interviews, setInterviews] = useState<Interview[]>([
     { id: '1', company: 'Company A', date: '2024-12-20', status: 'Scheduled' },
     { id: '2', company: 'Company B', date: '2024-12-15', status: 'Completed' },
@@ -55,38 +51,34 @@ const InterviewsScreen = () => {
     <View style={styles.container}>
       {/* Header Section */}
       <View style={styles.header}>
-  {/* Left-aligned group: Logo and "Interviews" text */}
-  <View style={styles.leftHeader}>
-    <Image
-      source={require('/Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/assets/images/react-logo.png')}
-      style={styles.logo}
-    />
-    <Text style={styles.headerText}>Interviews</Text>
-  </View>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('/Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Interviews</Text>
+        </View>
 
-  {/* Right-aligned Sort button */}
-  <TouchableOpacity
-    style={styles.sortButton}
-    onPress={() => setSortModalVisible(true)}
-  >
-    <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
-  </TouchableOpacity>
-</View>
+        <TouchableOpacity
+          style={styles.sortButton}
+          onPress={() => setSortModalVisible(true)}
+        >
+          <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
+        </TouchableOpacity>
+      </View>
 
-      {/* Interviews List */}
-      <FlatList
-        data={interviews}
-        keyExtractor={(item) => item.id}
-        renderItem={renderInterview}
-        contentContainerStyle={styles.listContainer}
-      />
+      {/* Scrollable Area */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <FlatList
+          data={interviews}
+          keyExtractor={(item) => item.id}
+          renderItem={renderInterview}
+          contentContainerStyle={styles.listContainer}
+        />
+      </ScrollView>
 
       {/* Sort Modal */}
-      <Modal
-        visible={sortModalVisible}
-        transparent={true}
-        animationType="slide"
-      >
+      <Modal visible={sortModalVisible} transparent={true} animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Sort Interviews By</Text>
@@ -139,12 +131,12 @@ const styles = StyleSheet.create({
   },
   leftHeader: {
     flexDirection: 'row',
-    alignItems: 'center', // Vertically aligns the logo and text
+    alignItems: 'center',
   },
   logo: {
     width: 30,
     height: 30,
-    marginRight: 4, // Small space between the logo and "Interviews"
+    marginRight: 4,
   },
   headerText: {
     fontSize: 20,
@@ -161,7 +153,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#6200ee',
     fontWeight: '600',
-  },    
+  },
+  scrollContainer: {
+    paddingBottom: 16, // to ensure the bottom part is visible when scrolling
+  },
   listContainer: {
     padding: 16,
   },
