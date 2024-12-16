@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ForgotPasswordPage = () => {
@@ -23,68 +23,76 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contentContainer}>
-        {/* Logo Section */}
-        <Image
-        source={require('../../assets/images/react-logo.png')}
-        style={styles.logo}
-        resizeMode="contain"
-        />
-        
-        {/* Title */}
-        <Text style={styles.title}>Locate Your Account</Text>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
+        <View style={styles.container}>
+          <View style={styles.contentContainer}>
+            {/* Logo Section */}
+            <Image
+              source={require('../../assets/images/react-logo.png')}
+              style={styles.logo}
+              resizeMode="contain"
+            />
 
-        {/* Explanatory Paragraph */}
-        <Text style={styles.description}>
-          Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
-        </Text>
+            {/* Title */}
+            <Text style={styles.title}>Locate Your Account</Text>
 
-        {/* Back Button */}
-        <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </TouchableOpacity>
+            {/* Explanatory Paragraph */}
+            <Text style={styles.description}>
+              Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
+            </Text>
 
-        {/* Username input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          value={username}
-          onChangeText={setUsername}
-        />
+            {/* Back Button */}
+            <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+              <Text style={styles.backButtonText}>Back</Text>
+            </TouchableOpacity>
 
-        {/* Email input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
-        />
+            {/* Username input */}
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              value={username}
+              onChangeText={setUsername}
+              autoFocus={true} // Automatically focus this input on page load
+            />
 
-        {/* ZIP Code input */}
-        <TextInput
-          style={styles.input}
-          placeholder="ZIP Code"
-          keyboardType="numeric"
-          value={zipcode}
-          onChangeText={setZipcode}
-        />
+            {/* Email input */}
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              keyboardType="email-address"
+              value={email}
+              onChangeText={setEmail}
+            />
 
-        {/* Last Name input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Last Name"
-          value={lastName}
-          onChangeText={setLastName}
-        />
+            {/* ZIP Code input */}
+            <TextInput
+              style={styles.input}
+              placeholder="ZIP Code"
+              keyboardType="numeric"
+              value={zipcode}
+              onChangeText={setZipcode}
+            />
 
-        {/* Submit Button */}
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+            {/* Last Name input */}
+            <TextInput
+              style={styles.input}
+              placeholder="Last Name"
+              value={lastName}
+              onChangeText={setLastName}
+            />
+
+            {/* Submit Button */}
+            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+              <Text style={styles.buttonText}>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
