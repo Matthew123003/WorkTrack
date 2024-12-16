@@ -1,35 +1,111 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function Home() {
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      {/* Logo at the top with padding */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Home Screen!</Text>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Home</Text>
+        </View>
+      </View>
+
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {/* Jobs Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Jobs</Text>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Job Example 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Job Example 2</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Interviews Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Interviews</Text>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Interview Example 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Interview Example 2</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Suggested Content Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Suggested Content</Text>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Suggested Content 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.contentCard}>
+            <Text style={styles.contentText}>Suggested Content 2</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, // Make the container fill the entire screen
-    alignItems: 'center', // Center content horizontally
-    justifyContent: 'center', // Center content vertically by default
+    flex: 1,
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
-    width: 75, // Set desired width for the logo
-    height: 75, // Set desired height for the logo
-    resizeMode: 'contain', // Keep the aspect ratio intact
-    marginTop: 50, // Add padding from the top of the phone
-    marginBottom: 20, // Add space between the logo and the welcome text
+    width: 30,
+    height: 30,
+    marginRight: 4,
   },
-  text: {
-    fontSize: 18,
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
     fontWeight: 'bold',
   },
+  scrollContainer: {
+    paddingBottom: 16,
+    paddingTop: 20, // Space between header and content
+  },
+  section: {
+    marginBottom: 16,
+    paddingHorizontal: 16,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 8,
+  },
+  contentCard: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  contentText: {
+    fontSize: 16,
+    color: '#333',
+  },
 });
+
+export default HomeScreen;
