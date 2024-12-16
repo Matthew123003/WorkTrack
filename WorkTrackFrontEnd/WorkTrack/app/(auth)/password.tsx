@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ResetPasswordPage = () => {
@@ -19,79 +29,80 @@ const ResetPasswordPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contentContainer}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={60} // Adjust based on header height
+    >
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled" // Dismiss keyboard when tapping outside
+      >
+        <View style={styles.contentContainer}>
+          {/* Logo Section */}
+          <Image
+            source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
+            style={styles.logo}
+            resizeMode="contain"
+          />
 
-        {/* Logo Section */}
-        <Image
-        source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
-        style={styles.logo}
-        resizeMode="contain"
-        />
+          {/* Title */}
+          <Text style={styles.title}>Reset Your Password</Text>
 
-        {/* Title */}
-        <Text style={styles.title}>Reset Your Password</Text>
+          {/* Explanation */}
+          <Text style={styles.description}>
+            Please make sure both passwords you input match. See below for password requirements. Once all requirements
+            have been met, password will be reset, and you will be redirected to the login screen to access the app
+            with your new password.
+          </Text>
 
-        {/* Explanation */}
-        <Text style={styles.description}>
-          Please make sure both passwords you input match. See below for password requirements. Once all requirements have been met, password will be reset and you be redirected to the login screen to access the app with your new password.
-        </Text>
+          {/* Password Requirements */}
+          <View style={styles.passwordRequirementsContainer}>
+            <Text style={styles.passwordRequirementText}>PASSWORD REQUIREMENTS</Text>
+            <Text style={styles.passwordRequirementText}>• At least 8 characters</Text>
+            <Text style={styles.passwordRequirementText}>• One uppercase letter</Text>
+            <Text style={styles.passwordRequirementText}>• One lowercase letter</Text>
+            <Text style={styles.passwordRequirementText}>• One number</Text>
+            <Text style={styles.passwordRequirementText}>• One special character</Text>
+          </View>
 
-        {/* Password Requirements */}
-        <View style={styles.passwordRequirementsContainer}>
-          <Text style={styles.passwordRequirementText}>
-            PASSWORD REQUIREMENTS
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • At least 8 characters
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One uppercase letter
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One lowercase letter
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One number
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One special character
-          </Text>
+          {/* New Password Input */}
+          <TextInput
+            style={styles.input}
+            placeholder="New Password"
+            secureTextEntry
+            value={newPassword}
+            onChangeText={setNewPassword}
+          />
+
+          {/* Confirm Password Input */}
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm New Password"
+            secureTextEntry
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
+
+          {/* Reset Password Button */}
+          <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
+            <Text style={styles.buttonText}>Reset Password</Text>
+          </TouchableOpacity>
         </View>
-
-        {/* New Password Input */}
-        <TextInput
-          style={styles.input}
-          placeholder="New Password"
-          secureTextEntry
-          value={newPassword}
-          onChangeText={setNewPassword}
-        />
-
-        {/* Confirm Password Input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm New Password"
-          secureTextEntry
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
-
-        {/* Reset Password Button */}
-        <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
-          <Text style={styles.buttonText}>Reset Password</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
     padding: 20,
   },
   contentContainer: {
@@ -121,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#007BFF',
     alignItems: 'center',
+    marginTop: 10,
   },
   buttonText: {
     color: '#fff',
@@ -131,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#555',
     textAlign: 'center',
-    margin: 10,
+    marginVertical: 10,
   },
   passwordRequirementsContainer: {
     width: '100%',
