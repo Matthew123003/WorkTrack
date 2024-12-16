@@ -10,6 +10,7 @@ import {
   Platform 
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import axios from 'axios'; // Import Axios for API requests
 
 const Settings = () => {
   const router = useRouter();

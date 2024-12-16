@@ -11,6 +11,7 @@ import {
   Image 
 } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
+import axios from 'axios'; // Import Axios for API requests
 
 export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router

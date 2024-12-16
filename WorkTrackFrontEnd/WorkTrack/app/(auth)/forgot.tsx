@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
+import axios from 'axios'; // Import Axios for API requests
 
 const ForgotPasswordPage = () => {
   const router = useRouter(); // Initialize router for navigation

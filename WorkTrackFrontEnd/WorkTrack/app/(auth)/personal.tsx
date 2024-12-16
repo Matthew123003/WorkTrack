@@ -11,6 +11,7 @@ import {
   Platform 
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import axios from 'axios'; // Import Axios for API requests
 
 export default function Personal() {
   const router = useRouter();
