@@ -20,8 +20,7 @@ const Profile = () => {
 
       {/* Scrollable Content */}
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.welcomeText}>Welcome to your Profile!</Text>
-
+        
         {/* Profile Options Table */}
         <View style={styles.table}>
           {/* Personal Information */}
