@@ -45,6 +45,11 @@ export default function Personal() {
             <Text style={styles.backButtonText}>Back</Text>
           </TouchableOpacity>
 
+          {/* Explanation */}
+          <Text style={styles.description}>
+            Update your information on this page. Not all fields have to filled out. Just fill out the field you want to update.
+          </Text>
+
           {/* Input fields */}
           <View style={styles.fieldContainer}>
             <Text style={styles.label}>Username</Text>
@@ -232,5 +237,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    margin: 10,
+    paddingHorizontal: 20, // Add padding for input fields
   },
 });

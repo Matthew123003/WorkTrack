@@ -20,22 +20,25 @@ const Settings = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.keyboardAvoidingView}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0} // Adjust if necessary
-    >
-      <ScrollView contentContainerStyle={styles.scrollContent}>
-        <View style={styles.container}>
-          {/* Logo at the top with padding */}
-          <Image 
-            source={require('../../assets/images/react-logo.png')} 
-            style={styles.logo} 
-          />
+    <View style={styles.container}>
+          {/* Header */}
+          <View style={styles.header}>
+            <View style={styles.leftHeader}>
+              <Image 
+                source={require('../../assets/images/react-logo.png')} 
+                style={styles.logo} 
+              />
+              <Text style={styles.headerText}>Settings</Text>
+            </View>
+          </View>
 
-          {/* Title */}
-          <Text style={styles.text}>Welcome to the Settings Screen!</Text>
-
+      {/* Body with KeyboardAvoidingView and ScrollView */}
+      <KeyboardAvoidingView
+        style={styles.keyboardAvoidingView}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0} // Adjust if necessary
+      >
+        <ScrollView contentContainerStyle={styles.scrollContent}>
           {/* Back Button */}
           <TouchableOpacity 
             style={styles.backButton} 
@@ -53,7 +56,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 1 button pressed');
-                  router.push('/(settings)/option1'); // Navigate back to profile
+                  router.push('/(settings)/option1'); // Navigate to Option 1
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -67,7 +70,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 2 button pressed');
-                  router.push('/(settings)/option2'); // Navigate back to profile
+                  router.push('/(settings)/option2'); // Navigate to Option 2
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -81,7 +84,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 3 button pressed');
-                  router.push('/(settings)/option3'); // Navigate back to profile
+                  router.push('/(settings)/option3'); // Navigate to Option 3
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -95,7 +98,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 4 button pressed');
-                  router.push('/(settings)/option4'); // Navigate back to profile
+                  router.push('/(settings)/option4'); // Navigate to Option 4
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -109,7 +112,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 5 button pressed');
-                  router.push('/(settings)/option5'); // Navigate back to profile
+                  router.push('/(settings)/option5'); // Navigate to Option 5
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -123,7 +126,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 6 button pressed');
-                  router.push('/(settings)/option6'); // Navigate back to profile
+                  router.push('/(settings)/option6'); // Navigate to Option 6
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -137,7 +140,7 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 7 button pressed');
-                  router.push('/(settings)/option7'); // Navigate back to profile
+                  router.push('/(settings)/option7'); // Navigate to Option 7
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
@@ -151,54 +154,62 @@ const Settings = () => {
                 style={styles.button} 
                 onPress={() => {
                   console.log('Option 8 button pressed');
-                  router.push('/(settings)/option8'); // Navigate back to profile
+                  router.push('/(settings)/option8'); // Navigate to Option 8
                 }}
               >
                 <Text style={styles.buttonText}>Go</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
   keyboardAvoidingView: {
     flex: 1,
-    backgroundColor: '#f9f9f9', // Ensures background covers entire screen
   },
   scrollContent: {
     flexGrow: 1,
     alignItems: 'center',
-    paddingVertical: 20, // Adds vertical padding for better spacing
-  },
-  container: {
-    width: '100%',
-    alignItems: 'center',
-  },
-  logo: {
-    width: 75,
-    height: 75,
-    resizeMode: 'contain',
-    marginTop: 50,
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    textAlign: 'center', // Ensures text is centered
+    paddingVertical: 20,
   },
   backButton: {
-    backgroundColor: '#007BFF', // Blue color for the Back button
-    width: '90%', // Matches the width of the table
-    height: 50, // Consistent height
+    backgroundColor: '#6200ee',
+    width: '90%',
+    height: 50,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20, // Space between back button and table
+    marginBottom: 20,
   },
   buttonText: {
     color: '#fff',
@@ -225,7 +236,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#007BFF', // Blue color for option buttons
+    backgroundColor: '#6200ee',
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,

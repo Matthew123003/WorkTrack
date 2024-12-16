@@ -27,208 +27,203 @@ export default function SignUp() {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    >
-      <ScrollView 
-        contentContainerStyle={styles.scrollContainer} 
-        keyboardShouldPersistTaps="handled"
-      >
-
-        {/* Logo Section */}
-        <View style={styles.logoContainer}>
-          <Image
-            source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
-            style={styles.logo}
-            resizeMode="contain"
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image 
+            source={require('../../assets/images/react-logo.png')} 
+            style={styles.logo} 
           />
+          <Text style={styles.headerText}>Join WorkTrack</Text>
         </View>
-
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.title}>Join WorkTrack</Text>
-        </View>
-
-        {/* Back Button */}
-        <TouchableOpacity 
-          style={[styles.button, styles.backButton]} 
-          onPress={handleBackPress}
+      </View>
+ 
+      {/* Scrollable Content with KeyboardAvoidingView */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.contentContainer}
         >
-          <Text style={styles.buttonText}>Back</Text>
-        </TouchableOpacity>
-
-        {/* Explanation */}
-        <Text style={styles.description}>
-          Please make sure both passwords you input match. See below for password requirements. Once you have added all information, click the "Submit" button. You will then be redirected to the main page to login in with your username and password. Information you enter will be used to help in a new job search by showing you the jobs closest to you first. 
-        </Text>
-        
-        {/* Password Requirements */}
-        <View style={styles.passwordRequirementsContainer}>
-        <Text style={styles.passwordRequirementText}>
-            PASSWORD REQUIREMENTS
+          {/* Back Button */}
+          <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+ 
+          {/* Explanation */}
+          <Text style={styles.description}>
+            Please fill out all fields. Make sure both passwords match. Once all fields have been filled out with valid information and both passwords match, you will be redirected to the main page to login in with your new credentials.
           </Text>
-          <Text style={styles.passwordRequirementText}>
-            • At least 8 characters
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One uppercase letter
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One lowercase letter
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-             • One number
-          </Text>
-          <Text style={styles.passwordRequirementText}>
-            • One special character
-          </Text>
-        </View>
 
-        {/* Input fields with labels */}
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Username</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your username"
-            placeholderTextColor="#888"
-          />
-        </View>
+          {/* Password Requirements */}
+          <View style={styles.passwordRequirementsContainer}>
+              <Text style={styles.passwordRequirementText}>PASSWORD REQUIREMENTS</Text>
+              <Text style={styles.passwordRequirementText}>• At least 8 characters</Text>
+              <Text style={styles.passwordRequirementText}>• One uppercase letter</Text>
+              <Text style={styles.passwordRequirementText}>• One lowercase letter</Text>
+              <Text style={styles.passwordRequirementText}>• One number</Text>
+              <Text style={styles.passwordRequirementText}>• One special character</Text>
+            </View>
+ 
+          {/* Input fields */}
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Username</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your username"
+              placeholderTextColor="#888"
+            />
+          </View>
 
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your password"
-            placeholderTextColor="#888"
-            secureTextEntry
-          />
-        </View>
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Password</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your password"
+              placeholderTextColor="#888"
+              secureTextEntry
+            />
+          </View>
 
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Confirm Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Confirm your password"
-            placeholderTextColor="#888"
-            secureTextEntry
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>First Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your first name"
-            placeholderTextColor="#888"
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Last Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your last name"
-            placeholderTextColor="#888"
-          />
-        </View>
-
-        {/* Address fields */}
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Street Address</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your street address"
-            placeholderTextColor="#888"
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>City</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your city"
-            placeholderTextColor="#888"
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>State</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your state"
-            placeholderTextColor="#888"
-          />
-        </View>
-
-        {/* Zipcode Field */}
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>ZIP Code</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your ZIP code"
-            placeholderTextColor="#888"
-            keyboardType="numeric"
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Phone Number</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your phone number"
-            placeholderTextColor="#888"
-            keyboardType="phone-pad"
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your email address"
-            placeholderTextColor="#888"
-            keyboardType="email-address"
-          />
-        </View>
-
-        {/* Submit button */}
-        <TouchableOpacity 
-          style={[styles.button, styles.submitButton]} 
-          onPress={handleSignUpSubmit}
-        >
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Confirm Password</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm your password"
+              placeholderTextColor="#888"
+              secureTextEntry
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>First Name</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your first name"
+              placeholderTextColor="#888"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Last Name</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your last name"
+              placeholderTextColor="#888"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Street Address</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your street address"
+              placeholderTextColor="#888"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>City</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your city"
+              placeholderTextColor="#888"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>State</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your state"
+              placeholderTextColor="#888"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>ZIP Code</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your ZIP code"
+              placeholderTextColor="#888"
+              keyboardType="numeric"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Phone Number</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your phone number"
+              placeholderTextColor="#888"
+              keyboardType="phone-pad"
+            />
+          </View>
+ 
+          <View style={styles.fieldContainer}>
+            <Text style={styles.label}>Email</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your email address"
+              placeholderTextColor="#888"
+              keyboardType="email-address"
+            />
+          </View>
+ 
+          {/* Submit Button */}
+          <TouchableOpacity 
+            style={[styles.button, styles.submitButton]} 
+            onPress={handleSignUpSubmit}  // Added function call here
+          >
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
   },
   scrollContainer: {
-    flexGrow: 1,
-    padding: 0, // No horizontal padding
+    paddingBottom: 16,
+    paddingTop: 20, // Space between header and content
+    flexGrow: 1,  // Ensures the content can scroll properly
   },
   header: {
-    paddingTop: 10,
-    paddingBottom: 20, // Space below the header
-    backgroundColor: '#f5f5f5', // Optional: matches the page background
-    alignItems: 'center', // Center-aligns the header content
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
   },
-  title: {
-    fontSize: 24,
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
     fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
+  },
+  contentContainer: {
+    width: '100%',
+    maxWidth: 400,
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   fieldContainer: {
-    flex: 1,
-    marginBottom: 20,
-    paddingHorizontal: 20, // Add padding for input fields
+    marginBottom: 15,
+    width: '100%',
   },
   label: {
     fontSize: 16,
@@ -238,33 +233,39 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: 40,
-    borderWidth: 1,
+    height: 50,
     borderColor: '#ccc',
+    borderWidth: 1,
     borderRadius: 5,
-    paddingLeft: 10,
-    fontSize: 16,
+    paddingHorizontal: 10,
+    marginBottom: 15,
     backgroundColor: '#fff',
   },
   button: {
-    width: '90%',
-    height: 50, // Adjusted height to match consistency
+    width: '100%',
+    paddingVertical: 15,
     borderRadius: 5,
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    alignSelf: 'center',
-    marginTop: 20,
-  },
-  backButton: {
-    backgroundColor: '#007BFF', // Blue color for the Back button
-    marginTop: 20, // Add space from the top of the screen
-    marginBottom: 20,
+    backgroundColor: '#6200ee',
+    alignItems: 'center',
+    marginBottom: 10,
   },
   submitButton: {
-    backgroundColor: '#28A745', // Default green for Submit
-    marginBottom: 50, // Add space from the bottom of the screen
+    backgroundColor: '#6200ee',
   },
   buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  backButton: {
+    width: '100%',
+    paddingVertical: 15,
+    borderRadius: 5,
+    backgroundColor: '#6200ee',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  backButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
@@ -274,25 +275,15 @@ const styles = StyleSheet.create({
     color: '#555',
     textAlign: 'center',
     margin: 10,
-    paddingHorizontal: 20, // Add padding for input fields
   },
   passwordRequirementsContainer: {
     width: '100%',
     marginVertical: 15,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   passwordRequirementText: {
     fontSize: 14,
     color: '#555',
     marginBottom: 5,
   },
-  logoContainer: {
-    width: '100%',       // Full width of the screen
-    alignItems: 'center', // Centers the content horizontally
-    marginVertical: 20,   // Space above and below the logo
-  },
-  logo: {
-    width: 100,          // Adjust the width of your logo
-    height: 100,         // Adjust the height of your logo
-  },  
 });
