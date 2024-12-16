@@ -1,227 +1,212 @@
+// interviews.tsx
+// React Native screen for displaying and managing interviews, styled and implemented similarly to the Jobs screen.
+
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Modal,
-  FlatList,
-} from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet } from 'react-native';
 
-export default function Interviews() {
-  const [sortOption, setSortOption] = useState('date'); // State for selected sort option
-  const [dropdownVisible, setDropdownVisible] = useState(false); // State for dropdown visibility
-  const [interviews, setInterviews] = useState([]); // State for interview data
+interface Interview {
+  id: string;
+  company: string;
+  date: string;
+  status: string;
+}
 
-  // Function to handle sort selection
-  const handleSortSelection = (value: React.SetStateAction<string>) => {
-    setSortOption(value);
-    setDropdownVisible(false);
+const InterviewsScreen = () => {
+  // Sample interview data
+  const [interviews, setInterviews] = useState<Interview[]>([
+    { id: '1', company: 'Company A', date: '2024-12-20', status: 'Scheduled' },
+    { id: '2', company: 'Company B', date: '2024-12-15', status: 'Completed' },
+    { id: '3', company: 'Company C', date: '2024-12-18', status: 'Pending' },
+  ]);
 
-    // TODO: Add API call here to fetch and sort interview data based on 'value'.
+  const [sortModalVisible, setSortModalVisible] = useState(false);
+  const [sortOption, setSortOption] = useState('Date');
+
+  // Sorting functionality
+  const sortInterviews = (option: string) => {
+    let sortedInterviews;
+    switch (option) {
+      case 'Date':
+        sortedInterviews = [...interviews].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        break;
+      case 'Company':
+        sortedInterviews = [...interviews].sort((a, b) => a.company.localeCompare(b.company));
+        break;
+      case 'Status':
+        sortedInterviews = [...interviews].sort((a, b) => a.status.localeCompare(b.status));
+        break;
+      default:
+        sortedInterviews = interviews;
+    }
+    setInterviews(sortedInterviews);
+    setSortOption(option);
+    setSortModalVisible(false);
   };
 
-  // Helper function to capitalize the first letter
-  const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-
-  type Interview = {
-    interviewId: number;
-    interviewDate: string; // Use `Date` if you plan to parse it into a `Date` object
-    stage: string;
-    tyNote: boolean;
-    interviewType: string;
-    interviewLink: string;
-    interviewStatus: string;
-    interviewContactName: string;
-    interviewContactEmail: string;
-  };
-
-  // Render an interview card
-  const renderInterviewCard = ({ item }: { item: Interview }) => (
-    <View style={styles.card}>
-      <Text style={styles.title}>Interview ID: {item.interviewId}</Text>
-      <Text style={styles.details}>Date: {item.interviewDate}</Text>
-      <Text style={styles.details}>Stage: {item.stage}</Text>
-      <Text style={styles.details}>
-        Thank You Note Sent: {item.tyNote ? 'Yes' : 'No'}
-      </Text>
-      <Text style={styles.details}>Type: {item.interviewType}</Text>
-      <Text style={styles.details}>Link: {item.interviewLink}</Text>
-      <Text style={styles.details}>Status: {item.interviewStatus}</Text>
-      <Text style={styles.details}>Contact Name: {item.interviewContactName}</Text>
-      <Text style={styles.details}>Contact Email: {item.interviewContactEmail}</Text>
+  const renderInterview = ({ item }: { item: Interview }) => (
+    <View style={styles.interviewCard}>
+      <Text style={styles.companyText}>{item.company}</Text>
+      <Text style={styles.dateText}>Date: {item.date}</Text>
+      <Text style={styles.statusText}>Status: {item.status}</Text>
     </View>
   );
 
   return (
     <View style={styles.container}>
-      {/* Logo at the top */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
-
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Interviews Screen!</Text>
-
-      {/* Sort dropdown */}
-      <View style={styles.sortContainer}>
+      {/* Header Section */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Interviews</Text>
         <TouchableOpacity
           style={styles.sortButton}
-          onPress={() => setDropdownVisible(true)}
+          onPress={() => setSortModalVisible(true)}
         >
-          <Text style={styles.sortButtonText}>
-            Sort by: {capitalizeFirstLetter(sortOption)}
-          </Text>
+          <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Dropdown modal */}
+      {/* Interviews List */}
+      <FlatList
+        data={interviews}
+        keyExtractor={(item) => item.id}
+        renderItem={renderInterview}
+        contentContainerStyle={styles.listContainer}
+      />
+
+      {/* Sort Modal */}
       <Modal
-        visible={dropdownVisible}
+        visible={sortModalVisible}
         transparent={true}
         animationType="slide"
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Select a sort option:</Text>
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Sort Interviews By</Text>
+
             <TouchableOpacity
               style={styles.modalOption}
-              onPress={() => handleSortSelection('date')}
+              onPress={() => sortInterviews('Date')}
             >
               <Text style={styles.modalOptionText}>Date</Text>
             </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.modalOption}
-              onPress={() => handleSortSelection('company')}
+              onPress={() => sortInterviews('Company')}
             >
-              <Text style={styles.modalOptionText}>Company Name</Text>
+              <Text style={styles.modalOptionText}>Company</Text>
             </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.modalOption}
-              onPress={() => handleSortSelection('title')}
+              onPress={() => sortInterviews('Status')}
             >
-              <Text style={styles.modalOptionText}>Job Title</Text>
+              <Text style={styles.modalOptionText}>Status</Text>
             </TouchableOpacity>
+
             <TouchableOpacity
-              style={styles.modalClose}
-              onPress={() => setDropdownVisible(false)}
+              style={styles.closeButton}
+              onPress={() => setSortModalVisible(false)}
             >
-              <Text style={styles.modalCloseText}>Cancel</Text>
+              <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-
-      {/* Display interview data */}
-      <FlatList
-        data={interviews}
-        renderItem={renderInterviewCard}
-        keyExtractor={(item, index) => index.toString()}
-        contentContainerStyle={styles.listContainer}
-        ListEmptyComponent={<Text style={styles.emptyText}>No interviews to display.</Text>}
-      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
   },
-  logo: {
-    width: 75,
-    height: 75,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    marginVertical: 20,
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  sortContainer: {
-    marginBottom: 20,
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#6200ee',
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   sortButton: {
-    backgroundColor: '#00FF00',
-    padding: 10,
-    borderRadius: 5,
-    width: '100%',
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
   },
   sortButtonText: {
-    color: '#fff',
-    fontSize: 16,
+    fontSize: 14,
+    color: '#6200ee',
+    fontWeight: '600',
   },
-  modalContainer: {
+  listContainer: {
+    padding: 16,
+  },
+  interviewCard: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  companyText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  dateText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 4,
+  },
+  statusText: {
+    fontSize: 14,
+    color: '#888',
+  },
+  modalOverlay: {
     flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  modalContent: {
+  modalContainer: {
     width: '80%',
     backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
+    borderRadius: 12,
+    padding: 16,
     alignItems: 'center',
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 16,
   },
   modalOption: {
-    paddingVertical: 10,
+    padding: 12,
     width: '100%',
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
   modalOptionText: {
     fontSize: 16,
-    color: '#007bff',
   },
-  modalClose: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: '#ff4d4d',
-    borderRadius: 5,
+  closeButton: {
+    marginTop: 16,
+    backgroundColor: '#6200ee',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
   },
-  modalCloseText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-  listContainer: {
-    paddingTop: 10,
-  },
-  card: {
-    backgroundColor: '#fff',
-    padding: 15,
-    borderRadius: 5,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  details: {
+  closeButtonText: {
     fontSize: 14,
-    color: '#555',
-  },
-  emptyText: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#777',
-    marginTop: 20,
+    color: '#fff',
   },
 });
+
+export default InterviewsScreen;
