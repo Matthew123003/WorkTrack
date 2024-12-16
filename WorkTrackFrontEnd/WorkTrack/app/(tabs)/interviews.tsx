@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, StyleSheet, Image, ScrollView } from 'react-native';
 
 interface Interview {
   id: string;
@@ -39,8 +39,8 @@ const InterviewsScreen = () => {
     setSortModalVisible(false);
   };
 
-  const renderInterview = ({ item }: { item: Interview }) => (
-    <View style={styles.interviewCard}>
+  const renderInterview = (item: Interview) => (
+    <View style={styles.interviewCard} key={item.id}>
       <Text style={styles.companyText}>{item.company}</Text>
       <Text style={styles.dateText}>Date: {item.date}</Text>
       <Text style={styles.statusText}>Status: {item.status}</Text>
@@ -58,23 +58,19 @@ const InterviewsScreen = () => {
           />
           <Text style={styles.headerText}>Interviews</Text>
         </View>
-
-        <TouchableOpacity
-          style={styles.sortButton}
-          onPress={() => setSortModalVisible(true)}
-        >
-          <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
-        </TouchableOpacity>
       </View>
 
-      {/* Scrollable Area */}
+      {/* Sort Button Section */}
+      <TouchableOpacity
+        style={styles.sortButton}
+        onPress={() => setSortModalVisible(true)}
+      >
+        <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
+      </TouchableOpacity>
+
+      {/* Scrollable Area for Interviews */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <FlatList
-          data={interviews}
-          keyExtractor={(item) => item.id}
-          renderItem={renderInterview}
-          contentContainerStyle={styles.listContainer}
-        />
+        {interviews.map(renderInterview)}
       </ScrollView>
 
       {/* Sort Modal */}
@@ -127,11 +123,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#6200ee',
+    backgroundColor: '#2F4F4F',
   },
   leftHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
     width: 30,
@@ -144,21 +141,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   sortButton: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 8,
+    backgroundColor: '#6200ee',
+    paddingVertical: 12,
+    width: '100%',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
   sortButtonText: {
-    fontSize: 14,
-    color: '#6200ee',
+    fontSize: 16,
+    color: '#fff',
     fontWeight: '600',
   },
   scrollContainer: {
-    paddingBottom: 16, // to ensure the bottom part is visible when scrolling
-  },
-  listContainer: {
-    padding: 16,
+    paddingBottom: 16, // Ensures the bottom part is visible when scrolling
   },
   interviewCard: {
     backgroundColor: '#fff',
