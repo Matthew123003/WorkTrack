@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   sortButton: {
     backgroundColor: '#6200ee',
-    paddingVertical: 12,
+    paddingVertical: 15,
     width: '100%',
     alignItems: 'center',
     borderBottomWidth: 1,
