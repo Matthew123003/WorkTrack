@@ -1,93 +1,44 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, StyleSheet, Image, ScrollView } from 'react-native';
 
-const Search = () => {
-  const [activeTab, setActiveTab] = useState('newJobs'); // State to track the active toggle button
-  const [query, setQuery] = useState(''); // State to track the search input
-
-  // Function to handle the search button click
-  const handleSearch = () => {
-    if (activeTab === 'newJobs') {
-      console.log('Searching for new jobs with query:', query);
-      // API call to external job search API logic here
-    } else if (activeTab === 'appliedJobs') {
-      console.log('Searching for applied jobs with query:', query);
-      // internal API call to backend logic here
-    }
-  };
-
+const SearchScreen = () => {
   return (
     <View style={styles.container}>
-      {/* Logo at the top */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Search Screen!</Text>
-
-      {/* Toggle Button */}
-      <View style={styles.toggleContainer}>
-        <TouchableOpacity
-          style={[
-            styles.toggleButton,
-            activeTab === 'newJobs' && styles.activeToggleButton,
-          ]}
-          onPress={() => setActiveTab('newJobs')}
-        >
-          <Text
-            style={[
-              styles.toggleText,
-              activeTab === 'newJobs' && styles.activeToggleText,
-            ]}
-          >
-            New Jobs
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.toggleButton,
-            activeTab === 'appliedJobs' && styles.activeToggleButton,
-          ]}
-          onPress={() => setActiveTab('appliedJobs')}
-        >
-          <Text
-            style={[
-              styles.toggleText,
-              activeTab === 'appliedJobs' && styles.activeToggleText,
-            ]}
-          >
-            Applied Jobs
-          </Text>
-        </TouchableOpacity>
+      {/* Header Section */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Search</Text>
+        </View>
       </View>
 
       {/* Search Bar */}
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Enter your search query..."
-        value={query}
-        onChangeText={setQuery}
-      />
+      <View style={styles.searchBarContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search here..."
+          placeholderTextColor="#aaa"
+        />
+      </View>
 
-      {/* Search Button */}
-      <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
-        <Text style={styles.searchButtonText}>Search</Text>
-      </TouchableOpacity>
+      {/* Scrollable Results Section */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {/* Example of a search result card */}
+        <View style={styles.resultCard}>
+          <Text style={styles.resultTitle}>Result Title 1</Text>
+          <Text style={styles.resultSubtitle}>Additional details about the result...</Text>
+        </View>
 
-      {/* Applied Jobs Display Area */}
-      {activeTab === 'appliedJobs' && (
-        <ScrollView style={styles.resultsContainer}>
-          <View style={styles.jobCard}>
-            <Text style={styles.jobTitle}>Software Engineer</Text>
-            <Text>Company: Placeholder Inc.</Text>
-            <Text>Description: Develop and maintain software solutions.</Text>
-            <Text>Date Applied: 2024-12-01</Text>
-            <Text>Contact: Jane Doe</Text>
-            <Text>Email: jane.doe@placeholder.com</Text>
-          </View>
-        </ScrollView>
-      )}
+        <View style={styles.resultCard}>
+          <Text style={styles.resultTitle}>Result Title 2</Text>
+          <Text style={styles.resultSubtitle}>Additional details about the result...</Text>
+        </View>
+
+        {/* Add more result cards as needed */}
+      </ScrollView>
     </View>
   );
 };
@@ -95,82 +46,64 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
-    width: 75,
-    height: 75,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    marginVertical: 20,
+    width: 30,
+    height: 30,
+    marginRight: 4,
   },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  toggleContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
-  toggleButton: {
-    flex: 1,
-    paddingVertical: 15,
-    backgroundColor: '#ddd',
-    alignItems: 'center',
-    borderRadius: 5,
-    marginHorizontal: 5,
-  },
-  activeToggleButton: {
-    backgroundColor: '#007bff',
-  },
-  toggleText: {
-    fontSize: 16,
-    color: '#333',
-  },
-  activeToggleText: {
+  headerText: {
+    fontSize: 20,
     color: '#fff',
     fontWeight: 'bold',
   },
-  searchBar: {
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    paddingHorizontal: 15,
-    marginBottom: 20,
-  },
-  searchButton: {
-    backgroundColor: '#007bff',
-    paddingVertical: 15,
-    borderRadius: 5,
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  searchButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  resultsContainer: {
-    flex: 1,
-    marginTop: 10,
-  },
-  jobCard: {
+  searchBarContainer: {
     backgroundColor: '#fff',
-    padding: 15,
-    borderRadius: 5,
-    marginBottom: 10,
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  searchInput: {
+    height: 40,
     borderWidth: 1,
     borderColor: '#ddd',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    backgroundColor: '#f0f0f0',
+    color: '#333',
   },
-  jobTitle: {
-    fontSize: 18,
+  scrollContainer: {
+    padding: 16,
+  },
+  resultCard: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  resultTitle: {
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 4,
+  },
+  resultSubtitle: {
+    fontSize: 14,
+    color: '#555',
   },
 });
 
-export default Search;
+export default SearchScreen;

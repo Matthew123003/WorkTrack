@@ -6,19 +6,49 @@ interface Interview {
   company: string;
   date: string;
   status: string;
+  stage: string;
+  tyNote: boolean;
+  interviewType: string;
+  interviewLink?: string;
+  interviewContactName?: string;
+  interviewContactEmail?: string;
 }
 
 const InterviewsScreen = () => {
   const [interviews, setInterviews] = useState<Interview[]>([
-    { id: '1', company: 'Company A', date: '2024-12-20', status: 'Scheduled' },
-    { id: '2', company: 'Company B', date: '2024-12-15', status: 'Completed' },
-    { id: '3', company: 'Company C', date: '2024-12-18', status: 'Pending' },
-    { id: '4', company: 'Company D', date: '2024-12-21', status: 'Scheduled' },
-    { id: '5', company: 'Company E', date: '2024-12-22', status: 'Completed' },
-    { id: '6', company: 'Company F', date: '2024-12-23', status: 'Pending' },
-    { id: '7', company: 'Company G', date: '2024-12-24', status: 'Scheduled' },
-    { id: '8', company: 'Company H', date: '2024-12-25', status: 'Completed' },
-    { id: '9', company: 'Company I', date: '2024-12-26', status: 'Pending' },
+    {
+      id: '1',
+      company: 'Company A',
+      date: '2024-12-20',
+      status: 'Scheduled',
+      stage: '1st',
+      tyNote: true,
+      interviewType: 'Zoom',
+      interviewLink: 'https://zoom.us/example',
+      interviewContactName: 'John Doe',
+      interviewContactEmail: 'john.doe@companya.com',
+    },
+    {
+      id: '2',
+      company: 'Company B',
+      date: '2024-12-15',
+      status: 'Completed',
+      stage: 'Final',
+      tyNote: false,
+      interviewType: 'In Person',
+    },
+    {
+      id: '3',
+      company: 'Company C',
+      date: '2024-12-18',
+      status: 'Pending',
+      stage: '2nd',
+      tyNote: true,
+      interviewType: 'Phone',
+      interviewContactName: 'Jane Smith',
+      interviewContactEmail: 'jane.smith@companyc.com',
+    },
+    // Additional sample data can follow...
   ]);
 
   const [sortModalVisible, setSortModalVisible] = useState(false);
@@ -50,6 +80,12 @@ const InterviewsScreen = () => {
       <Text style={styles.companyText}>{item.company}</Text>
       <Text style={styles.dateText}>Date: {item.date}</Text>
       <Text style={styles.statusText}>Status: {item.status}</Text>
+      <Text style={styles.stageText}>Stage: {item.stage}</Text>
+      <Text style={styles.tyNoteText}>Thank You Note: {item.tyNote ? 'Sent' : 'Not Sent'}</Text>
+      <Text style={styles.typeText}>Type: {item.interviewType}</Text>
+      {item.interviewLink && <Text style={styles.linkText}>Link: {item.interviewLink}</Text>}
+      {item.interviewContactName && <Text style={styles.contactNameText}>Contact: {item.interviewContactName}</Text>}
+      {item.interviewContactEmail && <Text style={styles.contactEmailText}>Email: {item.interviewContactEmail}</Text>}
     </View>
   );
 
@@ -118,7 +154,6 @@ const InterviewsScreen = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -162,27 +197,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 16, // Ensures the bottom part is visible when scrolling
   },
-  interviewCard: {
-    backgroundColor: '#fff',
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 12,
-    elevation: 2,
-  },
-  companyText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  dateText: {
-    fontSize: 14,
-    color: '#555',
-    marginBottom: 4,
-  },
-  statusText: {
-    fontSize: 14,
-    color: '#888',
-  },
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -221,6 +235,51 @@ const styles = StyleSheet.create({
   closeButtonText: {
     fontSize: 14,
     color: '#fff',
+  },
+  interviewCard: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  companyText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  dateText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 4,
+  },
+  statusText: {
+    fontSize: 14,
+    color: '#888',
+  },
+  stageText: {
+    fontSize: 14,
+    color: '#555',
+  },
+  tyNoteText: {
+    fontSize: 14,
+    color: '#888',
+  },
+  typeText: {
+    fontSize: 14,
+    color: '#555',
+  },
+  linkText: {
+    fontSize: 14,
+    color: '#888',
+  },
+  contactNameText: {
+    fontSize: 14,
+    color: '#555',
+  },
+  contactEmailText: {
+    fontSize: 14,
+    color: '#888',
   },
 });
 
