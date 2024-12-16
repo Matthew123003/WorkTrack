@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Modal, StyleSheet, ScrollView, Image } from 'react-native';
 
 interface Job {
@@ -19,12 +19,26 @@ const JobsScreen = () => {
     // Add more jobs as needed
   ]);
 
+  // const [jobs, setJobs] = useState<Job[]>([]); // Initially empty array until we fetch jobs
   const [isApplied, setIsApplied] = useState(true); // Toggle for applied/saved jobs
   const [searchText, setSearchText] = useState('');
   const [sortedJobs, setSortedJobs] = useState(jobs);
   const [sortModalVisible, setSortModalVisible] = useState(false);
   const [sortOption, setSortOption] = useState('Job Title');
 
+  useEffect(() => {
+    // TODO: Add your API call here to fetch the job data
+    const fetchJobs = async () => {
+      // NOTE: Make your API call here to get job data and set the state
+      // Example: const response = await fetch('your-api-endpoint');
+      // const data = await response.json();
+      // setJobs(data);
+    };
+
+    fetchJobs(); // Call the function to fetch jobs when the component mounts
+  }, []);
+
+  // Function to ...................
   const filteredJobs = sortedJobs.filter((job) =>
     job.status === (isApplied ? 'applied' : 'saved') &&
     job.title.toLowerCase().includes(searchText.toLowerCase())
