@@ -7,7 +7,7 @@ export default function Jobs() {
   const [isDropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility
 
   // Toggle active tab and fetch job data
-  const handleToggle = (tab: React.SetStateAction<string>) => {
+  const handleToggle = (tab) => {
     setActiveTab(tab);
     // TODO: Add API calls to fetch job data for the selected tab (appliedJobs/savedJobs)
   };
@@ -21,7 +21,7 @@ export default function Jobs() {
   ];
 
   // Handle sort selection
-  const handleSortSelection = (value: React.SetStateAction<string>) => {
+  const handleSortSelection = (value) => {
     setSortOption(value);
     setDropdownVisible(false);
     // TODO: Add sorting logic here based on the selected option
@@ -41,36 +41,16 @@ export default function Jobs() {
       {/* Toggle Button */}
       <View style={styles.toggleContainer}>
         <TouchableOpacity
-          style={[
-            styles.toggleButton,
-            activeTab === 'appliedJobs' && styles.activeToggleButton,
-          ]}
+          style={[styles.toggleButton, activeTab === 'appliedJobs' && styles.activeToggleButton]}
           onPress={() => handleToggle('appliedJobs')}
         >
-          <Text
-            style={[
-              styles.toggleText,
-              activeTab === 'appliedJobs' && styles.activeToggleText,
-            ]}
-          >
-            Applied Jobs
-          </Text>
+          <Text style={[styles.toggleText, activeTab === 'appliedJobs' && styles.activeToggleText]}>Applied Jobs</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[
-            styles.toggleButton,
-            activeTab === 'savedJobs' && styles.activeToggleButton,
-          ]}
+          style={[styles.toggleButton, activeTab === 'savedJobs' && styles.activeToggleButton]}
           onPress={() => handleToggle('savedJobs')}
         >
-          <Text
-            style={[
-              styles.toggleText,
-              activeTab === 'savedJobs' && styles.activeToggleText,
-            ]}
-          >
-            Saved Jobs
-          </Text>
+          <Text style={[styles.toggleText, activeTab === 'savedJobs' && styles.activeToggleText]}>Saved Jobs</Text>
         </TouchableOpacity>
       </View>
 
