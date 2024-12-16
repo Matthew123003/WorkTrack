@@ -108,7 +108,8 @@ const SearchScreen: React.FC = () => {
           placeholderTextColor="#aaa"
         />
       </View>
-
+      
+      
 
       {/* Scrollable Results Section */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
