@@ -1,4 +1,4 @@
-# TekTrack
+# WorkTrack
 Welcome to WorkTrack!
 Your Ultimate Companion for Managing Job Opportunities
 
