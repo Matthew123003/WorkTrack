@@ -14,6 +14,7 @@ const IndexPage = () => {
   // Function to handle login
   const handleLogin = () => {
     // Mock login validation
+    // ADD API CALL HERE TO VALIDATE USER LOGIN
     if (username === 'user' && password === 'password') {
       console.log('Login successful!');
       router.push('/(tabs)/home'); // Navigate to the home screen
