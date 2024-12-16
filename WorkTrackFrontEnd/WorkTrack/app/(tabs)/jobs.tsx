@@ -184,56 +184,6 @@ const JobsScreen = () => {
         {filteredJobs.map(renderJob)}
       </ScrollView>
 
-      {/* Sort Modal
-      <Modal visible={sortModalVisible} transparent={true} animationType="slide">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.modalTitle}>Sort Jobs By</Text>
-
-            <TouchableOpacity
-              style={styles.modalOption}
-              onPress={() => handleSort('Job ID')}
-            >
-              <Text style={styles.modalOptionText}>Job ID</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.modalOption}
-              onPress={() => handleSort('Company')}
-            >
-              <Text style={styles.modalOptionText}>Company</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.modalOption}
-              onPress={() => handleSort('Job Title')}
-            >
-              <Text style={styles.modalOptionText}>Job Title</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.modalOption}
-              onPress={() => handleSort('Date Applied')}
-            >
-              <Text style={styles.modalOptionText}>Date Applied</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.modalOption}
-              onPress={() => handleSort('Remote')}
-            >
-              <Text style={styles.modalOptionText}>Remote</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={() => setSortModalVisible(false)}
-            >
-              <Text style={styles.closeButtonText}>Close</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal> */}
       {/* Sort Modal */}
       <Modal visible={sortModalVisible} transparent={true} animationType="slide">
         <View style={styles.modalOverlay}>
