@@ -7,7 +7,7 @@ export default function Jobs() {
   const [isDropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility
 
   // Toggle active tab and fetch job data
-  const handleToggle = (tab) => {
+  const handleToggle = (tab: React.SetStateAction<string>) => {
     setActiveTab(tab);
     // TODO: Add API calls to fetch job data for the selected tab (appliedJobs/savedJobs)
   };
@@ -21,7 +21,7 @@ export default function Jobs() {
   ];
 
   // Handle sort selection
-  const handleSortSelection = (value) => {
+  const handleSortSelection = (value: React.SetStateAction<string>) => {
     setSortOption(value);
     setDropdownVisible(false);
     // TODO: Add sorting logic here based on the selected option
