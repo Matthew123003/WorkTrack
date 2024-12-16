@@ -37,11 +37,13 @@ export default function SignUp() {
       >
 
         {/* Logo Section */}
-        <Image
-        source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
-        style={styles.logo}
-        resizeMode="contain"
-        />
+        <View style={styles.logoContainer}>
+          <Image
+            source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
 
         {/* Header */}
         <View style={styles.header}>
@@ -58,11 +60,14 @@ export default function SignUp() {
 
         {/* Explanation */}
         <Text style={styles.description}>
-          Please make sure both passwords you input match. See below for password requirements. Once you have added all information, click the "Submit" button. You will then be redirected to the main page to login in with your username and password. Information you enter will be used to help in a new job search, helping you by showing you the jobs closest to you first. 
+          Please make sure both passwords you input match. See below for password requirements. Once you have added all information, click the "Submit" button. You will then be redirected to the main page to login in with your username and password. Information you enter will be used to help in a new job search by showing you the jobs closest to you first. 
         </Text>
         
         {/* Password Requirements */}
         <View style={styles.passwordRequirementsContainer}>
+        <Text style={styles.passwordRequirementText}>
+            PASSWORD REQUIREMENTS
+          </Text>
           <Text style={styles.passwordRequirementText}>
             • At least 8 characters
           </Text>
@@ -209,7 +214,7 @@ const styles = StyleSheet.create({
     padding: 0, // No horizontal padding
   },
   header: {
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 20, // Space below the header
     backgroundColor: '#f5f5f5', // Optional: matches the page background
     alignItems: 'center', // Center-aligns the header content
@@ -269,21 +274,25 @@ const styles = StyleSheet.create({
     color: '#555',
     textAlign: 'center',
     margin: 10,
+    paddingHorizontal: 20, // Add padding for input fields
   },
   passwordRequirementsContainer: {
     width: '100%',
     marginVertical: 15,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   passwordRequirementText: {
     fontSize: 14,
     color: '#555',
     marginBottom: 5,
   },
-  logo: {
-    width: 100, // Adjust the width of your logo
-    height: 100, // Adjust the height of your logo
-    margin: 20, // Space below the logo
-    resizeMode: 'contain',
+  logoContainer: {
+    width: '100%',       // Full width of the screen
+    alignItems: 'center', // Centers the content horizontally
+    marginVertical: 20,   // Space above and below the logo
   },
+  logo: {
+    width: 100,          // Adjust the width of your logo
+    height: 100,         // Adjust the height of your logo
+  },  
 });

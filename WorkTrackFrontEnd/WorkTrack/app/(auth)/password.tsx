@@ -40,6 +40,9 @@ const ResetPasswordPage = () => {
         {/* Password Requirements */}
         <View style={styles.passwordRequirementsContainer}>
           <Text style={styles.passwordRequirementText}>
+            PASSWORD REQUIREMENTS
+          </Text>
+          <Text style={styles.passwordRequirementText}>
             • At least 8 characters
           </Text>
           <Text style={styles.passwordRequirementText}>

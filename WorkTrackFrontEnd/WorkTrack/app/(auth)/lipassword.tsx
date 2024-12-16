@@ -62,14 +62,26 @@ const ResetPasswordPage = () => {
 
           {/* Password Requirements */}
           <View style={styles.passwordRequirementsContainer}>
-            <Text style={styles.passwordRequirementText}>• At least 8 characters
+            <Text style={styles.passwordRequirementText}>
+              PASSWORD REQUIREMENTS
             </Text>
-            <Text style={styles.passwordRequirementText}>• One uppercase letter
+            <Text style={styles.passwordRequirementText}>
+              • At least 8 characters
             </Text>
-            <Text style={styles.passwordRequirementText}>• One lowercase letter
+            <Text style={styles.passwordRequirementText}>
+              • One uppercase letter
             </Text>
-            <Text style={styles.passwordRequirementText}>• One number</Text>
-            <Text style={styles.passwordRequirementText}>• One special character
+            <Text style={styles.passwordRequirementText}>
+              • One lowercase letter
+            </Text>
+            <Text style={styles.passwordRequirementText}>
+              • One number
+              </Text>
+            <Text style={styles.passwordRequirementText}>
+              • One special character
+            </Text>
+            <Text style={styles.passwordRequirementText}>
+              • Cannot be the same as your old password
             </Text>
           </View>
 

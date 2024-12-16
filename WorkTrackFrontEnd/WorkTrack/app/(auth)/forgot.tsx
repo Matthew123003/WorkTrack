@@ -18,6 +18,7 @@ const ForgotPasswordPage = () => {
 
   // Function to handle back navigation
   const handleBack = () => {
+    console.log("Back button pressed");
     router.push("/"); // Adjust route to your desired back page
   };
 
