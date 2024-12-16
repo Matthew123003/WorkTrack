@@ -29,9 +29,11 @@ const SearchScreen: React.FC = () => {
   const [toggleState, setToggleState] = useState<'New Jobs' | 'Applied Jobs'>('New Jobs'); // Toggle state
   const [appliedJobs, setAppliedJobs] = useState<AppliedJob[]>([]); // State for applied jobs
   const [newJobs, setNewJobs] = useState<any[]>([]); // Placeholder state for new jobs
-  const [sortOption, setSortOption] = useState('Date Applied');
+  const [sortOption1, setSortOption1] = useState('Date Applied');
+  const [sortOption2, setSortOption2] = useState('Distance');
   const [sortModalVisible, setSortModalVisible] = useState(false); // State for the sort modal visibility
   const [sortedAppliedJobs, setSortedAppliedJobs] = useState<AppliedJob[]>([]); // State for sorted applied jobs
+  const [sortedNewJobs, setSortedNewJobs] = useState<any[]>([]); // State for sorted new jobs
 
   // Fetch applied jobs from your internal API
   const fetchAppliedJobs = async () => {
@@ -59,8 +61,8 @@ const SearchScreen: React.FC = () => {
     }
   };
 
-  // Handle sorting logic
-  const handleSort = (criteria: string) => {
+  // Handle sorting logic for applied jobs
+  const handleSortAppliedJobs = (criteria: string) => {
     const sortedJobs = [...appliedJobs];
     switch (criteria) {
       case 'Date Applied':
@@ -81,7 +83,23 @@ const SearchScreen: React.FC = () => {
     }
     setSortedAppliedJobs(sortedJobs);
     setSortModalVisible(false);
-    setSortOption(criteria);
+    setSortOption1(criteria);
+  };
+
+  // Handle sorting logic for new jobs
+  const handleSortNewJobs = (criteria: string) => {
+    const sortedJobs = [...newJobs];
+    switch (criteria) {
+      case 'Distance':
+        // Sort logic for Distance (Placeholder)
+        break;
+      case 'Remote':
+        sortedJobs.sort((a, b) => (a.remote ? 1 : 0) - (b.remote ? 1 : 0));
+        break;
+    }
+    setSortedNewJobs(sortedJobs);
+    setSortModalVisible(false);
+    setSortOption2(criteria);
   };
 
   return (
@@ -149,7 +167,17 @@ const SearchScreen: React.FC = () => {
           style={styles.sortButton}
           onPress={() => setSortModalVisible(true)}
         >
-          <Text style={styles.sortButtonText}>Sort By: {sortOption}</Text>
+          <Text style={styles.sortButtonText}>Sort By: {sortOption1}</Text>
+        </TouchableOpacity>
+      )}
+
+      {/* Sort Button for New Jobs */}
+      {toggleState === 'New Jobs' && (
+        <TouchableOpacity
+          style={styles.sortButton}
+          onPress={() => setSortModalVisible(true)}
+        >
+          <Text style={styles.sortButtonText}>Sort By: {sortOption2}</Text>
         </TouchableOpacity>
       )}
 
@@ -205,40 +233,62 @@ const SearchScreen: React.FC = () => {
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Sort Jobs By</Text>
 
-            <TouchableOpacity
-              style={[styles.modalOption, styles.modalOptionBorder]}
-              onPress={() => handleSort('Date Applied')}
-            >
-              <Text style={styles.modalOptionText}>Date Applied</Text>
-            </TouchableOpacity>
+            {toggleState === 'New Jobs' && (
+              <>
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortNewJobs('Distance')}
+                >
+                  <Text style={styles.modalOptionText}>Distance</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.modalOption, styles.modalOptionBorder]}
-              onPress={() => handleSort('Company')}
-            >
-              <Text style={styles.modalOptionText}>Company</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortNewJobs('Remote')}
+                >
+                  <Text style={styles.modalOptionText}>Remote</Text>
+                </TouchableOpacity>
+              </>
+            )}
 
-            <TouchableOpacity
-              style={[styles.modalOption, styles.modalOptionBorder]}
-              onPress={() => handleSort('Job Title')}
-            >
-              <Text style={styles.modalOptionText}>Job Title</Text>
-            </TouchableOpacity>
+            {toggleState === 'Applied Jobs' && (
+              <>
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortAppliedJobs('Date Applied')}
+                >
+                  <Text style={styles.modalOptionText}>Date Applied</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.modalOption, styles.modalOptionBorder]}
-              onPress={() => handleSort('Job ID')}
-            >
-              <Text style={styles.modalOptionText}>Job ID</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortAppliedJobs('Company')}
+                >
+                  <Text style={styles.modalOptionText}>Company</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.modalOption, styles.modalOptionBorder]}
-              onPress={() => handleSort('Remote')}
-            >
-              <Text style={styles.modalOptionText}>Remote</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortAppliedJobs('Job Title')}
+                >
+                  <Text style={styles.modalOptionText}>Job Title</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortAppliedJobs('Job ID')}
+                >
+                  <Text style={styles.modalOptionText}>Job ID</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={[styles.modalOption, styles.modalOptionBorder]}
+                  onPress={() => handleSortAppliedJobs('Remote')}
+                >
+                  <Text style={styles.modalOptionText}>Remote</Text>
+                </TouchableOpacity>
+              </>
+            )}
 
             <TouchableOpacity
               style={styles.closeButton}
