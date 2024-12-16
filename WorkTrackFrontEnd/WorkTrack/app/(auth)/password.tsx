@@ -29,30 +29,29 @@ const ResetPasswordPage = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={60} // Adjust based on header height
-    >
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled" // Dismiss keyboard when tapping outside
-      >
-        <View style={styles.contentContainer}>
-          {/* Logo Section */}
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
           <Image
-            source={require('../../assets/images/react-logo.png')} // Replace with the actual path to your logo
+            source={require('../../assets/images/react-logo.png')}
             style={styles.logo}
-            resizeMode="contain"
           />
+          <Text style={styles.headerText}>Reset Your Password</Text>
+        </View>
+      </View>
 
-          {/* Title */}
-          <Text style={styles.title}>Reset Your Password</Text>
-
-          {/* Explanation */}
+      {/* Scrollable content */}
+      <KeyboardAvoidingView
+        style={styles.scrollContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={60} // Adjust based on header height
+      >
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          {/* Explanatory Paragraph */}
           <Text style={styles.description}>
             Please make sure both passwords you input match. See below for password requirements. Once all requirements
-            have been met, password will be reset, and you will be redirected to the login screen to access the app
+            have been met, the password will be reset, and you will be redirected to the login screen to access the app
             with your new password.
           </Text>
 
@@ -66,7 +65,7 @@ const ResetPasswordPage = () => {
             <Text style={styles.passwordRequirementText}>• One special character</Text>
           </View>
 
-          {/* New Password Input */}
+          {/* New Password input */}
           <TextInput
             style={styles.input}
             placeholder="New Password"
@@ -75,7 +74,7 @@ const ResetPasswordPage = () => {
             onChangeText={setNewPassword}
           />
 
-          {/* Confirm Password Input */}
+          {/* Confirm Password input */}
           <TextInput
             style={styles.input}
             placeholder="Confirm New Password"
@@ -88,33 +87,66 @@ const ResetPasswordPage = () => {
           <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
             <Text style={styles.buttonText}>Reset Password</Text>
           </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
   },
-  scrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#f8f8f8',
   },
   contentContainer: {
     width: '100%',
-    maxWidth: 400, // Limit max width for larger screens
+    maxWidth: 400,
     alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
+  description: {
+    fontSize: 16,
+    color: '#555',
     textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  passwordRequirementsContainer: {
+    width: '100%',
+    marginVertical: 15,
+    paddingHorizontal: 10,
+  },
+  passwordRequirementText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 5,
   },
   input: {
     width: '100%',
@@ -130,35 +162,14 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#6200ee',
     alignItems: 'center',
-    marginTop: 10,
+    marginBottom: 10, // Add margin for spacing between buttons
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  description: {
-    fontSize: 16,
-    color: '#555',
-    textAlign: 'center',
-    marginVertical: 10,
-  },
-  passwordRequirementsContainer: {
-    width: '100%',
-    marginVertical: 15,
-    paddingHorizontal: 10,
-  },
-  passwordRequirementText: {
-    fontSize: 14,
-    color: '#555',
-    marginBottom: 5,
-  },
-  logo: {
-    width: 100, // Adjust the width of your logo
-    height: 100, // Adjust the height of your logo
-    marginBottom: 20, // Space below the logo
   },
 });
 

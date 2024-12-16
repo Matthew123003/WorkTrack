@@ -23,91 +23,115 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
-        <View style={styles.container}>
-          <View style={styles.contentContainer}>
-            {/* Logo Section */}
-            <Image
-              source={require('../../assets/images/react-logo.png')}
-              style={styles.logo}
-              resizeMode="contain"
-            />
-
-            {/* Title */}
-            <Text style={styles.title}>Locate Your Account</Text>
-
-            {/* Explanatory Paragraph */}
-            <Text style={styles.description}>
-              Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
-            </Text>
-
-            {/* Back Button */}
-            <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-              <Text style={styles.backButtonText}>Back</Text>
-            </TouchableOpacity>
-
-            {/* Username input */}
-            <TextInput
-              style={styles.input}
-              placeholder="Username"
-              value={username}
-              onChangeText={setUsername}
-              autoFocus={true} // Automatically focus this input on page load
-            />
-
-            {/* Email input */}
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-              value={email}
-              onChangeText={setEmail}
-            />
-
-            {/* ZIP Code input */}
-            <TextInput
-              style={styles.input}
-              placeholder="ZIP Code"
-              keyboardType="numeric"
-              value={zipcode}
-              onChangeText={setZipcode}
-            />
-
-            {/* Last Name input */}
-            <TextInput
-              style={styles.input}
-              placeholder="Last Name"
-              value={lastName}
-              onChangeText={setLastName}
-            />
-
-            {/* Submit Button */}
-            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-              <Text style={styles.buttonText}>Submit</Text>
-            </TouchableOpacity>
-          </View>
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Locate Your Account</Text>
         </View>
+      </View>
+
+      {/* Scrollable Content with KeyboardAvoidingView */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.contentContainer}
+        >
+          {/* Explanatory Paragraph */}
+          <Text style={styles.description}>
+            Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
+          </Text>
+
+          {/* Back Button */}
+          <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+
+          {/* Username input */}
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            value={username}
+            onChangeText={setUsername}
+            autoFocus={true} // Automatically focus this input on page load
+          />
+
+          {/* Email input */}
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            keyboardType="email-address"
+            value={email}
+            onChangeText={setEmail}
+          />
+
+          {/* ZIP Code input */}
+          <TextInput
+            style={styles.input}
+            placeholder="ZIP Code"
+            keyboardType="numeric"
+            value={zipcode}
+            onChangeText={setZipcode}
+          />
+
+          {/* Last Name input */}
+          <TextInput
+            style={styles.input}
+            placeholder="Last Name"
+            value={lastName}
+            onChangeText={setLastName}
+          />
+
+          {/* Submit Button */}
+          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#f8f8f8',
+  },
+  scrollContainer: {
+    paddingBottom: 16,
+    paddingTop: 20, // Space between header and content
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    padding: 20,
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   contentContainer: {
     width: '100%',
     maxWidth: 400,
     alignItems: 'center',
+    paddingHorizontal: 16,
   },
   title: {
     fontSize: 24,
@@ -120,6 +144,7 @@ const styles = StyleSheet.create({
     color: '#555',
     textAlign: 'center',
     marginBottom: 20,
+    marginTop: 20,
   },
   input: {
     width: '100%',
@@ -135,7 +160,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#6200ee',
     alignItems: 'center',
     marginBottom: 10, // Add margin for spacing between buttons
   },
@@ -148,7 +173,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#6200ee',
     alignItems: 'center',
     marginBottom: 20,
   },
@@ -156,11 +181,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  logo: {
-    width: 100, // Adjust the width of your logo
-    height: 100, // Adjust the height of your logo
-    marginBottom: 20, // Space below the logo
   },
 });
 

@@ -21,79 +21,62 @@ const ResetPasswordPage = () => {
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
       console.log('Password reset successful!');
-      router.push('/(tabs)/profile'); // Navigate to the profile page
+      router.push('/(tabs)/profile'); // Navigate to the home page
     } else {
       console.log('Passwords do not match!');
+      // Optionally, display an error message here
     }
   };
 
-  const handleBackPress = () => {
-    router.push('/(tabs)/profile'); // Navigate back to the profile screen
-    console.log('Back button pressed');
+  // Function to handle back navigation
+  const handleBack = () => {
+    console.log("Back button pressed");
+    router.push("/(tabs)/profile"); // Adjust route to your desired back page
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={60} // Adjust based on your app's layout
-    >
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled"
-      >
-        <View style={styles.contentContainer}>
-          {/* Logo at the top with padding */}
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
           <Image
             source={require('../../assets/images/react-logo.png')}
             style={styles.logo}
           />
+          <Text style={styles.headerText}>Reset Your Password</Text>
+        </View>
+      </View>
 
-          {/* Title */}
-          <Text style={styles.title}>Reset Your Password</Text>
+      {/* Scrollable content */}
+      <KeyboardAvoidingView
+        style={styles.scrollContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={60} // Adjust based on header height
+      >
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          {/* Back Button */}
+          <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
 
-          {/* Explanation */}
+          {/* Explanatory Paragraph */}
           <Text style={styles.description}>
-            Please make sure both passwords you input match. See below for
-            password requirements. Once all requirements have been met,
-            password will be reset and you will be redirected back to the
-            profile screen to continue using the app.
+            Please make sure both passwords you input match. See below for password requirements. Once all requirements
+            have been met, the password will be reset, and you will be redirected to the login screen to access the app
+            with your new password.
           </Text>
 
           {/* Password Requirements */}
           <View style={styles.passwordRequirementsContainer}>
-            <Text style={styles.passwordRequirementText}>
-              PASSWORD REQUIREMENTS
-            </Text>
-            <Text style={styles.passwordRequirementText}>
-              • At least 8 characters
-            </Text>
-            <Text style={styles.passwordRequirementText}>
-              • One uppercase letter
-            </Text>
-            <Text style={styles.passwordRequirementText}>
-              • One lowercase letter
-            </Text>
-            <Text style={styles.passwordRequirementText}>
-              • One number
-              </Text>
-            <Text style={styles.passwordRequirementText}>
-              • One special character
-            </Text>
-            <Text style={styles.passwordRequirementText}>
-              • Cannot be the same as your old password
-            </Text>
+            <Text style={styles.passwordRequirementText}>PASSWORD REQUIREMENTS</Text>
+            <Text style={styles.passwordRequirementText}>• At least 8 characters</Text>
+            <Text style={styles.passwordRequirementText}>• One uppercase letter</Text>
+            <Text style={styles.passwordRequirementText}>• One lowercase letter</Text>
+            <Text style={styles.passwordRequirementText}>• One number</Text>
+            <Text style={styles.passwordRequirementText}>• One special character</Text>
           </View>
 
-          {/* Back Button */}
-          <TouchableOpacity
-            style={[styles.button, styles.backButton]}
-            onPress={handleBackPress}
-          >
-            <Text style={styles.buttonText}>Back</Text>
-          </TouchableOpacity>
-
-          {/* New Password Input */}
+          {/* New Password input */}
           <TextInput
             style={styles.input}
             placeholder="New Password"
@@ -102,7 +85,7 @@ const ResetPasswordPage = () => {
             onChangeText={setNewPassword}
           />
 
-          {/* Confirm Password Input */}
+          {/* Confirm Password input */}
           <TextInput
             style={styles.input}
             placeholder="Confirm New Password"
@@ -112,46 +95,69 @@ const ResetPasswordPage = () => {
           />
 
           {/* Reset Password Button */}
-          <TouchableOpacity
-            style={[styles.button, styles.reset]}
-            onPress={handleResetPassword}
-          >
+          <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
             <Text style={styles.buttonText}>Reset Password</Text>
           </TouchableOpacity>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
   },
-  scrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#f8f8f8',
   },
   contentContainer: {
     width: '100%',
-    maxWidth: 400, // Limit max width for larger screens
+    maxWidth: 400,
     alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
-  logo: {
-    width: 75,
-    height: 75,
-    resizeMode: 'contain',
-    marginTop: 50,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
+  description: {
+    fontSize: 16,
+    color: '#555',
     textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  passwordRequirementsContainer: {
+    width: '100%',
+    marginVertical: 15,
+    paddingHorizontal: 10,
+  },
+  passwordRequirementText: {
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 5,
   },
   input: {
     width: '100%',
@@ -167,37 +173,28 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     borderRadius: 5,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#6200ee',
     alignItems: 'center',
-  },
-  backButton: {
-    backgroundColor: '#007BFF',
-    marginTop: 20,
-    marginBottom: 50,
+    marginBottom: 10, // Add margin for spacing between buttons
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
-  description: {
-    fontSize: 16,
-    color: '#555',
-    textAlign: 'center',
-    margin: 10,
-  },
-  passwordRequirementsContainer: {
+  backButton: {
     width: '100%',
-    marginVertical: 15,
-    paddingHorizontal: 10,
+    paddingVertical: 15,
+    borderRadius: 5,
+    backgroundColor: '#6200ee',
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 20,
   },
-  passwordRequirementText: {
-    fontSize: 14,
-    color: '#555',
-    marginBottom: 5,
-  },
-  reset: {
-    marginTop: 45,
+  backButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
