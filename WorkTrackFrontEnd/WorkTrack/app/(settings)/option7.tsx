@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import axios from 'axios'; // Import Axios for API requests
 
 export default function Option7() {
   const router = useRouter(); // Initialize router for navigation
