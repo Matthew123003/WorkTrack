@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Modal, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Modal } from 'react-native';
 
 export default function Jobs() {
-  const [activeTab, setActiveTab] = useState('appliedJobs'); // State to track the active toggle
-  const [sortOption, setSortOption] = useState('date'); // State to track selected sort option
-  const [isDropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility
+  const [activeTab, setActiveTab] = useState('appliedJobs'); // Active toggle
+  const [sortOption, setSortOption] = useState('date'); // Selected sort option
+  const [isModalVisible, setModalVisible] = useState(false); // Modal visibility
 
-  // Toggle active tab and fetch job data
+  // Toggle active tab
   const handleToggle = (tab: React.SetStateAction<string>) => {
     setActiveTab(tab);
-    // TODO: Add API calls to fetch job data for the selected tab (appliedJobs/savedJobs)
+    // TODO: Add API calls to fetch job data for the selected tab
   };
 
-  // Options for sorting
+  // Sort options
   const sortOptions = [
     { label: 'Date Applied', value: 'date' },
     { label: 'Company Name', value: 'company' },
@@ -21,75 +21,84 @@ export default function Jobs() {
   ];
 
   // Handle sort selection
-  const handleSortSelection = (value: React.SetStateAction<string>) => {
+  const handleSortSelection = (value: string) => {
     setSortOption(value);
-    setDropdownVisible(false);
-    // TODO: Add sorting logic here based on the selected option
+    setModalVisible(false);
+    // TODO: Add sorting logic
   };
 
   return (
     <View style={styles.container}>
-      {/* Logo at the top */}
+      {/* Logo */}
       <Image 
         source={require('../../assets/images/react-logo.png')} 
         style={styles.logo} 
       />
 
-      {/* Welcome text */}
+      {/* Welcome Text */}
       <Text style={styles.text}>Welcome to the Jobs Screen!</Text>
 
-      {/* Toggle Button */}
+      {/* Toggle Buttons */}
       <View style={styles.toggleContainer}>
         <TouchableOpacity
           style={[styles.toggleButton, activeTab === 'appliedJobs' && styles.activeToggleButton]}
           onPress={() => handleToggle('appliedJobs')}
         >
-          <Text style={[styles.toggleText, activeTab === 'appliedJobs' && styles.activeToggleText]}>Applied Jobs</Text>
+          <Text style={[styles.toggleText, activeTab === 'appliedJobs' && styles.activeToggleText]}>
+            Applied Jobs
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.toggleButton, activeTab === 'savedJobs' && styles.activeToggleButton]}
           onPress={() => handleToggle('savedJobs')}
         >
-          <Text style={[styles.toggleText, activeTab === 'savedJobs' && styles.activeToggleText]}>Saved Jobs</Text>
+          <Text style={[styles.toggleText, activeTab === 'savedJobs' && styles.activeToggleText]}>
+            Saved Jobs
+          </Text>
         </TouchableOpacity>
       </View>
 
-      {/* Sort dropdown */}
-      <View style={styles.sortContainer}>
-        <TouchableOpacity
-          style={styles.sortButton}
-          onPress={() => setDropdownVisible(true)}
-        >
-          <Text style={styles.sortButtonText}>Sort by: {sortOptions.find(option => option.value === sortOption)?.label}</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Sort Button */}
+      <TouchableOpacity style={styles.sortButton} onPress={() => setModalVisible(true)}>
+        <Text style={styles.sortButtonText}>
+          Sort by: {sortOptions.find(option => option.value === sortOption)?.label}
+        </Text>
+      </TouchableOpacity>
 
-      {/* Dropdown Modal */}
+      {/* Modal for Sorting Options */}
       <Modal
-        visible={isDropdownVisible}
+        visible={isModalVisible}
         transparent
-        animationType="fade"
-        onRequestClose={() => setDropdownVisible(false)}
+        animationType="slide"
+        onRequestClose={() => setModalVisible(false)}
       >
-        <TouchableOpacity
-          style={styles.modalOverlay}
-          onPress={() => setDropdownVisible(false)}
-        >
-          <View style={styles.dropdownList}>
-            <FlatList
-              data={sortOptions}
-              keyExtractor={(item) => item.value}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  style={styles.dropdownItem}
-                  onPress={() => handleSortSelection(item.value)}
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalHeader}>Sort Options</Text>
+            {sortOptions.map((option) => (
+              <TouchableOpacity
+                key={option.value}
+                style={[
+                  styles.modalOption,
+                  sortOption === option.value && styles.selectedOption,
+                ]}
+                onPress={() => handleSortSelection(option.value)}
+              >
+                <Text
+                  style={[
+                    styles.modalOptionText,
+                    sortOption === option.value && styles.selectedOptionText,
+                  ]}
                 >
-                  <Text>{item.label}</Text>
-                </TouchableOpacity>
-              )}
-            />
+                  {option.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
+            <TouchableOpacity style={styles.modalCloseButton} onPress={() => setModalVisible(false)}>
+              <Text style={styles.modalCloseButtonText}>Close</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </View>
       </Modal>
 
       {/* Display Area */}
@@ -121,15 +130,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 75,
     height: 75,
-    resizeMode: 'contain',
     alignSelf: 'center',
     marginVertical: 20,
   },
   text: {
     fontSize: 18,
-    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 20,
+    fontWeight: 'bold',
   },
   toggleContainer: {
     flexDirection: 'row',
@@ -140,8 +148,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: '#ddd',
     alignItems: 'center',
-    borderRadius: 5,
     marginHorizontal: 5,
+    borderRadius: 5,
   },
   activeToggleButton: {
     backgroundColor: '#007bff',
@@ -152,38 +160,62 @@ const styles = StyleSheet.create({
   },
   activeToggleText: {
     color: '#fff',
-    fontWeight: 'bold',
-  },
-  sortContainer: {
-    marginBottom: 20,
-    alignItems: 'center',
   },
   sortButton: {
-    backgroundColor: '#00FF00',
-    padding: 10,
+    padding: 15,
+    backgroundColor: '#007bff',
     borderRadius: 5,
-    width: '100%',
+    marginBottom: 20,
   },
   sortButtonText: {
     color: '#fff',
+    textAlign: 'center',
     fontSize: 16,
   },
   modalOverlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
-  dropdownList: {
+  modalContent: {
     width: '80%',
     backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 10,
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
   },
-  dropdownItem: {
-    padding: 10,
+  modalHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 15,
+  },
+  modalOption: {
+    paddingVertical: 10,
+    width: '100%',
+    alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+  },
+  selectedOption: {
+    backgroundColor: '#007bff',
+  },
+  modalOptionText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  selectedOptionText: {
+    color: '#fff',
+  },
+  modalCloseButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#ddd',
+    borderRadius: 5,
+  },
+  modalCloseButtonText: {
+    color: '#333',
+    fontSize: 16,
   },
   jobsContainer: {
     flex: 1,
@@ -194,12 +226,9 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 5,
     marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
   },
   jobTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
   },
 });
