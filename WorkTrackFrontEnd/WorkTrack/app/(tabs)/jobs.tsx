@@ -1,234 +1,309 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Modal, StyleSheet, ScrollView, Image } from 'react-native';
 
-export default function Jobs() {
-  const [activeTab, setActiveTab] = useState('appliedJobs'); // Active toggle
-  const [sortOption, setSortOption] = useState('date'); // Selected sort option
-  const [isModalVisible, setModalVisible] = useState(false); // Modal visibility
+interface Job {
+  id: string;
+  title: string;
+  company: string;
+  status: string;
+  dateApplied: string;
+  remote: boolean;
+}
 
-  // Toggle active tab
-  const handleToggle = (tab: React.SetStateAction<string>) => {
-    setActiveTab(tab);
-    // TODO: Add API calls to fetch job data for the selected tab
+const JobsScreen = () => {
+  const [jobs, setJobs] = useState<Job[]>([
+    { id: '1', title: 'Software Engineer', company: 'TechCorp', status: 'applied', dateApplied: '2024-01-01', remote: true },
+    { id: '2', title: 'Product Manager', company: 'BizInc', status: 'saved', dateApplied: '2024-02-01', remote: false },
+    { id: '3', title: 'Data Scientist', company: 'DataWorks', status: 'applied', dateApplied: '2024-03-01', remote: true },
+    { id: '4', title: 'UX Designer', company: 'DesignLab', status: 'saved', dateApplied: '2024-04-01', remote: false },
+    // Add more jobs as needed
+  ]);
+
+  const [isApplied, setIsApplied] = useState(true); // Toggle for applied/saved jobs
+  const [searchText, setSearchText] = useState('');
+  const [sortedJobs, setSortedJobs] = useState(jobs);
+  const [sortModalVisible, setSortModalVisible] = useState(false);
+  const [sortOption, setSortOption] = useState('Job Title');
+
+  const filteredJobs = sortedJobs.filter((job) =>
+    job.status === (isApplied ? 'applied' : 'saved') &&
+    job.title.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  // Sorting functionality
+  const handleSort = (option: string) => {
+    let sorted = [...filteredJobs];
+    switch (option) {
+      case 'Job ID':
+        sorted = sorted.sort((a, b) => a.id.localeCompare(b.id));
+        break;
+      case 'Company':
+        sorted = sorted.sort((a, b) => a.company.localeCompare(b.company));
+        break;
+      case 'Job Title':
+        sorted = sorted.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'Date Applied':
+        sorted = sorted.sort((a, b) => new Date(a.dateApplied).getTime() - new Date(b.dateApplied).getTime());
+        break;
+      case 'Remote':
+        sorted = sorted.sort((a, b) => (a.remote === b.remote ? 0 : a.remote ? -1 : 1));
+        break;
+      default:
+        break;
+    }
+    setSortedJobs(sorted);
+    setSortOption(option);
+    setSortModalVisible(false);
   };
 
-  // Sort options
-  const sortOptions = [
-    { label: 'Date Applied', value: 'date' },
-    { label: 'Company Name', value: 'company' },
-    { label: 'Job Title', value: 'title' },
-    { label: 'Remote', value: 'remote' },
-  ];
-
-  // Handle sort selection
-  const handleSortSelection = (value: string) => {
-    setSortOption(value);
-    setModalVisible(false);
-    // TODO: Add sorting logic
-  };
+  const renderJob = (item: Job) => (
+    <View style={styles.jobCard} key={item.id}>
+      <Text style={styles.jobTitle}>{item.title}</Text>
+      <Text style={styles.jobStatus}>Status: {item.status}</Text>
+      <Text style={styles.jobCompany}>Company: {item.company}</Text>
+      <Text style={styles.jobDateApplied}>Date Applied: {item.dateApplied}</Text>
+      <Text style={styles.jobRemote}>Remote: {item.remote ? 'Yes' : 'No'}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      {/* Logo */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
+      {/* Header Section */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Jobs</Text>
+        </View>
+      </View>
 
-      {/* Welcome Text */}
-      <Text style={styles.text}>Welcome to the Jobs Screen!</Text>
-
-      {/* Toggle Buttons */}
-      <View style={styles.toggleContainer}>
+      {/* Toggle Buttons for Applied / Saved Jobs */}
+      <View style={styles.toggleButtonContainer}>
         <TouchableOpacity
-          style={[styles.toggleButton, activeTab === 'appliedJobs' && styles.activeToggleButton]}
-          onPress={() => handleToggle('appliedJobs')}
+          style={[styles.toggleButton, isApplied && styles.activeButton]}
+          onPress={() => setIsApplied(true)}
         >
-          <Text style={[styles.toggleText, activeTab === 'appliedJobs' && styles.activeToggleText]}>
-            Applied Jobs
-          </Text>
+          <Text style={styles.toggleButtonText}>Applied Jobs</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.toggleButton, activeTab === 'savedJobs' && styles.activeToggleButton]}
-          onPress={() => handleToggle('savedJobs')}
+          style={[styles.toggleButton, !isApplied && styles.activeButton]}
+          onPress={() => setIsApplied(false)}
         >
-          <Text style={[styles.toggleText, activeTab === 'savedJobs' && styles.activeToggleText]}>
-            Saved Jobs
-          </Text>
+          <Text style={styles.toggleButtonText}>Saved Jobs</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Sort Button */}
-      <TouchableOpacity style={styles.sortButton} onPress={() => setModalVisible(true)}>
-        <Text style={styles.sortButtonText}>
-          Sort by: {sortOptions.find(option => option.value === sortOption)?.label}
-        </Text>
+      {/* Search Bar */}
+      <TextInput
+        placeholder="Search jobs"
+        value={searchText}
+        onChangeText={(text) => setSearchText(text)}
+        style={styles.searchBar}
+      />
+
+      {/* Sort Button Section */}
+      <TouchableOpacity
+        style={styles.sortButton}
+        onPress={() => setSortModalVisible(true)}
+      >
+        <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
       </TouchableOpacity>
 
-      {/* Modal for Sorting Options */}
-      <Modal
-        visible={isModalVisible}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setModalVisible(false)}
-      >
+      {/* Scrollable Area for Jobs */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {filteredJobs.map(renderJob)}
+      </ScrollView>
+
+      {/* Sort Modal */}
+      <Modal visible={sortModalVisible} transparent={true} animationType="slide">
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalHeader}>Sort Options</Text>
-            {sortOptions.map((option) => (
-              <TouchableOpacity
-                key={option.value}
-                style={[
-                  styles.modalOption,
-                  sortOption === option.value && styles.selectedOption,
-                ]}
-                onPress={() => handleSortSelection(option.value)}
-              >
-                <Text
-                  style={[
-                    styles.modalOptionText,
-                    sortOption === option.value && styles.selectedOptionText,
-                  ]}
-                >
-                  {option.label}
-                </Text>
-              </TouchableOpacity>
-            ))}
-            <TouchableOpacity style={styles.modalCloseButton} onPress={() => setModalVisible(false)}>
-              <Text style={styles.modalCloseButtonText}>Close</Text>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Sort Jobs By</Text>
+
+            <TouchableOpacity
+              style={styles.modalOption}
+              onPress={() => handleSort('Job ID')}
+            >
+              <Text style={styles.modalOptionText}>Job ID</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.modalOption}
+              onPress={() => handleSort('Company')}
+            >
+              <Text style={styles.modalOptionText}>Company</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.modalOption}
+              onPress={() => handleSort('Job Title')}
+            >
+              <Text style={styles.modalOptionText}>Job Title</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.modalOption}
+              onPress={() => handleSort('Date Applied')}
+            >
+              <Text style={styles.modalOptionText}>Date Applied</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.modalOption}
+              onPress={() => handleSort('Remote')}
+            >
+              <Text style={styles.modalOptionText}>Remote</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setSortModalVisible(false)}
+            >
+              <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-
-      {/* Display Area */}
-      <ScrollView style={styles.jobsContainer}>
-        {activeTab === 'appliedJobs' ? (
-          <View style={styles.jobCard}>
-            <Text style={styles.jobTitle}>Software Developer</Text>
-            <Text>Company: Tech Corp</Text>
-            <Text>Status: Applied on 2024-12-01</Text>
-          </View>
-        ) : (
-          <View style={styles.jobCard}>
-            <Text style={styles.jobTitle}>UI/UX Designer</Text>
-            <Text>Company: Design Studio</Text>
-            <Text>Status: Saved</Text>
-          </View>
-        )}
-      </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
-    width: 75,
-    height: 75,
-    alignSelf: 'center',
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  toggleButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginVertical: 20,
   },
-  text: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 20,
-    fontWeight: 'bold',
-  },
-  toggleContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
   toggleButton: {
-    flex: 1,
-    paddingVertical: 15,
+    padding: 12,
     backgroundColor: '#ddd',
-    alignItems: 'center',
-    marginHorizontal: 5,
-    borderRadius: 5,
+    borderRadius: 8,
   },
-  activeToggleButton: {
-    backgroundColor: '#007bff',
+  activeButton: {
+    backgroundColor: '#6200ee',
   },
-  toggleText: {
+  toggleButtonText: {
     fontSize: 16,
-    color: '#333',
-  },
-  activeToggleText: {
     color: '#fff',
+  },
+  searchBar: {
+    padding: 10,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    marginBottom: 10,
   },
   sortButton: {
-    padding: 15,
-    backgroundColor: '#007bff',
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  sortButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  modalOverlay: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  },
-  modalContent: {
-    width: '80%',
-    backgroundColor: '#fff',
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  modalHeader: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
-  },
-  modalOption: {
-    paddingVertical: 10,
+    backgroundColor: '#6200ee',
+    paddingVertical: 12,
     width: '100%',
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
-  selectedOption: {
-    backgroundColor: '#007bff',
-  },
-  modalOptionText: {
+  sortButtonText: {
     fontSize: 16,
-    color: '#333',
-  },
-  selectedOptionText: {
     color: '#fff',
+    fontWeight: '600',
   },
-  modalCloseButton: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: '#ddd',
-    borderRadius: 5,
-  },
-  modalCloseButtonText: {
-    color: '#333',
-    fontSize: 16,
-  },
-  jobsContainer: {
-    flex: 1,
-    marginTop: 10,
+  scrollContainer: {
+    paddingBottom: 16,
   },
   jobCard: {
     backgroundColor: '#fff',
-    padding: 15,
-    borderRadius: 5,
-    marginBottom: 10,
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
   },
   jobTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  jobStatus: {
+    fontSize: 14,
+    color: '#888',
+  },
+  jobCompany: {
+    fontSize: 14,
+    color: '#888',
+  },
+  jobDateApplied: {
+    fontSize: 14,
+    color: '#888',
+  },
+  jobRemote: {
+    fontSize: 14,
+    color: '#888',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+  },
+  modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  modalOption: {
+    padding: 12,
+    width: '100%',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  modalOptionText: {
+    fontSize: 16,
+  },
+  closeButton: {
+    marginTop: 16,
+    backgroundColor: '#6200ee',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  closeButtonText: {
+    fontSize: 14,
+    color: '#fff',
   },
 });
+
+export default JobsScreen;

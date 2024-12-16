@@ -13,6 +13,12 @@ const InterviewsScreen = () => {
     { id: '1', company: 'Company A', date: '2024-12-20', status: 'Scheduled' },
     { id: '2', company: 'Company B', date: '2024-12-15', status: 'Completed' },
     { id: '3', company: 'Company C', date: '2024-12-18', status: 'Pending' },
+    { id: '4', company: 'Company D', date: '2024-12-21', status: 'Scheduled' },
+    { id: '5', company: 'Company E', date: '2024-12-22', status: 'Completed' },
+    { id: '6', company: 'Company F', date: '2024-12-23', status: 'Pending' },
+    { id: '7', company: 'Company G', date: '2024-12-24', status: 'Scheduled' },
+    { id: '8', company: 'Company H', date: '2024-12-25', status: 'Completed' },
+    { id: '9', company: 'Company I', date: '2024-12-26', status: 'Pending' },
   ]);
 
   const [sortModalVisible, setSortModalVisible] = useState(false);
@@ -53,7 +59,7 @@ const InterviewsScreen = () => {
       <View style={styles.header}>
         <View style={styles.leftHeader}>
           <Image
-            source={require('/Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/assets/images/react-logo.png')}
+            source={require('../../assets/images/react-logo.png')}
             style={styles.logo}
           />
           <Text style={styles.headerText}>Interviews</Text>
