@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function Option5() {
@@ -9,51 +9,91 @@ export default function Option5() {
     router.push("/(auth)/settings");
   };
 
-  return (
+return (
     <View style={styles.container}>
-      {/* Logo at the top with padding */}
-      <Image 
-        source={require('../../assets/images/react-logo.png')} 
-        style={styles.logo} 
-      />
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Option 5</Text>
+        </View>
+      </View>
 
-      {/* Welcome text */}
-      <Text style={styles.text}>Welcome to the Option 5 Screen!</Text>
-
-      {/* Back Button */}
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+       
+       {/* Back Button */}
       <TouchableOpacity style={styles.backButton} onPress={handleBack}>
         <Text style={styles.backButtonText}>Back</Text>
       </TouchableOpacity>
+
+
+      </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, // Make the container fill the entire screen
-    alignItems: 'center', // Center content horizontally
-    justifyContent: 'center', // Center content vertically
-    backgroundColor: '#f5f5f5', // Add a light background color for consistency
-    padding: 20, // Add some padding around the content
+    flex: 1,
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   logo: {
-    width: 75, // Set desired width for the logo
-    height: 75, // Set desired height for the logo
-    resizeMode: 'contain', // Keep the aspect ratio intact
-    marginTop: 50, // Add padding from the top of the phone
-    marginBottom: 20, // Add space between the logo and the welcome text
+    width: 30,
+    height: 30,
+    marginRight: 4,
   },
-  text: {
+  headerText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    paddingBottom: 16,
+    paddingTop: 20, // Space between header and content
+  },
+  section: {
+    marginBottom: 16,
+    paddingHorizontal: 16,
+  },
+  sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 20, // Add space between the text and the back button
+    color: '#333',
+    marginBottom: 8,
+  },
+  contentCard: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  contentText: {
+    fontSize: 16,
+    color: '#333',
   },
   backButton: {
     width: '100%', // Full width for consistency
-    maxWidth: 300, // Limit the width for larger screens
+    //maxWidth: 300, // Limit the width for larger screens
     paddingVertical: 15, // Vertical padding for the button
     borderRadius: 5, // Rounded corners
-    backgroundColor: '#6c757d', // Gray background for the button
+    backgroundColor: '#6200ee', // Gray background for the button
     alignItems: 'center', // Center the text inside the button
     marginTop: 20, // Add space above the button
   },
