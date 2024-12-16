@@ -2,7 +2,7 @@
 // React Native screen for displaying and managing interviews, styled and implemented similarly to the Jobs screen.
 
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Modal, StyleSheet, Image } from 'react-native';
 
 interface Interview {
   id: string;
@@ -55,14 +55,23 @@ const InterviewsScreen = () => {
     <View style={styles.container}>
       {/* Header Section */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Interviews</Text>
-        <TouchableOpacity
-          style={styles.sortButton}
-          onPress={() => setSortModalVisible(true)}
-        >
-          <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
-        </TouchableOpacity>
-      </View>
+  {/* Left-aligned group: Logo and "Interviews" text */}
+  <View style={styles.leftHeader}>
+    <Image
+      source={require('/Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/assets/images/react-logo.png')}
+      style={styles.logo}
+    />
+    <Text style={styles.headerText}>Interviews</Text>
+  </View>
+
+  {/* Right-aligned Sort button */}
+  <TouchableOpacity
+    style={styles.sortButton}
+    onPress={() => setSortModalVisible(true)}
+  >
+    <Text style={styles.sortButtonText}>Sort by: {sortOption}</Text>
+  </TouchableOpacity>
+</View>
 
       {/* Interviews List */}
       <FlatList
@@ -128,6 +137,15 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#6200ee',
   },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center', // Vertically aligns the logo and text
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4, // Small space between the logo and "Interviews"
+  },
   headerText: {
     fontSize: 20,
     color: '#fff',
@@ -143,7 +161,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#6200ee',
     fontWeight: '600',
-  },
+  },    
   listContainer: {
     padding: 16,
   },
