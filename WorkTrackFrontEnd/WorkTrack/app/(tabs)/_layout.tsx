@@ -25,6 +25,17 @@ export default function TabLayout() {
         }}
       />
 
+      {/* Add Job Tab */}
+      <Tabs.Screen
+        name="addJob"
+        options={{
+          title: 'Add Job',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'add-circle' : 'add-circle-outline'} color={color} />
+          ),
+        }}
+      />
+
       {/* Jobs Tab */}
       <Tabs.Screen
         name="jobs"

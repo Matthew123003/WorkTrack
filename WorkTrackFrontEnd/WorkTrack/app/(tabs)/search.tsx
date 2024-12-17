@@ -39,8 +39,34 @@ const SearchScreen: React.FC = () => {
   const fetchAppliedJobs = async () => {
     // MAKE INTERNAL API CALL HERE TO FETCH APPLIED JOBS
     setAppliedJobs([
-      { jobInfoId: 1, company: 'Company A', jobTitle: 'Job A', dateApplied: '2024-12-01' },
-      { jobInfoId: 2, company: 'Company B', jobTitle: 'Job B', dateApplied: '2024-12-05' },
+      {
+        jobInfoId: 1,
+        company: 'Company A',
+        jobTitle: 'Software Engineer',
+        jobUrlLink: 'https://companyA.com/careers/software-engineer',
+        jobDesc: 'Responsible for developing and maintaining scalable web applications.',
+        dateApplied: '2024-12-01',
+        contactName: 'Jane Doe',
+        contactEmail: 'jane.doe@companya.com',
+        contactNumber: '555-123-4567',
+        referral: 'Referred by John Smith',
+        remote: true,
+        gotResponse: false,
+      },
+      {
+        jobInfoId: 2,
+        company: 'Company B',
+        jobTitle: 'Frontend Developer',
+        jobUrlLink: 'https://companyB.com/jobs/frontend-developer',
+        jobDesc: 'Focus on building user-friendly interfaces and enhancing user experience.',
+        dateApplied: '2024-12-05',
+        contactName: 'Mark Johnson',
+        contactEmail: 'mark.johnson@companyb.com',
+        contactNumber: '555-987-6543',
+        referral: 'Career Fair',
+        remote: false,
+        gotResponse: true,
+      },
       // Add more job entries here
     ]);
   };
