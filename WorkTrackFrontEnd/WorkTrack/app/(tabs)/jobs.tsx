@@ -18,7 +18,7 @@ interface Job {
 
 const JobsScreen = () => {
   const [jobs, setJobs] = useState<Job[]>([]); // STATE FOR APPLIED JOBS
-  const [savedJobs, setSavedJobs] = useState<any[]>([]); // STATE FOR SAVED JOBS
+  const [savedJobs, setSavedJobs] = useState<any[]>([]); // STATE FOR SAVED
   const [isApplied, setIsApplied] = useState(true);
   const [searchText, setSearchText] = useState('');
   const [sortedJobs, setSortedJobs] = useState(jobs);
@@ -110,6 +110,14 @@ const JobsScreen = () => {
     jobs view (e.g., within the onPress handler for the "Saved Jobs"
     button) to fetch saved jobs from an external API.
   */}
+
+  useEffect(() => {
+    setSortedJobs(
+      jobs.filter((job) =>
+        job.jobTitle.toLowerCase().includes(searchText.toLowerCase())
+      )
+    );
+  }, [jobs, searchText]);
 
   const filteredJobs = sortedJobs.filter((job) =>
     job.jobTitle.toLowerCase().includes(searchText.toLowerCase())
