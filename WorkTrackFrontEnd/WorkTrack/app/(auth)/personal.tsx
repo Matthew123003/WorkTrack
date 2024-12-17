@@ -146,7 +146,7 @@ export default function Personal() {
           {/* Submit Button */}
           <TouchableOpacity 
             style={[styles.button, styles.submitButton]} 
-            onPress={() => {handleSubmit}}
+            onPress={handleSubmit}
           >
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
