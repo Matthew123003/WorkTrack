@@ -18,12 +18,12 @@ interface Job {
 
 const JobsScreen = () => {
   const [jobs, setJobs] = useState<Job[]>([]); // STATE FOR APPLIED JOBS
-  const [savedJobs, setSavedJobs] = useState<any[]>([]); // STATE FOR SAVED
   const [isApplied, setIsApplied] = useState(true);
   const [searchText, setSearchText] = useState('');
   const [sortedJobs, setSortedJobs] = useState(jobs);
   const [sortModalVisible, setSortModalVisible] = useState(false);
   const [sortOption, setSortOption] = useState('Job Title');
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null); // To track the job being updated
 
   useEffect(() => {
     const fetchAppliedJobs = async () => {
@@ -95,7 +95,7 @@ const JobsScreen = () => {
   }, []);
   
   // Example function to fetch saved jobs from an external API
-  const fetchSavedJobs = async () => {
+  const updateJobs = async () => {
     // TODO: Fetch saved job data from an external API here.
     // Use a GET request to the external API endpoint for saved jobs.
     // Example: const response = await fetch('https://external-api.com/saved-jobs');
@@ -149,6 +149,10 @@ const JobsScreen = () => {
     setSortModalVisible(false);
   };
 
+  const handleJobSelection = (job: Job) => {
+    setSelectedJob(job);
+  };
+
   const renderJob = (item: Job) => (
     <View style={styles.jobCard} key={item.jobInfoId}>
       <Text style={styles.jobTitle}>{item.jobTitle}</Text>
@@ -188,7 +192,7 @@ const JobsScreen = () => {
           style={[styles.toggleButton, !isApplied && styles.activeButton]}
           onPress={() => setIsApplied(false)}
         >
-          <Text style={styles.toggleButtonText}>Saved Jobs</Text>
+          <Text style={styles.toggleButtonText}>Update Jobs</Text>
         </TouchableOpacity>
       </View>
 
@@ -212,6 +216,62 @@ const JobsScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {filteredJobs.map(renderJob)}
       </ScrollView>
+
+      {/* Job Update Form - when a job is selected */}
+      {selectedJob && (
+        <View style={styles.updateJobContainer}>
+          <Text style={styles.updateJobTitle}>Update Job Details</Text>
+          <TextInput
+            style={styles.inputField}
+            placeholder="Job Title"
+            value={selectedJob.jobTitle}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, jobTitle: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Company"
+            value={selectedJob.company}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, company: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Job Description"
+            value={selectedJob.jobDesc}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, jobDesc: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Contact Name"
+            value={selectedJob.contactName}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactName: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Contact Email"
+            value={selectedJob.contactEmail}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactEmail: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Contact Number"
+            value={selectedJob.contactNumber}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactNumber: text })}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Referral"
+            value={selectedJob.referral}
+            onChangeText={(text) => setSelectedJob({ ...selectedJob, referral: text })}
+          />
+
+          <TouchableOpacity
+            style={styles.saveButton}
+            onPress={updateJobs}
+          >
+            <Text style={styles.saveButtonText}>Save Changes</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       {/* Sort Modal */}
       <Modal visible={sortModalVisible} transparent={true} animationType="slide">
@@ -419,6 +479,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeButtonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  updateJobContainer: {
+    padding: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    marginTop: 20,
+    marginHorizontal: 20,
+  },
+  updateJobTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  inputField: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    fontSize: 16,
+  },
+  saveButton: {
+    backgroundColor: '#1E90FF',
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  saveButtonText: {
     color: '#fff',
     fontSize: 16,
   },
