@@ -37,7 +37,7 @@ const SearchScreen: React.FC = () => {
 
   // Fetch applied jobs from your internal API
   const fetchAppliedJobs = async () => {
-    // Make internal API call here
+    // MAKE INTERNAL API CALL HERE TO FETCH APPLIED JOBS
     setAppliedJobs([
       { jobInfoId: 1, company: 'Company A', jobTitle: 'Job A', dateApplied: '2024-12-01' },
       { jobInfoId: 2, company: 'Company B', jobTitle: 'Job B', dateApplied: '2024-12-05' },
@@ -47,7 +47,7 @@ const SearchScreen: React.FC = () => {
 
   // Fetch new jobs from an external API
   const fetchNewJobs = async () => {
-    // Make external API call here
+    // MAKE EXTERNAL API CALL HERE
   };
 
   // Handle toggle and fetch respective jobs

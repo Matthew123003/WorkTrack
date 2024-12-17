@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet, Image, ScrollView } from 'react-native';
 
 interface Interview {
@@ -15,7 +15,7 @@ interface Interview {
 }
 
 const InterviewsScreen = () => {
-  const [interviews, setInterviews] = useState<Interview[]>([
+  const [interviews, setInterviews] = useState<Interview[]>([ // GET RID OF SAMPLE DATA WHEN MAKING API CALL
     {
       id: '1',
       company: 'Company A',
@@ -53,6 +53,15 @@ const InterviewsScreen = () => {
 
   const [sortModalVisible, setSortModalVisible] = useState(false);
   const [sortOption, setSortOption] = useState('Date');
+
+  // Add the useEffect hook here to fetch data when the component mounts
+  useEffect(() => {
+    // API call to fetch interviews
+    // Example: fetch('/api/interviews')
+    //   .then(response => response.json())
+    //   .then(data => setInterviews(data))
+    //   .catch(error => console.error('Error fetching interviews:', error));
+  }, []);
 
   // Sorting functionality
   const sortInterviews = (option: string) => {

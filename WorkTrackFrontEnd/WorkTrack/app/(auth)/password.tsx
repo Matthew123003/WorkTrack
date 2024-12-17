@@ -22,6 +22,7 @@ const ResetPasswordPage = () => {
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
       console.log('Password reset successful!');
+      // MAKE API CALL HERE TO RESET PASSWORD, MIGHT HAVE TO ADJUST FOR AUTHENTICATED USER
       router.push('/'); // Navigate to the home page
     } else {
       console.log('Passwords do not match!');

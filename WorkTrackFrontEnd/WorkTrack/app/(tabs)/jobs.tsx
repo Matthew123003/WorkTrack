@@ -17,66 +17,8 @@ interface Job {
 }
 
 const JobsScreen = () => {
-  const [jobs, setJobs] = useState<Job[]>([
-    {
-      jobInfoId: 1,
-      company: 'TechCorp',
-      jobTitle: 'Software Engineer',
-      jobUrlLink: 'https://techcorp.com/jobs/1',
-      jobDesc: 'Develop software solutions.',
-      dateApplied: '2024-01-01',
-      contactName: 'John Doe',
-      contactEmail: 'john.doe@techcorp.com',
-      contactNumber: '123-456-7890',
-      referral: 'Jane Smith',
-      remote: true,
-      gotResponse: false
-    },
-    {
-      jobInfoId: 2,
-      company: 'BizInc',
-      jobTitle: 'Product Manager',
-      jobUrlLink: 'https://bizinc.com/jobs/2',
-      jobDesc: 'Manage product lifecycle.',
-      dateApplied: '2024-02-01',
-      contactName: 'Alice Johnson',
-      contactEmail: 'alice.johnson@bizinc.com',
-      contactNumber: '098-765-4321',
-      referral: 'Mark Lee',
-      remote: false,
-      gotResponse: true
-    },
-    {
-      jobInfoId: 3,
-      company: 'DataWorks',
-      jobTitle: 'Data Scientist',
-      jobUrlLink: 'https://dataworks.com/jobs/3',
-      jobDesc: 'Analyze data and build models.',
-      dateApplied: '2024-03-01',
-      contactName: 'Bob Brown',
-      contactEmail: 'bob.brown@dataworks.com',
-      contactNumber: '321-654-9870',
-      referral: 'Sarah White',
-      remote: true,
-      gotResponse: true
-    },
-    {
-      jobInfoId: 4,
-      company: 'DesignLab',
-      jobTitle: 'UX Designer',
-      jobUrlLink: 'https://designlab.com/jobs/4',
-      jobDesc: 'Design user interfaces.',
-      dateApplied: '2024-04-01',
-      contactName: 'Chris Green',
-      contactEmail: 'chris.green@designlab.com',
-      contactNumber: '456-123-7890',
-      referral: 'Laura Black',
-      remote: false,
-      gotResponse: false
-    },
-    // Add more jobs as needed
-  ]);
-
+  const [jobs, setJobs] = useState<Job[]>([]); // STATE FOR APPLIED JOBS
+  const [savedJobs, setSavedJobs] = useState<any[]>([]); // STATE FOR SAVED JOBS
   const [isApplied, setIsApplied] = useState(true);
   const [searchText, setSearchText] = useState('');
   const [sortedJobs, setSortedJobs] = useState(jobs);
@@ -84,11 +26,90 @@ const JobsScreen = () => {
   const [sortOption, setSortOption] = useState('Job Title');
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      // TODO: Fetch job data from API if needed
+    const fetchAppliedJobs = async () => {
+      // TODO: Fetch job data from the backend API for applied jobs here.
+      // Use a GET request to your backend endpoint that retrieves applied jobs.
+      // Example: const response = await fetch('https://your-backend.com/api/applied-jobs');
+      // Then update the jobs state: setJobs(await response.json());
+      setJobs([
+        {
+          jobInfoId: 1,
+          company: 'TechCorp',
+          jobTitle: 'Software Engineer',
+          jobUrlLink: 'https://techcorp.com/jobs/1',
+          jobDesc: 'Develop software solutions.',
+          dateApplied: '2024-01-01',
+          contactName: 'John Doe',
+          contactEmail: 'john.doe@techcorp.com',
+          contactNumber: '123-456-7890',
+          referral: 'Jane Smith',
+          remote: true,
+          gotResponse: false
+        },
+        {
+          jobInfoId: 2,
+          company: 'BizInc',
+          jobTitle: 'Product Manager',
+          jobUrlLink: 'https://bizinc.com/jobs/2',
+          jobDesc: 'Manage product lifecycle.',
+          dateApplied: '2024-02-01',
+          contactName: 'Alice Johnson',
+          contactEmail: 'alice.johnson@bizinc.com',
+          contactNumber: '098-765-4321',
+          referral: 'Mark Lee',
+          remote: false,
+          gotResponse: true
+        },
+        {
+          jobInfoId: 3,
+          company: 'DataWorks',
+          jobTitle: 'Data Scientist',
+          jobUrlLink: 'https://dataworks.com/jobs/3',
+          jobDesc: 'Analyze data and build models.',
+          dateApplied: '2024-03-01',
+          contactName: 'Bob Brown',
+          contactEmail: 'bob.brown@dataworks.com',
+          contactNumber: '321-654-9870',
+          referral: 'Sarah White',
+          remote: true,
+          gotResponse: true
+        },
+        {
+          jobInfoId: 4,
+          company: 'DesignLab',
+          jobTitle: 'UX Designer',
+          jobUrlLink: 'https://designlab.com/jobs/4',
+          jobDesc: 'Design user interfaces.',
+          dateApplied: '2024-04-01',
+          contactName: 'Chris Green',
+          contactEmail: 'chris.green@designlab.com',
+          contactNumber: '456-123-7890',
+          referral: 'Laura Black',
+          remote: false,
+          gotResponse: false
+        },
+      ]);
     };
-    fetchJobs();
+  
+    fetchAppliedJobs();
   }, []);
+  
+  // Example function to fetch saved jobs from an external API
+  const fetchSavedJobs = async () => {
+    // TODO: Fetch saved job data from an external API here.
+    // Use a GET request to the external API endpoint for saved jobs.
+    // Example: const response = await fetch('https://external-api.com/saved-jobs');
+    // Then update the jobs state: setJobs(await response.json());
+  };
+  
+  {/* 
+    The fetchJobs function within the useEffect hook is where you would 
+    make the API call to your backend to retrieve the list of applied 
+    jobs.
+    You can call the fetchSavedJobs function when switching to the saved
+    jobs view (e.g., within the onPress handler for the "Saved Jobs"
+    button) to fetch saved jobs from an external API.
+  */}
 
   const filteredJobs = sortedJobs.filter((job) =>
     job.jobTitle.toLowerCase().includes(searchText.toLowerCase())

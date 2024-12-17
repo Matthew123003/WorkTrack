@@ -22,6 +22,7 @@ const ResetPasswordPage = () => {
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
       console.log('Password reset successful!');
+      // MAKE API CALL HERE TO CHANGE PASSWORD, MAY HAVE TO CHANGE FOR AUTHENTICATED USER AND HAVE THEM STAY SIGNED IN
       router.push('/(tabs)/profile'); // Navigate to the home page
     } else {
       console.log('Passwords do not match!');
@@ -32,7 +33,7 @@ const ResetPasswordPage = () => {
   // Function to handle back navigation
   const handleBack = () => {
     console.log("Back button pressed");
-    router.push("/(tabs)/profile"); // Adjust route to your desired back page
+    router.push("/(tabs)/profile"); 
   };
 
   return (

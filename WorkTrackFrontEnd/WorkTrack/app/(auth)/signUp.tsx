@@ -19,7 +19,7 @@ export default function SignUp() {
   const handleSignUpSubmit = () => {
     router.push('/'); // Navigate to the home screen
     console.log('Sign Up form submitted');
-    // Add API call here to add sign up information, create a new user in database
+    // MAKE API CALL HERE TO CREATE A NEW USER
   };
 
   const handleBackPress = () => {

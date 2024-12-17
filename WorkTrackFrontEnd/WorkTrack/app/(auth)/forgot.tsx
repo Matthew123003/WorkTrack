@@ -13,14 +13,14 @@ const ForgotPasswordPage = () => {
   // Function to handle submit
   const handleSubmit = () => {
     console.log('Submitted:', { username, email, zipcode, lastName });
-    // MAKE API CALL HERE
+    // MAKE API CALL HERE TO VALIDATE INFO AND THEN NAVIGATE TO PASSWORD.TSX
     router.push("/(auth)/password");
   };
 
   // Function to handle back navigation
   const handleBack = () => {
     console.log("Back button pressed");
-    router.push("/"); // Adjust route to your desired back page
+    router.push("/"); // BACK TO INDEX.TSX aka MAIN PAGE
   };
 
   return (

@@ -22,6 +22,13 @@ export default function Personal() {
     router.push("/(tabs)/profile"); // Adjust route to your desired back page
   };
 
+  // Function to handle back navigation
+  const handleSubmit = () => {
+    // MAKE API CALL HERE TO UPDATE USER INFORMATION
+    console.log('Submit button pressed');
+    router.push('/(tabs)/profile'); // Navigate to the profile page
+  };
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -139,11 +146,7 @@ export default function Personal() {
           {/* Submit Button */}
           <TouchableOpacity 
             style={[styles.button, styles.submitButton]} 
-            onPress={() => {
-              // MAKE API CALL HERE TO UPDATE USER INFORMATION
-              console.log('Submit button pressed');
-              router.push('/(tabs)/profile'); // Navigate to the profile page
-            }}
+            onPress={() => {handleSubmit}}
           >
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
