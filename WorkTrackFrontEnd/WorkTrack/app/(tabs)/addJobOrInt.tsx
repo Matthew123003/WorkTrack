@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const AddJobScreen = () => {
+const AddJobOrIntScreen = () => {
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -11,7 +11,7 @@ const AddJobScreen = () => {
             source={require('../../assets/images/react-logo.png')}
             style={styles.logo}
           />
-          <Text style={styles.headerText}>Add Jobs</Text>
+          <Text style={styles.headerText}>Add</Text>
         </View>
       </View>
 
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddJobScreen;
+export default AddJobOrIntScreen;
