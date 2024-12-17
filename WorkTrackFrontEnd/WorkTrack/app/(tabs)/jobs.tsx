@@ -214,64 +214,14 @@ const JobsScreen = () => {
 
       {/* Scrollable Jobs List */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        {filteredJobs.map(renderJob)}
+      {isApplied
+          ? filteredJobs.map(renderJob)
+          : (
+            // NOTE: Add code to display "Update Jobs" content here
+            <Text>No update jobs to display.</Text>
+          )}
       </ScrollView>
 
-      {/* Job Update Form - when a job is selected */}
-      {selectedJob && (
-        <View style={styles.updateJobContainer}>
-          <Text style={styles.updateJobTitle}>Update Job Details</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Job Title"
-            value={selectedJob.jobTitle}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, jobTitle: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Company"
-            value={selectedJob.company}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, company: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Job Description"
-            value={selectedJob.jobDesc}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, jobDesc: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Contact Name"
-            value={selectedJob.contactName}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactName: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Contact Email"
-            value={selectedJob.contactEmail}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactEmail: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Contact Number"
-            value={selectedJob.contactNumber}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, contactNumber: text })}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Referral"
-            value={selectedJob.referral}
-            onChangeText={(text) => setSelectedJob({ ...selectedJob, referral: text })}
-          />
-
-          <TouchableOpacity
-            style={styles.saveButton}
-            onPress={updateJobs}
-          >
-            <Text style={styles.saveButtonText}>Save Changes</Text>
-          </TouchableOpacity>
-        </View>
-      )}
 
       {/* Sort Modal */}
       <Modal visible={sortModalVisible} transparent={true} animationType="slide">
