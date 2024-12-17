@@ -15,7 +15,8 @@ interface Interview {
 }
 
 const InterviewsScreen = () => {
-  const [interviews, setInterviews] = useState<Interview[]>([ // GET RID OF SAMPLE DATA WHEN MAKING API CALL
+  const [interviews, setInterviews] = useState<Interview[]>([ 
+    // GET RID OF SAMPLE DATA WHEN MAKING API CALL
     {
       id: '1',
       company: 'Company A',
