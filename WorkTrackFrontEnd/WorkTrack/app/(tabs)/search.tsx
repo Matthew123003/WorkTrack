@@ -213,6 +213,7 @@ const SearchScreen: React.FC = () => {
           (sortedAppliedJobs.length > 0 ? sortedAppliedJobs : appliedJobs).map(
             (job) => (
               <View key={job.jobInfoId} style={styles.resultCard}>
+                <Text style={styles.resultTitle}>{job.jobInfoId}</Text>
                 <Text style={styles.resultTitle}>{job.jobTitle}</Text>
                 <Text style={styles.resultSubtitle}>{job.company}</Text>
                 <Text style={styles.resultDetails}>Applied On: {job.dateApplied}</Text>

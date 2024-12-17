@@ -173,6 +173,7 @@ const JobsScreen = () => {
 
   const renderJob = (item: Job) => (
     <View style={styles.jobCard} key={item.jobInfoId}>
+      <Text style={styles.jobTitle}>{item.jobInfoId}</Text>
       <Text style={styles.jobTitle}>{item.jobTitle}</Text>
       <Text style={styles.jobCompany}>Company: {item.company}</Text>
       <Text style={styles.jobDateApplied}>Date Applied: {item.dateApplied}</Text>
