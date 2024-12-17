@@ -30,14 +30,60 @@ const AddJobOrIntScreen = () => {
     gotResponse: false,
   });
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+  // State for Add Interview form inputs
+  const [interviewDetails, setInterviewDetails] = useState({
+    interviewDate: '',
+    stage: '',
+    tyNote: false,
+    interviewType: '',
+    interviewLink: '',
+    interviewStatus: '',
+    interviewContactName: '',
+    interviewContactEmail: '',
+  });
+
+  const handleJobInputChange = (field: string, value: string | boolean) => {
     setJobDetails((prevDetails) => ({ ...prevDetails, [field]: value }));
   };
 
-  const handleSubmit = () => {
-    // Placeholder function
-    Alert.alert("Submit Button Pressed", "Form submission will be implemented here.");
+  const handleInterviewInputChange = (field: string, value: string | boolean) => {
+    setInterviewDetails((prevDetails) => ({ ...prevDetails, [field]: value }));
   };
+
+  const handleSubmit = async () => {
+    try {
+      // Check toggle state
+      if (isAddingJob) {
+        // Prepare job data
+        const jobData = { ...jobDetails };
+  
+        // Validate job data (optional, add as needed)
+  
+        // Make job API call
+        console.log("Making job API call with:", jobData);
+        // Make job API call here
+  
+      } else {
+        // Prepare interview data
+        const interviewData = { ...interviewDetails };
+  
+        // Validate interview data (optional, add as needed)
+  
+        // Make interview API call
+        console.log("Making interview API call with:", interviewData);
+        // Make interview API call here
+      }
+  
+      // Success feedback
+      Alert.alert("Success", "Your data has been submitted successfully!");
+  
+    } catch (error) {
+      // Error feedback
+      console.error("Error submitting data:", error);
+      Alert.alert("Error", "There was an issue submitting your data. Please try again.");
+    }
+  };
+  
 
   return (
     <View style={styles.container}>
@@ -78,71 +124,71 @@ const AddJobOrIntScreen = () => {
               style={styles.input}
               placeholder="Company Name"
               value={jobDetails.company}
-              onChangeText={(text) => handleInputChange('company', text)}
+              onChangeText={(text) => handleJobInputChange('company', text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Job Title"
               value={jobDetails.jobTitle}
-              onChangeText={(text) => handleInputChange('jobTitle', text)}
+              onChangeText={(text) => handleJobInputChange('jobTitle', text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Job URL Link"
               value={jobDetails.jobUrlLink}
-              onChangeText={(text) => handleInputChange('jobUrlLink', text)}
+              onChangeText={(text) => handleJobInputChange('jobUrlLink', text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Job Description"
               value={jobDetails.jobDesc}
-              onChangeText={(text) => handleInputChange('jobDesc', text)}
+              onChangeText={(text) => handleJobInputChange('jobDesc', text)}
               multiline
             />
             <TextInput
               style={styles.input}
               placeholder="Date Applied (YYYY-MM-DD)"
               value={jobDetails.dateApplied}
-              onChangeText={(text) => handleInputChange('dateApplied', text)}
+              onChangeText={(text) => handleJobInputChange('dateApplied', text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Contact Name"
               value={jobDetails.contactName}
-              onChangeText={(text) => handleInputChange('contactName', text)}
+              onChangeText={(text) => handleJobInputChange('contactName', text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Contact Email"
               value={jobDetails.contactEmail}
-              onChangeText={(text) => handleInputChange('contactEmail', text)}
+              onChangeText={(text) => handleJobInputChange('contactEmail', text)}
               keyboardType="email-address"
             />
             <TextInput
               style={styles.input}
               placeholder="Contact Number"
               value={jobDetails.contactNumber}
-              onChangeText={(text) => handleInputChange('contactNumber', text)}
+              onChangeText={(text) => handleJobInputChange('contactNumber', text)}
               keyboardType="phone-pad"
             />
             <TextInput
               style={styles.input}
               placeholder="Referral Name"
               value={jobDetails.referral}
-              onChangeText={(text) => handleInputChange('referral', text)}
+              onChangeText={(text) => handleJobInputChange('referral', text)}
             />
             <View style={styles.switchContainer}>
               <Text style={styles.switchLabel}>Remote:</Text>
               <Switch
                 value={jobDetails.remote}
-                onValueChange={(value) => handleInputChange('remote', value)}
+                onValueChange={(value) => handleJobInputChange('remote', value)}
               />
             </View>
             <View style={styles.switchContainer}>
               <Text style={styles.switchLabel}>Got Response:</Text>
               <Switch
                 value={jobDetails.gotResponse}
-                onValueChange={(value) => handleInputChange('gotResponse', value)}
+                onValueChange={(value) => handleJobInputChange('gotResponse', value)}
               />
             </View>
           {/* Submit Button */}
@@ -153,7 +199,61 @@ const AddJobOrIntScreen = () => {
         ) : (
           <View style={styles.section}>
             <Text style={styles.sectionText}>Enter New Interview Information</Text>
-            {/* Add interview form fields */}
+            {/* Interview Form Fields */}
+            <TextInput
+              style={styles.input}
+              placeholder="Interview Date (YYYY-MM-DD)"
+              value={interviewDetails.interviewDate}
+              onChangeText={(text) => handleInterviewInputChange('interviewDate', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Interview Stage (e.g., 1st, 2nd, Final)"
+              value={interviewDetails.stage}
+              onChangeText={(text) => handleInterviewInputChange('stage', text)}
+            />
+            <View style={styles.switchContainer}>
+              <Text style={styles.switchLabel}>Thank You Note Sent:</Text>
+              <Switch
+                value={interviewDetails.tyNote}
+                onValueChange={(value) => handleInterviewInputChange('tyNote', value)}
+              />
+            </View>
+            <TextInput
+              style={styles.input}
+              placeholder="Interview Type (e.g., In Person, Virtual)"
+              value={interviewDetails.interviewType}
+              onChangeText={(text) => handleInterviewInputChange('interviewType', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Interview Link"
+              value={interviewDetails.interviewLink}
+              onChangeText={(text) => handleInterviewInputChange('interviewLink', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Interview Status"
+              value={interviewDetails.interviewStatus}
+              onChangeText={(text) => handleInterviewInputChange('interviewStatus', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contact Name"
+              value={interviewDetails.interviewContactName}
+              onChangeText={(text) => handleInterviewInputChange('interviewContactName', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contact Email"
+              value={interviewDetails.interviewContactEmail}
+              onChangeText={(text) => handleInterviewInputChange('interviewContactEmail', text)}
+              keyboardType="email-address"
+            />
+            {/* Submit Button */}
+            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+              <Text style={styles.submitText}>Submit</Text>
+            </TouchableOpacity>
           </View>
         )}
       </ScrollView>
