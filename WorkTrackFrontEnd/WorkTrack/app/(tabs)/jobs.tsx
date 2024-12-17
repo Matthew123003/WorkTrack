@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
   toggleButton: {
     flex: 1,  // Ensures the buttons take up equal width
     paddingVertical: 15,
-    backgroundColor: '#ddd',
+    backgroundColor: '#bbb',
     alignItems: 'center',
     justifyContent: 'center',
   },

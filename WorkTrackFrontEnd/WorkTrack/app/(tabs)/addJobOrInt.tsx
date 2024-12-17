@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const AddJobOrIntScreen = () => {
+  const [isAddingJob, setIsAddingJob] = useState(true);
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -15,12 +17,35 @@ const AddJobOrIntScreen = () => {
         </View>
       </View>
 
+      {/* Toggle Button */}
+      <View style={styles.toggleContainer}>
+        <TouchableOpacity
+          style={[styles.toggleButton, isAddingJob && styles.activeButton]}
+          onPress={() => setIsAddingJob(true)}
+        >
+          <Text style={[styles.toggleText, isAddingJob && styles.activeText]}>Add Job</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.toggleButton, !isAddingJob && styles.activeButton]}
+          onPress={() => setIsAddingJob(false)}
+        >
+          <Text style={[styles.toggleText, !isAddingJob && styles.activeText]}>Add Interview</Text>
+        </TouchableOpacity>
+      </View>
+
       {/* Scrollable Content */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        {/* Jobs Section */}
-        <View style={styles.section}>
-          <Text>THIS IS GOING TO BE WHERE YOU ADD IN NEW JOB INFORMATION</Text>
-        </View>
+        {isAddingJob ? (
+          <View style={styles.section}>
+            <Text style={styles.sectionText}>Enter New Job Information</Text>
+            {/* Add job form fields will go here */}
+          </View>
+        ) : (
+          <View style={styles.section}>
+            <Text style={styles.sectionText}>Enter New Interview Information</Text>
+            {/* Add interview form fields will go here */}
+          </View>
+        )}
       </ScrollView>
     </View>
   );
@@ -53,30 +78,42 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  toggleContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    backgroundColor: '#ddd',
+  },
+  toggleButton: {
+    flex: 1,
+    paddingVertical: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#bbb',
+  },
+  activeButton: {
+    backgroundColor: '#6200ee',
+  },
+  toggleText: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  activeText: {
+    color: '#fff',
+  },
   scrollContainer: {
     paddingBottom: 16,
-    paddingTop: 20, // Space between header and content
+    paddingTop: 20,
   },
   section: {
     marginBottom: 16,
     paddingHorizontal: 16,
   },
-  sectionTitle: {
+  sectionText: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 8,
-  },
-  contentCard: {
-    backgroundColor: '#fff',
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 12,
-    elevation: 2,
-  },
-  contentText: {
-    fontSize: 16,
-    color: '#333',
   },
 });
 

@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
   toggleContainer: {
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: '#ddd',
+    backgroundColor: '#bbb',
   },
   toggleButton: {
     flex: 1,
