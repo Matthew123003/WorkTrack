@@ -1,8 +1,43 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Switch,
+  Image,
+  Button,
+  Alert,
+} from 'react-native';
 
 const AddJobOrIntScreen = () => {
   const [isAddingJob, setIsAddingJob] = useState(true);
+
+  // State for Add Job form inputs
+  const [jobDetails, setJobDetails] = useState({
+    company: '',
+    jobTitle: '',
+    jobUrlLink: '',
+    jobDesc: '',
+    dateApplied: '',
+    contactName: '',
+    contactEmail: '',
+    contactNumber: '',
+    referral: '',
+    remote: false,
+    gotResponse: false,
+  });
+
+  const handleInputChange = (field: string, value: string | boolean) => {
+    setJobDetails((prevDetails) => ({ ...prevDetails, [field]: value }));
+  };
+
+  const handleSubmit = () => {
+    // Placeholder function
+    Alert.alert("Submit Button Pressed", "Form submission will be implemented here.");
+  };
 
   return (
     <View style={styles.container}>
@@ -38,12 +73,87 @@ const AddJobOrIntScreen = () => {
         {isAddingJob ? (
           <View style={styles.section}>
             <Text style={styles.sectionText}>Enter New Job Information</Text>
-            {/* Add job form fields will go here */}
+            {/* Form Fields */}
+            <TextInput
+              style={styles.input}
+              placeholder="Company Name"
+              value={jobDetails.company}
+              onChangeText={(text) => handleInputChange('company', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Job Title"
+              value={jobDetails.jobTitle}
+              onChangeText={(text) => handleInputChange('jobTitle', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Job URL Link"
+              value={jobDetails.jobUrlLink}
+              onChangeText={(text) => handleInputChange('jobUrlLink', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Job Description"
+              value={jobDetails.jobDesc}
+              onChangeText={(text) => handleInputChange('jobDesc', text)}
+              multiline
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Date Applied (YYYY-MM-DD)"
+              value={jobDetails.dateApplied}
+              onChangeText={(text) => handleInputChange('dateApplied', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contact Name"
+              value={jobDetails.contactName}
+              onChangeText={(text) => handleInputChange('contactName', text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contact Email"
+              value={jobDetails.contactEmail}
+              onChangeText={(text) => handleInputChange('contactEmail', text)}
+              keyboardType="email-address"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contact Number"
+              value={jobDetails.contactNumber}
+              onChangeText={(text) => handleInputChange('contactNumber', text)}
+              keyboardType="phone-pad"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Referral Name"
+              value={jobDetails.referral}
+              onChangeText={(text) => handleInputChange('referral', text)}
+            />
+            <View style={styles.switchContainer}>
+              <Text style={styles.switchLabel}>Remote:</Text>
+              <Switch
+                value={jobDetails.remote}
+                onValueChange={(value) => handleInputChange('remote', value)}
+              />
+            </View>
+            <View style={styles.switchContainer}>
+              <Text style={styles.switchLabel}>Got Response:</Text>
+              <Switch
+                value={jobDetails.gotResponse}
+                onValueChange={(value) => handleInputChange('gotResponse', value)}
+              />
+            </View>
+          {/* Submit Button */}
+          <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+            <Text style={styles.submitText}>Submit</Text>
+          </TouchableOpacity>
           </View>
         ) : (
           <View style={styles.section}>
             <Text style={styles.sectionText}>Enter New Interview Information</Text>
-            {/* Add interview form fields will go here */}
+            {/* Add interview form fields */}
           </View>
         )}
       </ScrollView>
@@ -114,6 +224,41 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 8,
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 12,
+    fontSize: 16,
+    color: '#333',
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  switchLabel: {
+    fontSize: 16,
+    color: '#333',
+    marginRight: 8,
+  },
+  submitButton: {
+    backgroundColor: '#6200ee',
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+    borderRadius: 8,
+    width: '100%',
+    marginTop: 20,
+  },
+  submitText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
