@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Modal, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Modal, StyleSheet, ScrollView, Image, Switch, Alert } from 'react-native';
 
 interface Job {
   jobInfoId: number;
@@ -24,6 +24,26 @@ const JobsScreen = () => {
   const [sortModalVisible, setSortModalVisible] = useState(false);
   const [sortOption, setSortOption] = useState('Job Title');
   const [selectedJob, setSelectedJob] = useState<Job | null>(null); // To track the job being updated
+
+  // State for Add Job form inputs
+    const [jobDetails, setJobDetails] = useState({
+      jobId: '',
+      company: '',
+      jobTitle: '',
+      jobUrlLink: '',
+      jobDesc: '',
+      dateApplied: '',
+      contactName: '',
+      contactEmail: '',
+      contactNumber: '',
+      referral: '',
+      remote: false,
+      gotResponse: false,
+    });
+
+    const handleJobInputChange = (field: string, value: string | boolean) => {
+      setJobDetails((prevDetails) => ({ ...prevDetails, [field]: value }));
+    };
 
   useEffect(() => {
     const fetchAppliedJobs = async () => {
@@ -96,19 +116,17 @@ const JobsScreen = () => {
   
   // Example function to fetch saved jobs from an external API
   const updateJobs = async () => {
-    // TODO: Fetch saved job data from an external API here.
-    // Use a GET request to the external API endpoint for saved jobs.
-    // Example: const response = await fetch('https://external-api.com/saved-jobs');
-    // Then update the jobs state: setJobs(await response.json());
+    //TODO: MAKE INTERNAL API CALL TO UPDATE JOB INFO
+    Alert.alert("Success", "Your data has been submitted successfully!");
   };
   
   {/* 
     The fetchJobs function within the useEffect hook is where you would 
     make the API call to your backend to retrieve the list of applied 
     jobs.
-    You can call the fetchSavedJobs function when switching to the saved
-    jobs view (e.g., within the onPress handler for the "Saved Jobs"
-    button) to fetch saved jobs from an external API.
+    You can call the updateJobs function when switching to the update
+    jobs view (e.g., within the onPress handler for the "Update Jobs"
+    button) to fetch saved jobs from an internal API.
   */}
 
   useEffect(() => {
@@ -217,8 +235,103 @@ const JobsScreen = () => {
       {isApplied
           ? filteredJobs.map(renderJob)
           : (
-            // NOTE: Add code to display "Update Jobs" content here
-            <Text>No update jobs to display.</Text>
+            <View style={styles.section}>
+                        <Text style={styles.sectionText}>
+                          Enter Job Id, then change any fields you want to change relating to the job associated with the Job Id. Once changes are made you will get a confirmation alert and can then switch back to the "Applied Jobs" toggle and verify the information is changed.
+                        </Text>
+                        {/* Form Fields */}
+                        <Text style={styles.inputText}>Job Id</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Job Id"
+                          value={jobDetails.jobId}
+                          onChangeText={(text) => handleJobInputChange('jobId', text)}
+                        />
+                        <Text style={styles.inputText}>Company Name</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Company Name"
+                          value={jobDetails.company}
+                          onChangeText={(text) => handleJobInputChange('company', text)}
+                        />
+                        <Text style={styles.inputText}>Job Title</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Job Title"
+                          value={jobDetails.jobTitle}
+                          onChangeText={(text) => handleJobInputChange('jobTitle', text)}
+                        />
+                        <Text style={styles.inputText}>Job URL Link</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Job URL Link"
+                          value={jobDetails.jobUrlLink}
+                          onChangeText={(text) => handleJobInputChange('jobUrlLink', text)}
+                        />
+                        <Text style={styles.inputText}>Job Description</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Job Description"
+                          value={jobDetails.jobDesc}
+                          onChangeText={(text) => handleJobInputChange('jobDesc', text)}
+                          multiline
+                        />
+                        <Text style={styles.inputText}>Date Applied</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Date Applied (YYYY-MM-DD)"
+                          value={jobDetails.dateApplied}
+                          onChangeText={(text) => handleJobInputChange('dateApplied', text)}
+                        />
+                        <Text style={styles.inputText}>Contact Name</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Contact Name"
+                          value={jobDetails.contactName}
+                          onChangeText={(text) => handleJobInputChange('contactName', text)}
+                        />
+                        <Text style={styles.inputText}>Contact Email</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Contact Email"
+                          value={jobDetails.contactEmail}
+                          onChangeText={(text) => handleJobInputChange('contactEmail', text)}
+                          keyboardType="email-address"
+                        />
+                        <Text style={styles.inputText}>Contact Number</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Contact Number"
+                          value={jobDetails.contactNumber}
+                          onChangeText={(text) => handleJobInputChange('contactNumber', text)}
+                          keyboardType="phone-pad"
+                        />
+                        <Text style={styles.inputText}>Referral Name</Text>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Referral Name"
+                          value={jobDetails.referral}
+                          onChangeText={(text) => handleJobInputChange('referral', text)}
+                        />
+                        <View style={styles.switchContainer}>
+                          <Text style={styles.switchLabel}>Remote:</Text>
+                          <Switch
+                            value={jobDetails.remote}
+                            onValueChange={(value) => handleJobInputChange('remote', value)}
+                          />
+                        </View>
+                        <View style={styles.switchContainer}>
+                          <Text style={styles.switchLabel}>Got Response:</Text>
+                          <Switch
+                            value={jobDetails.gotResponse}
+                            onValueChange={(value) => handleJobInputChange('gotResponse', value)}
+                          />
+                        </View>
+                      {/* Submit Button */}
+                      <TouchableOpacity style={styles.submitButton} onPress={updateJobs}>
+                        <Text style={styles.submitText}>Submit</Text>
+                      </TouchableOpacity>
+                      </View>
           )}
       </ScrollView>
 
@@ -463,6 +576,55 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: '#fff',
     fontSize: 16,
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 12,
+    fontSize: 16,
+    color: '#333',
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  switchLabel: {
+    fontSize: 16,
+    color: '#333',
+    marginRight: 8,
+  },
+  submitButton: {
+    backgroundColor: '#6200ee',
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+    borderRadius: 8,
+    width: '100%',
+    marginTop: 20,
+  },
+  submitText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  section: {
+    marginBottom: 16,
+    paddingHorizontal: 16,
+  },
+  sectionText: {
+    fontSize: 18,
+    color: '#333',
+    marginBottom: 10,
+    marginTop: 10,
+    textAlign: 'center',
+  },
+  inputText: {
+    padding: 5,
   },
 });
 
