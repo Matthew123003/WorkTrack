@@ -23,14 +23,16 @@ return (
         </View>
       </View>
 
-      {/* Scrollable Content */}
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-       
-       {/* Back Button */}
+      {/* Back Button */}
       <TouchableOpacity style={styles.backButton} onPress={handleBack}>
         <Text style={styles.backButtonText}>Back</Text>
       </TouchableOpacity>
 
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+       
+       {/* Option Data */}
+      <Text style={styles.optionData}>OPTION DATA</Text>
 
       </ScrollView>
     </View>
@@ -93,14 +95,17 @@ const styles = StyleSheet.create({
     width: '100%', // Full width for consistency
     //maxWidth: 300, // Limit the width for larger screens
     paddingVertical: 15, // Vertical padding for the button
-    borderRadius: 5, // Rounded corners
+    // borderRadius: 5, // Rounded corners
     backgroundColor: '#6200ee', // Gray background for the button
     alignItems: 'center', // Center the text inside the button
-    marginTop: 20, // Add space above the button
+    // marginTop: 20, // Add space above the button
   },
   backButtonText: {
     color: '#fff', // White text color for contrast
     fontSize: 16, // Font size for readability
     fontWeight: 'bold', // Bold text for emphasis
   },
+  optionData: {
+    textAlign: 'center',
+  }
 });
