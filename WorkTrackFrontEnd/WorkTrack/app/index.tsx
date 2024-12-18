@@ -50,6 +50,11 @@ const IndexPage = () => {
         >
         <ScrollView contentContainerStyle={styles.contentContainer}>
 
+        <Image
+        source={require('../assets/images/react-logo.png')}
+        style={styles.logo2}
+        />
+
         {/* Username input box */}
         <TextInput
           style={styles.input}
@@ -159,6 +164,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  logo2: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
   },
 });
 
