@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 21,
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '600',
   },
   backButton: {
     width: '100%',
@@ -241,8 +241,8 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '600',
   },
   description: {
     fontSize: 16,

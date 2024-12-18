@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 21,
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -388,7 +388,7 @@ const styles = StyleSheet.create({
   },
   toggleButtonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
   },
   activeToggleButtonText: {
@@ -428,7 +428,7 @@ const styles = StyleSheet.create({
   },
   sortButtonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
   },
   modalOverlay: {

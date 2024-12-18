@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 21,
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -434,7 +434,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6200ee',
   },
   toggleButtonText: {
-    fontSize: 16,
+    fontSize: 15,
     color: '#fff',
     textAlign: 'center',
     fontWeight: '600',
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
   },
   sortButtonText: {
-    fontSize: 16,
+    fontSize: 15,
     color: '#fff',
     fontWeight: '600',
   },

@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 21,
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 14,
+    fontWeight: '600',
+    fontSize: 15,
   },
 });
 

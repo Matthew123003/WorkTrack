@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 21,
     color: '#fff',
     fontWeight: 'bold',
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   backButtonText: {
     color: '#fff', // White text color for contrast
     fontSize: 16, // Font size for readability
-    fontWeight: 'bold', // Bold text for emphasis
+    fontWeight: '600', // Bold text for emphasis
   },
   optionData: {
     textAlign: 'center',
