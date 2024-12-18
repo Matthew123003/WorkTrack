@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 import axios from 'axios'; // Import Axios for API requests
 
@@ -31,17 +31,24 @@ const IndexPage = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.contentContainer}>
-        {/* Need to update logo with app icon */}
-        {/* Logo Section */}
-        <Image
-          source={require('../assets/images/react-logo.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+          {/* Header */}
+          <View style={styles.header}>
+            <View style={styles.leftHeader}>
+              <Image
+                source={require('../../assets/images/react-logo.png')}
+                style={styles.logo}
+              />
+              <Text style={styles.headerText}>Reset Your Password</Text>
+            </View>
+          </View>
 
-        {/* Welcome Text */}
-        <Text style={styles.title}>Welcome to WorkTrack!</Text>
+      {/* Scrollable content */}
+      <KeyboardAvoidingView
+        style={styles.scrollContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={60} // Adjust based on header height
+        >
+        <ScrollView contentContainerStyle={styles.contentContainer}>
 
         {/* Username input box */}
         <TextInput
@@ -79,7 +86,8 @@ const IndexPage = () => {
         >
         <Text style={styles.buttonText}>Forgot Password?</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
     </View>
   );
 };
@@ -87,26 +95,40 @@ const IndexPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // Center content vertically
-    alignItems: 'center', // Center content horizontally
-    backgroundColor: '#f5f5f5',
-    padding: 20,
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#2F4F4F',
+  },
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 4,
+  },
+  headerText: {
+    fontSize: 21,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: '#f8f8f8',
   },
   contentContainer: {
     width: '100%',
-    maxWidth: 400, // Limit the maximum width for larger screens
-    alignItems: 'center', // Center items inside this container
-  },
-  logo: {
-    width: 100, // Adjust the width of your logo
-    height: 100, // Adjust the height of your logo
-    marginBottom: 20, // Space below the logo
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
+    maxWidth: 400,
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
   input: {
     width: '100%',
