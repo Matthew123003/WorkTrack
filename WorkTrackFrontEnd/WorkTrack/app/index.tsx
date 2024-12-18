@@ -32,6 +32,7 @@ const IndexPage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
+        {/* Need to update logo with app icon */}
         {/* Logo Section */}
         <Image
           source={require('../assets/images/react-logo.png')}
