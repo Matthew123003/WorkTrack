@@ -8,7 +8,8 @@ import {
   Image, 
   KeyboardAvoidingView, 
   ScrollView, 
-  Platform 
+  Platform,
+  Alert 
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
@@ -25,6 +26,7 @@ export default function Personal() {
   // Function to handle back navigation
   const handleSubmit = () => {
     // MAKE API CALL HERE TO UPDATE USER INFORMATION
+    Alert.alert("Success", "Your information has been successfully updated!");
     console.log('Submit button pressed');
     router.push('/(tabs)/profile'); // Navigate to the profile page
   };

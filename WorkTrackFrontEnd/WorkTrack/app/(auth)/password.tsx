@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Platform,
+  Alert
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
@@ -21,6 +22,7 @@ const ResetPasswordPage = () => {
   // Function to handle password reset
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
+      Alert.alert("Success", "Your password been successfully reset!");
       console.log('Password reset successful!');
       // MAKE API CALL HERE TO RESET PASSWORD, MIGHT HAVE TO ADJUST FOR AUTHENTICATED USER
       router.push('/'); // Navigate to the home page

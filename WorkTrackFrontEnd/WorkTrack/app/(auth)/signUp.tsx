@@ -8,7 +8,8 @@ import {
   KeyboardAvoidingView, 
   Platform, 
   TouchableOpacity,
-  Image 
+  Image,
+  Alert 
 } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 import axios from 'axios'; // Import Axios for API requests
@@ -17,6 +18,7 @@ export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router
   
   const handleSignUpSubmit = () => {
+    Alert.alert("Success", "Your data has been submitted successfully! Please now login to the app!");
     router.push('/'); // Navigate to the home screen
     console.log('Sign Up form submitted');
     // MAKE API CALL HERE TO CREATE A NEW USER

@@ -117,7 +117,7 @@ const JobsScreen = () => {
   // Example function to fetch saved jobs from an external API
   const updateJobs = async () => {
     //TODO: MAKE INTERNAL API CALL TO UPDATE JOB INFO
-    Alert.alert("Success", "Your data has been submitted successfully!");
+    Alert.alert("Success", "Your job data has been successfully updated!");
   };
   
   {/* 

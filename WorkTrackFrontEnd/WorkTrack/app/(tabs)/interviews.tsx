@@ -73,7 +73,7 @@ const InterviewsScreen = () => {
 
     const updateInterview = async () => {
         //TODO: MAKE INTERNAL API CALL TO UPDATE INTERVIEW INFO
-        Alert.alert("Success", "Your data has been submitted successfully!");
+        Alert.alert("Success", "Your interview data has been successfully updated!");
       };
 
   // Add the useEffect hook here to fetch data when the component mounts
