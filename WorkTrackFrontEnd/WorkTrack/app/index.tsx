@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 import axios from 'axios'; // Import Axios for API requests
 
@@ -31,68 +41,67 @@ const IndexPage = () => {
 
   return (
     <View style={styles.container}>
-          {/* Header */}
-          <View style={styles.header}>
-            <View style={styles.leftHeader}>
-              <Image
-                source={require('../assets/images/react-logo.png')}
-                style={styles.logo}
-              />
-              <Text style={styles.headerText}>Welcome To WorkTrack</Text>
-            </View>
-          </View>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.leftHeader}>
+          <Image
+            source={require('../assets/images/react-logo.png')}
+            style={styles.logo}
+          />
+          <Text style={styles.headerText}>Welcome To WorkTrack</Text>
+        </View>
+      </View>
 
       {/* Scrollable content */}
       <KeyboardAvoidingView
         style={styles.scrollContainer}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60} // Adjust based on header height
-        >
+      >
         <ScrollView contentContainerStyle={styles.contentContainer}>
+          <Image
+            source={require('../assets/images/react-logo.png')}
+            style={styles.logo2}
+          />
 
-        <Image
-        source={require('../assets/images/react-logo.png')}
-        style={styles.logo2}
-        />
+          {/* Username input box */}
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            value={username}
+            onChangeText={setUsername} // Update username state
+          />
 
-        {/* Username input box */}
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          value={username}
-          onChangeText={setUsername} // Update username state
-        />
+          {/* Password input box */}
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword} // Update password state
+          />
 
-        {/* Password input box */}
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword} // Update password state
-        />
+          {/* Sign In button */}
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+            <Text style={styles.buttonText}>Sign In</Text>
+          </TouchableOpacity>
 
-        {/* Sign In button */}
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Sign In</Text>
-        </TouchableOpacity>
+          {/* Sign Up button */}
+          <TouchableOpacity
+            style={[styles.button, styles.signUpButton]}
+            onPress={handleSignUpNavigation}
+          >
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
 
-        {/* Sign Up button */}
-        <TouchableOpacity
-          style={[styles.button, styles.signUpButton]}
-          onPress={handleSignUpNavigation}
-        >
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-        style={[styles.button, styles.forgotButton]}
-        onPress={() => router.push('/(auth)/forgot')}
-        >
-        <Text style={styles.buttonText}>Forgot Password?</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </KeyboardAvoidingView>
+          <TouchableOpacity
+            style={[styles.button, styles.forgotButton]}
+            onPress={() => router.push('/(auth)/forgot')}
+          >
+            <Text style={styles.buttonText}>Forgot Password?</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -166,9 +175,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   logo2: {
-    width: 30,
-    height: 30,
-    marginRight: 4,
+    width: 150,
+    height: 150,
+    marginBottom: 30, // Add spacing below the logo
   },
 });
 

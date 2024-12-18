@@ -152,7 +152,7 @@ const InterviewsScreen = () => {
       
             {/* Search Bar */}
             <TextInput
-              placeholder="Search interviews"
+              placeholder="Search Interviews"
               value={searchText}
               onChangeText={(text) => setSearchText(text)}
               style={styles.searchBar}
@@ -296,12 +296,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     marginRight: 4,
   },
   headerText: {
-    fontSize: 21,
+    fontSize: 28,
     color: '#fff',
     fontWeight: 'bold',
   },

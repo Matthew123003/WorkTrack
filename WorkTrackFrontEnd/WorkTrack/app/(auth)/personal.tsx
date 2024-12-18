@@ -40,7 +40,7 @@ export default function Personal() {
             source={require('../../assets/images/react-logo.png')} 
             style={styles.logo} 
           />
-          <Text style={styles.headerText}>Update Personal Information</Text>
+          <Text style={styles.headerText}>Update User Information</Text>
         </View>
       </View>
 
@@ -180,12 +180,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     marginRight: 4,
   },
   headerText: {
-    fontSize: 21,
+    fontSize: 28,
     color: '#fff',
     fontWeight: 'bold',
   },
