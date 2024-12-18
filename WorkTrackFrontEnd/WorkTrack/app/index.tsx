@@ -35,10 +35,10 @@ const IndexPage = () => {
           <View style={styles.header}>
             <View style={styles.leftHeader}>
               <Image
-                source={require('../../assets/images/react-logo.png')}
+                source={require('../assets/images/react-logo.png')}
                 style={styles.logo}
               />
-              <Text style={styles.headerText}>Reset Your Password</Text>
+              <Text style={styles.headerText}>Welcome To WorkTrack</Text>
             </View>
           </View>
 
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingBottom: 16,
+    paddingTop: 100,
   },
   input: {
     width: '100%',
