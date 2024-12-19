@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   headerText: {
-    fontSize: 28,
+    fontSize: 25,
     color: '#fff',
     fontWeight: 'bold',
   },

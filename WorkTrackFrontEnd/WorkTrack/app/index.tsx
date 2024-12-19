@@ -48,7 +48,7 @@ const IndexPage = () => {
             source={require('../assets/images/react-logo.png')}
             style={styles.logo}
           />
-          <Text style={styles.headerText}>Welcome To WorkTrack</Text>
+          <Text style={styles.headerText}>WorkTrack</Text>
         </View>
       </View>
 
@@ -124,12 +124,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   logo: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     marginRight: 4,
   },
   headerText: {
-    fontSize: 21,
+    fontSize: 25,
     color: '#fff',
     fontWeight: 'bold',
   },
