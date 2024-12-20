@@ -21,7 +21,8 @@ const LocateAccountPage = () => {
       Alert.alert("Failure", "Your data could not be found, please check your information and try again.");
       console.log(error);
     }
-  };
+  }
+  
 
   // Function to handle back navigation
   const handleBack = () => {
