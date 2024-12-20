@@ -22,14 +22,15 @@ const ResetPasswordPage = () => {
   // Function to handle password reset
   const handleResetPassword = () => {
     if (newPassword === confirmPassword) {
+      try {
       Alert.alert("Success", "Your password been successfully reset!");
       console.log('Password reset successful!');
-      // MAKE API CALL HERE TO CHANGE PASSWORD, MAY HAVE TO CHANGE FOR AUTHENTICATED USER AND HAVE THEM STAY SIGNED IN
-      router.push('/(tabs)/profile'); // Navigate to the home page
-    } else {
-      console.log('Passwords do not match!');
-      // Optionally, display an error message here
-    }
+      // MAKE API CALL HERE TO RESET PASSWORD, MIGHT HAVE TO ADJUST FOR AUTHENTICATED USER
+      router.push('/(tabs)/profile'); // Navigate to the profile page
+      } catch(error) {
+        console.log("Passwords do not match or the following error has occured: ", error)
+      };
+    };
   };
 
   // Function to handle back navigation
