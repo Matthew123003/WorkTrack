@@ -23,6 +23,7 @@ const IndexPage = () => {
 
   // Function to handle login
   const handleLogin = () => {
+    // TRY/CATCH LOOPS ADDED TO ALL PAGES WITH API CALLS
     // Mock login validation
     // ADD API CALL HERE TO VALIDATE USER LOGIN
     if (username === 'user' && password === 'password') {
