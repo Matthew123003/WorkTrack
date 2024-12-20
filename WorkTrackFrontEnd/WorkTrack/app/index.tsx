@@ -96,7 +96,7 @@ const IndexPage = () => {
 
           <TouchableOpacity
             style={[styles.button, styles.forgotButton]}
-            onPress={() => router.push('/(auth)/forgot')}
+            onPress={() => router.push('/(auth)/locate')}
           >
             <Text style={styles.buttonText}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#fff',
     fontWeight: 'bold',
+    fontFamily: 'biome',
   },
   scrollContainer: {
     flex: 1,

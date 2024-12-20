@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvo
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
 
-const ForgotPasswordPage = () => {
+const LocateAccountPage = () => {
   const router = useRouter(); // Initialize router for navigation
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -185,4 +185,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ForgotPasswordPage;
+export default LocateAccountPage;
