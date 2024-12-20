@@ -128,6 +128,11 @@ const SearchScreen: React.FC = () => {
     setSortOption2(criteria);
   };
 
+  const handleSearch = () => {
+    // MAKE EXTERNAL API CALL HERE
+    console.log("Searching for new jobs")
+  }
+
   return (
     <View style={styles.container}>
       {/* Header Section */}
@@ -182,10 +187,20 @@ const SearchScreen: React.FC = () => {
       <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search here..."
+          placeholder="Search New Jobs"
           placeholderTextColor="#aaa"
         />
       </View>
+
+      {/* Search Button */}
+      <TouchableOpacity
+      style={styles.searchButton}
+      onPress={handleSearch}
+      >
+        <Text style={styles.searchButtonText}>
+          Search
+        </Text>
+      </TouchableOpacity>
 
       {/* Sort Button for Applied Jobs */}
       {toggleState === 'Applied Jobs' && (
@@ -473,6 +488,19 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: '#fff',
     fontSize: 16,
+  },
+  searchButton: {
+    backgroundColor: '#6200ee',
+    paddingVertical: 15,
+    width: '100%',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  searchButtonText: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '600',
   },
 });
 

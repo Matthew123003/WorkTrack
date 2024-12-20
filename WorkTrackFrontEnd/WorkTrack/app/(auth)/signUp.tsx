@@ -18,10 +18,14 @@ export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router
   
   const handleSignUpSubmit = () => {
+    try{
     Alert.alert("Success", "Your data has been submitted successfully! Please now login to the app!");
     router.push('/'); // Navigate to the home screen
     console.log('Sign Up form submitted');
     // MAKE API CALL HERE TO CREATE A NEW USER
+    } catch(error) {
+      console.log("An error has occured: ", error);
+    };
   };
 
   const handleBackPress = () => {
