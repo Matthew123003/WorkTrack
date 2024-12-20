@@ -25,10 +25,14 @@ export default function Personal() {
 
   // Function to handle back navigation
   const handleSubmit = () => {
+    try{
     // MAKE API CALL HERE TO UPDATE USER INFORMATION
     Alert.alert("Success", "Your information has been successfully updated!");
     console.log('Submit button pressed');
     router.push('/(tabs)/profile'); // Navigate to the profile page
+    } catch(error) {
+      console.log("The following error has occured: ", error)
+    };
   };
 
   return (
