@@ -129,8 +129,12 @@ const SearchScreen: React.FC = () => {
   };
 
   const handleSearch = () => {
+    try{
     // MAKE EXTERNAL API CALL HERE
-    console.log("Searching for new jobs")
+    console.log("Searching for new jobs");
+    } catch(error) {
+      console.log("An error has occured: ", error);
+    }
   }
 
   return (
