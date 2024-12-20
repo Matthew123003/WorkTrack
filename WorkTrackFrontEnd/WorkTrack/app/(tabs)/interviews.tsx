@@ -15,7 +15,7 @@ interface Interview {
 }
 
 const InterviewsScreen = () => {
-  const [interviews, setInterviews] = useState<Interview[]>([ 
+  const [interviews, setInterviews] = useState<Interview[]>([
     // GET RID OF SAMPLE DATA WHEN MAKING API CALL
     {
       id: '1',
@@ -72,8 +72,12 @@ const InterviewsScreen = () => {
     };
 
     const updateInterview = async () => {
+      try{
         //TODO: MAKE INTERNAL API CALL TO UPDATE INTERVIEW INFO
         Alert.alert("Success", "Your interview data has been successfully updated!");
+      } catch (error) {
+        console.log("An error has occured: ", error);
+      }
       };
 
   // Add the useEffect hook here to fetch data when the component mounts
