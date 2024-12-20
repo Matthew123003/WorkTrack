@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, ScrollView, Platform, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
 
@@ -12,9 +12,15 @@ const LocateAccountPage = () => {
 
   // Function to handle submit
   const handleSubmit = () => {
+    try{
+    Alert.alert("Success", "Your data has been successfully retrieved!");
     console.log('Submitted:', { username, email, zipcode, lastName });
     // MAKE API CALL HERE TO VALIDATE INFO AND THEN NAVIGATE TO PASSWORD.TSX
     router.push("/(auth)/password");
+    }catch(error) {
+      Alert.alert("Failure", "Your data could not be found, please check your information and try again.");
+      console.log(error);
+    }
   };
 
   // Function to handle back navigation
