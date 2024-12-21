@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   View, 
   Text, 
@@ -16,23 +16,83 @@ import axios from 'axios'; // Import Axios for API requests
 
 export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router
-  
-  const handleSignUpSubmit = () => {
-    try{
-    Alert.alert("Success", "Your data has been submitted successfully! Please now login to the app!");
-    router.push('/'); // Navigate to the home screen
-    console.log('Sign Up form submitted');
-    // MAKE API CALL HERE TO CREATE A NEW USER
-    } catch(error) {
-      console.log("An error has occured: ", error);
-    };
+
+  // State to hold form data
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    streetAddress: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    phoneNumber: '',
+    email: '',
+  });
+
+  // Handle input changes
+  const handleInputChange = (field: any, value: any) => {
+    setFormData((prevData) => ({ ...prevData, [field]: value }));
+  };
+
+  // Function to handle form submission
+  const handleSignUpSubmit = async () => {
+    const {
+      username,
+      password,
+      confirmPassword,
+      firstName,
+      lastName,
+      streetAddress,
+      city,
+      state,
+      zipCode,
+      phoneNumber,
+      email,
+    } = formData;
+
+    // Basic validation
+    if (!username || !password || !confirmPassword || !email) {
+      Alert.alert('Error', 'Please fill out all required fields.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match.');
+      return;
+    }
+
+    try {
+      // API call to create a new user
+      const response = await axios.post('https://your-api-endpoint.com/users', {
+        username,
+        password,
+        firstName,
+        lastName,
+        streetAddress,
+        city,
+        state,
+        zipCode,
+        phoneNumber,
+        email,
+      });
+
+      if (response.status === 201) {
+        Alert.alert('Success', 'Your data has been submitted successfully! Please now login to the app!');
+        router.push('/'); // Navigate to the home screen
+      }
+    } catch (error) {
+      console.error('Error creating user:', error);
+      Alert.alert('Error', 'An error occurred while creating your account. Please try again.');
+    }
   };
 
   const handleBackPress = () => {
     router.push('/'); // Navigate to the home screen
     console.log('Back button pressed');
   };
-
   return (
     <View style={styles.container}>
       {/* Header */}
