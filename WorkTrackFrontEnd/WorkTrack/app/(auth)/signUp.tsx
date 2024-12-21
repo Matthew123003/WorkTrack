@@ -53,7 +53,7 @@ export default function SignUp() {
       email,
     } = formData;
 
-    // Basic validation
+    // Basic validation FINISH ADDING FIELDS THAT ARE REQUIRED
     if (!username || !password || !confirmPassword || !email) {
       Alert.alert('Error', 'Please fill out all required fields.');
       return;
