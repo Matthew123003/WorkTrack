@@ -93,6 +93,8 @@ export default function SignUp() {
     router.push('/'); // Navigate to the home screen
     console.log('Back button pressed');
   };
+
+  
   return (
     <View style={styles.container}>
       {/* Header */}
