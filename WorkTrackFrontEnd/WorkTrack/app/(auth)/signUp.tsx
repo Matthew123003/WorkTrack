@@ -124,7 +124,7 @@ export default function SignUp() {
  
           {/* Explanation */}
           <Text style={styles.description}>
-            Please fill out all fields. Make sure both passwords match. Once all fields have been filled out with valid information and both passwords match, you will be redirected to the main page to login in with your new credentials.
+            Please fill out all fields. Make sure both passwords match. Once all fields have been filled out with valid information and both passwords match, you will be redirected to the main page to login in with your new credentials. Required fields are also marked with a red star.
           </Text>
 
           {/* Password Requirements */}
@@ -139,7 +139,10 @@ export default function SignUp() {
  
           {/* Input fields */}
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Username</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Username</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your username"
@@ -148,7 +151,10 @@ export default function SignUp() {
           </View>
 
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Password</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Password</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your password"
@@ -158,7 +164,10 @@ export default function SignUp() {
           </View>
 
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Confirm Password</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Confirm Password</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Confirm your password"
@@ -168,7 +177,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>First Name</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>First Name</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your first name"
@@ -177,7 +189,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Last Name</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Last Name</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your last name"
@@ -186,7 +201,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Street Address</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Street Address</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your street address"
@@ -195,7 +213,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>City</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>City</Text>
+              <Text style={styles.star}>*</Text>
+            </View> 
             <TextInput
               style={styles.input}
               placeholder="Enter your city"
@@ -204,7 +225,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>State</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>State</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your state"
@@ -213,7 +237,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>ZIP Code</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>ZIP Code</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your ZIP code"
@@ -223,7 +250,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Phone Number</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Phone Number</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your phone number"
@@ -233,7 +263,10 @@ export default function SignUp() {
           </View>
  
           <View style={styles.fieldContainer}>
-            <Text style={styles.label}>Email</Text>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Email Address</Text>
+              <Text style={styles.star}>*</Text>
+            </View>
             <TextInput
               style={styles.input}
               placeholder="Enter your email address"
@@ -356,6 +389,15 @@ const styles = StyleSheet.create({
   passwordRequirementText: {
     fontSize: 14,
     color: '#555',
+    marginBottom: 5,
+  },
+  star: {
+    color: 'red',
+    marginLeft: 5,
+  },
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 5,
   },
 });
