@@ -53,8 +53,11 @@ export default function SignUp() {
       email,
     } = formData;
 
-    // Basic validation FINISH ADDING FIELDS THAT ARE REQUIRED
-    if (!username || !password || !confirmPassword || !email) {
+    // Basic validation, made all fields required
+    // ADD STYLING TO SHOW REQUIRED FIELDS WITH RED STAR
+    if (!username || !password || !confirmPassword || !firstName ||
+       !lastName || !streetAddress || !city || !state || !zipCode || 
+       !phoneNumber || !email) {
       Alert.alert('Error', 'Please fill out all required fields.');
       return;
     }
@@ -94,7 +97,7 @@ export default function SignUp() {
     console.log('Back button pressed');
   };
 
-  
+
   return (
     <View style={styles.container}>
       {/* Header */}
