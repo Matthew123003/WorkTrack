@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, ScrollView, Platform, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const LocateAccountPage = () => {
   const router = useRouter(); // Initialize router for navigation
@@ -44,11 +45,11 @@ const LocateAccountPage = () => {
       </View>
 
       {/* Scrollable Content with KeyboardAvoidingView */}
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.contentContainer}
-        >
+        <KeyboardAwareScrollView
+               contentContainerStyle={styles.scrollContainer}
+               extraScrollHeight={5} // Adjust based on your needs
+               enableOnAndroid={true} // Ensures proper behavior on Android
+               >
           {/* Explanatory Paragraph */}
           <Text style={styles.description}>
             Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
@@ -98,8 +99,7 @@ const LocateAccountPage = () => {
           <TouchableOpacity style={styles.button} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
-        </KeyboardAvoidingView>
-      </ScrollView>
+        </KeyboardAwareScrollView>
     </View>
   );
 };
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 16,
     paddingTop: 20, // Space between header and content
+    paddingHorizontal: 20,
   },
   header: {
     flexDirection: 'row',

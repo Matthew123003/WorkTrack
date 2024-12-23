@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 interface AppliedJob {
   jobInfoId: number;

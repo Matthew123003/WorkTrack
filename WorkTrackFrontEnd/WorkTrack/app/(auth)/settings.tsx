@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Settings = () => {
   const router = useRouter();
@@ -34,12 +35,11 @@ const Settings = () => {
           </View>
 
       {/* Body with KeyboardAvoidingView and ScrollView */}
-      <KeyboardAvoidingView
-        style={styles.keyboardAvoidingView}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0} // Adjust if necessary
-      >
-        <ScrollView contentContainerStyle={styles.scrollContent}>
+      <KeyboardAwareScrollView
+             contentContainerStyle={styles.scrollContainer}
+             extraScrollHeight={5} // Adjust based on your needs
+             enableOnAndroid={true} // Ensures proper behavior on Android
+             >
           {/* Back Button */}
           <TouchableOpacity 
             style={styles.backButton} 
@@ -162,8 +162,7 @@ const Settings = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

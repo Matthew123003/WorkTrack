@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import axios from 'axios'; // Import Axios for API requests
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const ResetPasswordPage = () => {
   const router = useRouter(); // Initialize router for navigation
@@ -47,12 +48,11 @@ const ResetPasswordPage = () => {
       </View>
 
       {/* Scrollable content */}
-      <KeyboardAvoidingView
-        style={styles.scrollContainer}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={60} // Adjust based on header height
-      >
-        <ScrollView contentContainerStyle={styles.contentContainer}>
+      <KeyboardAwareScrollView
+                   contentContainerStyle={styles.contentContainer}
+                   extraScrollHeight={5} // Adjust based on your needs
+                   enableOnAndroid={true} // Ensures proper behavior on Android
+                   >
           {/* Explanatory Paragraph */}
           <Text style={styles.description}>
             Please make sure both passwords you input match. See below for password requirements. Once all requirements
@@ -92,8 +92,7 @@ const ResetPasswordPage = () => {
           <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
             <Text style={styles.buttonText}>Reset Password</Text>
           </TouchableOpacity>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

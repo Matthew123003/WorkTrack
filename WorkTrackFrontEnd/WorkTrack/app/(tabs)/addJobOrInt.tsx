@@ -11,6 +11,7 @@ import {
   Button,
   Alert,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const AddJobOrIntScreen = () => {
   const [isAddingJob, setIsAddingJob] = useState(true);
@@ -91,7 +92,11 @@ const AddJobOrIntScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <KeyboardAwareScrollView
+                   contentContainerStyle={styles.scrollContainer}
+                   extraScrollHeight={5} // Adjust based on your needs
+                   enableOnAndroid={true} // Ensures proper behavior on Android
+                   >
         {isAddingJob ? (
           <View style={styles.section}>
             <Text style={styles.sectionText}>Enter New Job Information</Text>
@@ -244,7 +249,7 @@ const AddJobOrIntScreen = () => {
             </TouchableOpacity>
           </View>
         )}
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 import axios from 'axios'; // Import Axios for API requests
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const IndexPage = () => {
   const router = useRouter(); // Initialize router from expo-router
@@ -54,11 +55,11 @@ const IndexPage = () => {
       </View>
 
       {/* Scrollable content */}
-      <KeyboardAvoidingView
-        style={styles.scrollContainer}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={60} // Adjust based on header height
-      >
+      <KeyboardAwareScrollView
+       contentContainerStyle={styles.scrollContainer}
+       extraScrollHeight={5} // Adjust based on your needs
+       enableOnAndroid={true} // Ensures proper behavior on Android
+       >
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <Image
             source={require('../assets/images/react-logo.png')}
@@ -102,7 +103,7 @@ const IndexPage = () => {
             <Text style={styles.buttonText}>Forgot Password?</Text>
           </TouchableOpacity>
         </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

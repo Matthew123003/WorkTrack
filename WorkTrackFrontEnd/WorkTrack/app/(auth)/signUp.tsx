@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
 import axios from 'axios'; // Import Axios for API requests
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default function SignUp() {
   const router = useRouter(); // Initialize router from expo-router
@@ -112,11 +113,11 @@ export default function SignUp() {
       </View>
  
       {/* Scrollable Content with KeyboardAvoidingView */}
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.contentContainer}
-        >
+      <KeyboardAwareScrollView
+                   contentContainerStyle={styles.scrollContainer}
+                   extraScrollHeight={5} // Adjust based on your needs
+                   enableOnAndroid={true} // Ensures proper behavior on Android
+                   >
           {/* Back Button */}
           <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
             <Text style={styles.backButtonText}>Back</Text>
@@ -282,8 +283,7 @@ export default function SignUp() {
           >
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
-        </KeyboardAvoidingView>
-      </ScrollView>
+        </KeyboardAwareScrollView>
     </View>
   );
 }
@@ -296,6 +296,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 16,
     paddingTop: 20, // Space between header and content
+    paddingHorizontal: 20,
     flexGrow: 1,  // Ensures the content can scroll properly
   },
   header: {

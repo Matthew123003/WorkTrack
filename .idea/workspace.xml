@@ -4,8 +4,34 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
+    <list default="true" id="61ca66bb-6e0b-4bda-8d14-32cb0a32f5ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/WorkTrack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WorkTrack.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/classes/com/Tek/Track/Authentication/A_OAuth2Notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/surefire-reports/TEST-com.Tek.Track.TrackApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/surefire-reports/TEST-com.Tek.Track.TrackApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/surefire-reports/com.Tek.Track.TrackApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackBackEnd/Track/target/surefire-reports/com.Tek.Track.TrackApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/lipassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/lipassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/locate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/locate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/personal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/personal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/signUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/signUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/addJobOrInt.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/addJobOrInt.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/interviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/interviews.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/jobs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/jobs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/search.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,102 +41,39 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2jhgKi3QOoXmWbxLSJ44lflTv3j" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2qdNgDiwKg15NrsiFOtMU1f5LJC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.TrackApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/matthew123003/AndroidStudioProjects/WorkTrack&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd" />
-      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/WorkTrackFrontEnd" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="TrackApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.Tek.Track.TrackApplication" />
-      <module name="WorkTrack" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Tek.Track.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.TrackApplication" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
-      <created>1721844661291</created>
+      <changelist id="61ca66bb-6e0b-4bda-8d14-32cb0a32f5ce" name="Changes" comment="" />
+      <created>1734988600896</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1721844661291</updated>
+      <updated>1734988600896</updated>
     </task>
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
