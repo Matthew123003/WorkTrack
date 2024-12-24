@@ -94,7 +94,7 @@ const AddJobOrIntScreen = () => {
 
       <KeyboardAwareScrollView
                    contentContainerStyle={styles.scrollContainer}
-                   extraScrollHeight={5} // Adjust based on your needs
+                   extraScrollHeight={0} // Adjust based on your needs
                    enableOnAndroid={true} // Ensures proper behavior on Android
                    >
         {isAddingJob ? (

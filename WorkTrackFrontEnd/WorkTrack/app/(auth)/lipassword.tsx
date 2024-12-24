@@ -56,7 +56,7 @@ const ResetPasswordPage = () => {
       {/* Scrollable content */}
       <KeyboardAwareScrollView
              contentContainerStyle={styles.contentContainer}
-             extraScrollHeight={5} // Adjust based on your needs
+             extraScrollHeight={0} // Adjust based on your needs
              enableOnAndroid={true} // Ensures proper behavior on Android
              >
           {/* Back Button */}
