@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -46,7 +47,7 @@ public class UserController {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
 
-    @PostMapping("/new_user")
+    @PostMapping("/newuser")
     public ResponseEntity<User> create(@RequestBody User user) {
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }

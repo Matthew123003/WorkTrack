@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  TextInput, 
-  ScrollView, 
-  KeyboardAvoidingView, 
-  Platform, 
-  TouchableOpacity,
-  Image,
-  Alert 
-} from 'react-native';
-import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
+import { View,
+           Text,
+           StyleSheet,
+           TextInput,
+           ScrollView,
+           KeyboardAvoidingView,
+           Platform,
+           TouchableOpacity,
+           Image,
+           Alert  } from 'react-native';
 import axios from 'axios'; // Import Axios for API requests
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
+
 
 export default function SignUp() {
+
   const router = useRouter(); // Initialize router from expo-router
 
-  // State to hold form data
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -34,11 +33,10 @@ export default function SignUp() {
   });
 
   // Handle input changes
-  const handleInputChange = (field: any, value: any) => {
+  const handleInputChange = (field, value) => {
     setFormData((prevData) => ({ ...prevData, [field]: value }));
   };
 
-  // Function to handle form submission
   const handleSignUpSubmit = async () => {
     const {
       username,
@@ -54,11 +52,19 @@ export default function SignUp() {
       email,
     } = formData;
 
-    // Basic validation, made all fields required
-    // ADD STYLING TO SHOW REQUIRED FIELDS WITH RED STAR
-    if (!username || !password || !confirmPassword || !firstName ||
-       !lastName || !streetAddress || !city || !state || !zipCode || 
-       !phoneNumber || !email) {
+    if (
+      !username.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim() ||
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !streetAddress.trim() ||
+      !city.trim() ||
+      !state.trim() ||
+      !zipCode.trim() ||
+      !phoneNumber.trim() ||
+      !email.trim()
+    ) {
       Alert.alert('Error', 'Please fill out all required fields.');
       return;
     }
@@ -70,7 +76,7 @@ export default function SignUp() {
 
     try {
       // API call to create a new user
-      const response = await axios.post('https://your-api-endpoint.com/users', {
+      const response = await axios.post('https://127.0.0.1/users/newuser', {
         username,
         password,
         firstName,
@@ -85,13 +91,14 @@ export default function SignUp() {
 
       if (response.status === 201) {
         Alert.alert('Success', 'Your data has been submitted successfully! Please now login to the app!');
-        router.push('/'); // Navigate to the home screen
+        router.push('/')
       }
     } catch (error) {
       console.error('Error creating user:', error);
       Alert.alert('Error', 'An error occurred while creating your account. Please try again.');
     }
   };
+
 
   const handleBackPress = () => {
     router.push('/'); // Navigate to the home screen
@@ -148,6 +155,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your username"
               placeholderTextColor="#888"
+              value={formData.username}
+              onChangeText={(value) => handleInputChange('username', value)}
             />
           </View>
 
@@ -161,6 +170,8 @@ export default function SignUp() {
               placeholder="Enter your password"
               placeholderTextColor="#888"
               secureTextEntry
+              value={formData.password}
+              onChangeText={(value) => handleInputChange('password', value)}
             />
           </View>
 
@@ -174,6 +185,8 @@ export default function SignUp() {
               placeholder="Confirm your password"
               placeholderTextColor="#888"
               secureTextEntry
+              value={formData.confirmPassword}
+              onChangeText={(value) => handleInputChange('confirmPassword', value)}
             />
           </View>
  
@@ -186,6 +199,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your first name"
               placeholderTextColor="#888"
+              value={formData.firstName}
+              onChangeText={(value) => handleInputChange('firstName', value)}
             />
           </View>
  
@@ -198,6 +213,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your last name"
               placeholderTextColor="#888"
+              value={formData.lastName}
+              onChangeText={(value) => handleInputChange('lastName', value)}
             />
           </View>
  
@@ -210,6 +227,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your street address"
               placeholderTextColor="#888"
+              value={formData.streetAddress}
+              onChangeText={(value) => handleInputChange('streetAddress', value)}
             />
           </View>
  
@@ -222,6 +241,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your city"
               placeholderTextColor="#888"
+              value={formData.city}
+              onChangeText={(value) => handleInputChange('city', value)}
             />
           </View>
  
@@ -234,6 +255,8 @@ export default function SignUp() {
               style={styles.input}
               placeholder="Enter your state"
               placeholderTextColor="#888"
+              value={formData.state}
+              onChangeText={(value) => handleInputChange('state', value)}
             />
           </View>
  
@@ -247,6 +270,8 @@ export default function SignUp() {
               placeholder="Enter your ZIP code"
               placeholderTextColor="#888"
               keyboardType="numeric"
+              value={formData.zipCode}
+              onChangeText={(value) => handleInputChange('zipCode', value)}
             />
           </View>
  
@@ -260,6 +285,8 @@ export default function SignUp() {
               placeholder="Enter your phone number"
               placeholderTextColor="#888"
               keyboardType="phone-pad"
+              value={formData.phoneNumber}
+              onChangeText={(value) => handleInputChange('phoneNumber', value)}
             />
           </View>
  
@@ -273,6 +300,8 @@ export default function SignUp() {
               placeholder="Enter your email address"
               placeholderTextColor="#888"
               keyboardType="email-address"
+              value={formData.email}
+              onChangeText={(value) => handleInputChange('email', value)}
             />
           </View>
  
