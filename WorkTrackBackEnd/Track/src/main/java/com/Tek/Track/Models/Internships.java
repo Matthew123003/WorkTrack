@@ -65,13 +65,13 @@ public class Internships {
 
     @OneToMany(mappedBy = "internship", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Interview> interviewList;
+    private List<Interviews> interviewsList;
 
 
     //Constructors
-    public Internship() {} //Default constructor, required by JPA
+    public Internships() {} //Default constructor, required by JPA
 
-    public Internship(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink) {
+    public Internships(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.dateApplied = dateApplied;
@@ -88,7 +88,7 @@ public class Internships {
         this.jobLink = jobLink;
     }
 
-    public Internship(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink, List<Interview> interviewList) {
+    public Internships(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink, List<Interviews> interviewsList) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.dateApplied = dateApplied;
@@ -103,7 +103,7 @@ public class Internships {
         this.remote = remote;
         this.response = response;
         this.jobLink = jobLink;
-        this.interviewList = interviewList;
+        this.interviewsList = interviewsList;
     }
 
     //Getters and Setters
@@ -235,21 +235,21 @@ public class Internships {
         this.user = user;
     }
 
-    public List<Interview> getInterviews() {
-        return interviewList;
+    public List<Interviews> getInterviews() {
+        return interviewsList;
     }
 
-    public void setInterviews(List<Interview> interviewList) {
-        this.interviewList = interviewList;
+    public void setInterviews(List<Interviews> interviewList) {
+        this.interviewsList = interviewList;
     }
 
-    public void addInterview(Interview interview) {
-        interviewList.add(interview);
+    public void addInterview(Interviews interview) {
+        interviewsList.add(interview);
         interview.setInternship(this);
     }
 
-    public void removeInterview(Interview interview) {
-        interviewList.remove(interview);
+    public void removeInterview(Interviews interview) {
+        interviewsList.remove(interview);
         interview.setInternship(null);
     }
 }

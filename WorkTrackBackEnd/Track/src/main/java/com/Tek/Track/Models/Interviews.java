@@ -50,12 +50,12 @@ public class Interviews {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "internship_id")
     @JsonBackReference
-    private Internship internship;
+    private Internships internships;
    
     //Constructors
-    public Interview() {}
+    public Interviews() {}
 
-    public Interview(LocalDate interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail, JobInfo jobInfo, Internship internship) {
+    public Interviews(LocalDate interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail, JobInfo jobInfo, Internships internships) {
         this.interviewDate = interviewDate;
         this.stage = stage;
         this.tyNote = tyNote;
@@ -65,7 +65,7 @@ public class Interviews {
         this.interviewContactName = interviewContactName;
         this.interviewContactEmail = interviewContactEmail;
         this.jobInfo = jobInfo;
-        this.internship = internship;
+        this.internships = internships;
     }
     
     // Getters and Setters 
@@ -149,12 +149,12 @@ public class Interviews {
         this.jobInfo = jobInfo;
     }
 
-    public Internship getInternship() {
-        return internship;
+    public Internships getInternship() {
+        return internships;
     }
 
-    public void setInternship(Internship internship) {
-        this.internship = internship;
+    public void setInternship(Internships internship) {
+        this.internships = internship;
     }
 
 //Creating an interview for a job
