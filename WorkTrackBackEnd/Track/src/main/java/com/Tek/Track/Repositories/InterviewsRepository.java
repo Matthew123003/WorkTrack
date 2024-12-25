@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.Tek.Track.Models.Interview;
 
 @Repository
-public interface InterviewRepository extends CrudRepository <Interview, Long>{
+public interface InterviewsRepository extends CrudRepository <Interview, Long>{
     
 }
