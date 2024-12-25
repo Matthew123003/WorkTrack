@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ca66bb-6e0b-4bda-8d14-32cb0a32f5ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/lipassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/lipassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/locate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/locate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/personal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/personal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/signUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(auth)/signUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/addJobOrInt.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/(tabs)/addJobOrInt.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/WorkTrackFrontEnd/WorkTrack/app/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

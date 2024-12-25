@@ -52,3 +52,5 @@ Summary
     The quick fix in VS Code is valid and correct for this situation.
     The functions will now work without any implicit any type errors.
     TypeScript enforces type safety to make your code more reliable and maintainable.
+
+TYPESCRIPT MUST ALWAYS HAVE A TYPE
