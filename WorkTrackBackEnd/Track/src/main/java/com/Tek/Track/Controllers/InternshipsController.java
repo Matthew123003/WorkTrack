@@ -8,26 +8,26 @@ import org.springframework.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-import com.Tek.Track.Models.Internship;
-import com.Tek.Track.Services.InternshipService;
+import com.Tek.Track.Models.Internships;
+import com.Tek.Track.Services.InternshipsService;
 
 @RestController
 @RequestMapping("/internships")
 public class InternshipsController {
 
     @Autowired //Inject Service dependency
-    private InternshipService internshipService;
+    private InternshipsService internshipService;
 
     @Autowired
     UserService userService;
 
-    public InternshipController(InternshipService internshipService, UserService userService) {
+    public InternshipsController(InternshipsService internshipService, UserService userService) {
         this.internshipService = internshipService;
         this.userService = userService;
     }
 
     @GetMapping("/authintern")
-    public ResponseEntity<List<Internship>> getJobsForAuthenticatedUser() throws Exception {
+    public ResponseEntity<List<Internships>> getJobsForAuthenticatedUser() throws Exception {
         // Get the currently authenticated user
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
@@ -41,13 +41,13 @@ public class InternshipsController {
     }
 
     @GetMapping("/internship")
-    public ResponseEntity<List<Internship>> getAllInternship() { 
+    public ResponseEntity<List<Internships>> getAllInternship() { 
         return new ResponseEntity<>(internshipService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/internship/{id}")
-    public ResponseEntity<Internship> getInternship(@PathVariable Long id) {
-        Internship internship = internshipService.findById(id);
+    public ResponseEntity<Internships> getInternship(@PathVariable Long id) {
+        Internships internship = internshipService.findById(id);
         if ( internship == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -55,12 +55,12 @@ public class InternshipsController {
     }
 
     @PostMapping("/newInternship")  
-    public ResponseEntity<Internship> create(@RequestBody Internship internship) {
+    public ResponseEntity<Internships> create(@RequestBody Internships internship) {
         return new ResponseEntity<>(internshipService.create(internship), HttpStatus.CREATED);
     }
     
     @PutMapping("/updateInternship/{id}")  
-    public ResponseEntity<Internship> update(@PathVariable Long id, @RequestBody Internship internship) {
+    public ResponseEntity<Internships> update(@PathVariable Long id, @RequestBody Internships internship) {
         return new ResponseEntity<>(internshipService.update(id, internship), HttpStatus.OK);
     }
 

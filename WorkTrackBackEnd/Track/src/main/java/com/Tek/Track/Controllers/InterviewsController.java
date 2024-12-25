@@ -4,8 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import com.Tek.Track.Models.Interview;
-import com.Tek.Track.Services.InterviewService;
+import com.Tek.Track.Models.Interviews;
+import com.Tek.Track.Services.InterviewsService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -13,20 +13,20 @@ import com.Tek.Track.Services.InterviewService;
 public class InterviewsController {
 
     @Autowired //Inject 'UserService' dependency
-    private InterviewService interviewService;
+    private InterviewsService interviewsService;
 
     public InterviewsController(InterviewsService interviewsService) {
         this.interviewsService = interviewsService;
     }
 
     @GetMapping("/allInterview")  
-    public ResponseEntity<List<Interview>> getAllInterview() { 
-        return new ResponseEntity<>(interviewService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Interviews>> getAllInterview() { 
+        return new ResponseEntity<>(interviewsService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")  
-    public ResponseEntity<Interview> getInterview(@PathVariable Long id) {
-        Interview interview = interviewsService.findById(id);
+    public ResponseEntity<Interviews> getInterview(@PathVariable Long id) {
+        Interviews interview = interviewsService.findById(id);
         if ( interview == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -34,23 +34,23 @@ public class InterviewsController {
     }
 
     @PostMapping("/newInterview")  
-    public ResponseEntity<Interview> create(@RequestBody Interview interview) {
-        return new ResponseEntity<>(interviewService.create(interview), HttpStatus.CREATED);
+    public ResponseEntity<Interviews> create(@RequestBody Interviews interview) {
+        return new ResponseEntity<>(interviewsService.create(interview), HttpStatus.CREATED);
     }
     
     @PutMapping("/updateInterview/{id}")  
-    public ResponseEntity<Interview> update(@PathVariable Long id, @RequestBody Interview interview) {
-        return new ResponseEntity<>(interviewService.update(id, interview), HttpStatus.OK);
+    public ResponseEntity<Interviews> update(@PathVariable Long id, @RequestBody Interviews interview) {
+        return new ResponseEntity<>(interviewsService.update(id, interview), HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteInterview/{id}")  
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(interviewService.deleteById(id), HttpStatus.OK);
+        return new ResponseEntity<>(interviewsService.deleteById(id), HttpStatus.OK);
     }
 
     @PostMapping("/interviews")
-    public ResponseEntity<Interview> createInterview(@RequestBody Interview interview) {
-        Interview savedInterview = interviewService.create(interview);
+    public ResponseEntity<Interviews> createInterview(@RequestBody Interviews interview) {
+        Interviews savedInterview = interviewsService.create(interview);
         return new ResponseEntity<>(savedInterview, HttpStatus.CREATED);
     }
 
