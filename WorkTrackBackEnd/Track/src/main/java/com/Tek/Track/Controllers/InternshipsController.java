@@ -13,7 +13,7 @@ import com.Tek.Track.Services.InternshipService;
 
 @RestController
 @RequestMapping("/internships")
-public class InternshipController {
+public class InternshipsController {
 
     @Autowired //Inject Service dependency
     private InternshipService internshipService;

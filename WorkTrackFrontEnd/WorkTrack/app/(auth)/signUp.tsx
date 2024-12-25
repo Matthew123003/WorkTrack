@@ -33,7 +33,7 @@ export default function SignUp() {
   });
 
   // Handle input changes
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: any, value: any) => {
     setFormData((prevData) => ({ ...prevData, [field]: value }));
   };
 

@@ -7,15 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import com.Tek.Track.Models.Interview;
 import com.Tek.Track.Services.InterviewService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/interview")
-public class InterviewController {
+public class InterviewsController {
 
     @Autowired //Inject 'UserService' dependency
     private InterviewService interviewService;
 
-    public InterviewController(InterviewService interviewService) {
-        this.interviewService = interviewService;
+    public InterviewsController(InterviewsService interviewsService) {
+        this.interviewsService = interviewsService;
     }
 
     @GetMapping("/allInterview")  
@@ -25,7 +26,7 @@ public class InterviewController {
 
     @GetMapping("/{id}")  
     public ResponseEntity<Interview> getInterview(@PathVariable Long id) {
-        Interview interview = interviewService.findById(id);
+        Interview interview = interviewsService.findById(id);
         if ( interview == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
