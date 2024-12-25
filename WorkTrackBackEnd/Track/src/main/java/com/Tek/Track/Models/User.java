@@ -55,7 +55,7 @@ public class User implements UserDetails {
     private List<JobInfo> jobList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Internship> internshipList;
+    private List<Internships> internshipList;
 
     public User() {} // Default constructor, required by JPA.
 
@@ -80,7 +80,7 @@ public class User implements UserDetails {
         this.password = password; // Sets the user's password.
     }
 
-    public User(long userId, String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobList, List<Internship> internshipList) { // Constructor to initialize a User object with `userId`.
+    public User(long userId, String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobList, List<Internships> internshipList) { // Constructor to initialize a User object with `userId`.
         this.userId = userId; // Sets the user's ID.
         this.firstName = firstName; // Sets the user's first name.
         this.lastName = lastName; // Sets the user's last name.
@@ -181,11 +181,11 @@ public class User implements UserDetails {
         this.jobList = jobList;
     }
 
-    public List<Internship> getInternshipList() {
+    public List<Internships> getInternshipList() {
         return internshipList;
     }
 
-    public void setInternshipList(List<Internship> internshipList) {
+    public void setInternshipList(List<Internships> internshipList) {
         this.internshipList = internshipList;
     }
 

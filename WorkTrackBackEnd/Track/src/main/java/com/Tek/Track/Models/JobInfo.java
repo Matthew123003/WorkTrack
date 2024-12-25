@@ -58,7 +58,7 @@ public class JobInfo {
 
     @OneToMany(mappedBy = "jobInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Interview> interviews;
+    private List<Interviews> interviews;
 
 
     public JobInfo() {
@@ -199,20 +199,20 @@ public class JobInfo {
         this.user = user;
     }
 
-    public List<Interview> getInterviews() {
+    public List<Interviews> getInterviews() {
         return interviews;
     }
 
-    public void setInterviews(List<Interview> interviews) {
+    public void setInterviews(List<Interviews> interviews) {
         this.interviews = interviews;
     }
 
-    public void addInterview(Interview interview) {
+    public void addInterview(Interviews interview) {
         interviews.add(interview);
         interview.setJobInfo(this);
     }
 
-    public void removeInterview(Interview interview) {
+    public void removeInterview(Interviews interview) {
         interviews.remove(interview);
         interview.setJobInfo(null);
     }
