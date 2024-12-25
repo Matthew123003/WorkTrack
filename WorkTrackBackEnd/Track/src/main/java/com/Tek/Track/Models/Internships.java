@@ -63,7 +63,7 @@ public class Internships {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "internship", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "internships", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Interviews> interviewsList;
 
