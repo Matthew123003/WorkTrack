@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name= "Interview")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Interview {
+public class Interviews {
 
     //Unique table ID
     @Id
@@ -196,5 +196,3 @@ public class Interview {
 //    @Column(name = "interview_type", nullable = false, length = 50)
 //    private InterviewType interviewType;
 }
-
-

@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Internship")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE) //Stores in temp memory before sending to DB to avoid concurrecy(uses softlocks)
-public class Internship {
+public class Internships {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "internship_id")
