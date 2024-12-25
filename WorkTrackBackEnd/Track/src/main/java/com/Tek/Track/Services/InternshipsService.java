@@ -7,13 +7,13 @@ import com.Tek.Track.Repositories.InternshipRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InternshipService {
+public class InternshipsService {
 
     @Autowired 
     private InternshipRepository internshipRepository;
 
-    public InternshipService(InternshipRepository internshipRepository) {
-        this.internshipRepository = internshipRepository;
+    public InternshipsService(InternshipsRepository internshipsRepository) {
+        this.internshipsRepository = internshipsRepository;
     }
 
     public List<Internship> findJobsByUserId(Long userId) {
