@@ -7,15 +7,15 @@ import com.Tek.Track.Models.Interview;
 import com.Tek.Track.Repositories.InterviewRepository;;
 
 @Service
-public class InterviewService {
+public class InterviewsService {
 
     //Inject interviewRepository
     @Autowired 
     private InterviewRepository interviewRepository;
 
     //Constructor for interviewService to initialize interviewRepository
-    public InterviewService(InterviewRepository interviewRepository) {
-        this.interviewRepository = interviewRepository;
+    public InterviewsService(InterviewsRepository interviewsRepository) {
+        this.interviewsRepository = interviewsRepository;
     }
 
     //Retrieve all interviews from the repository
