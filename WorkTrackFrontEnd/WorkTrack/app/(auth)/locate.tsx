@@ -46,10 +46,10 @@ const LocateAccountPage = () => {
 
       {/* Scrollable Content with KeyboardAvoidingView */}
         <KeyboardAwareScrollView
-               contentContainerStyle={styles.scrollContainer}
-               extraScrollHeight={0} // Adjust based on your needs
-               enableOnAndroid={true} // Ensures proper behavior on Android
-               >
+        contentContainerStyle={styles.scrollContainer}
+        extraScrollHeight={0} // Adjust based on your needs
+        enableOnAndroid={true} // Ensures proper behavior on Android
+        >
           {/* Explanatory Paragraph */}
           <Text style={styles.description}>
             Please enter all the required information below to help us locate your account. Once verified, we will allow you to reset your password.
