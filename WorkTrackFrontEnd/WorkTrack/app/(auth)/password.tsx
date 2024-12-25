@@ -49,10 +49,10 @@ const ResetPasswordPage = () => {
 
       {/* Scrollable content */}
       <KeyboardAwareScrollView
-                   contentContainerStyle={styles.contentContainer}
-                   extraScrollHeight={0} // Adjust based on your needs
-                   enableOnAndroid={true} // Ensures proper behavior on Android
-                   >
+       contentContainerStyle={styles.contentContainer}
+       extraScrollHeight={0} // Adjust based on your needs
+       enableOnAndroid={true} // Ensures proper behavior on Android
+       >
           {/* Explanatory Paragraph */}
           <Text style={styles.description}>
             Please make sure both passwords you input match. See below for password requirements. Once all requirements
@@ -71,22 +71,32 @@ const ResetPasswordPage = () => {
           </View>
 
           {/* New Password input */}
-          <TextInput
-            style={styles.input}
-            placeholder="New Password"
-            secureTextEntry
-            value={newPassword}
-            onChangeText={setNewPassword}
-          />
+           <View style={styles.fieldContainer}>
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>New Password</Text>
+            </View>
+             <TextInput
+              style={styles.input}
+              placeholder="New Password"
+              secureTextEntry
+              value={newPassword}
+              onChangeText={setNewPassword}
+              />
+           </View>
 
           {/* Confirm Password input */}
-          <TextInput
-            style={styles.input}
-            placeholder="Confirm New Password"
-            secureTextEntry
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-          />
+                    <View style={styles.fieldContainer}>
+                       <View style={styles.labelContainer}>
+                          <Text style={styles.label}>Confirm New Password</Text>
+                       </View>
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Confirm New Password"
+                      secureTextEntry
+                      value={confirmPassword}
+                      onChangeText={setConfirmPassword}
+                    />
+                    </View>
 
           {/* Reset Password Button */}
           <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
@@ -175,6 +185,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  fieldContainer: {
+    marginBottom: 15,
+    width: '100%',
+    },
+    label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+    marginBottom: 5,
+    },
+    labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+    },
 });
 
 export default ResetPasswordPage;

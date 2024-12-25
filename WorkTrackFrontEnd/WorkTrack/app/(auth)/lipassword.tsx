@@ -56,10 +56,10 @@ const ResetPasswordPage = () => {
 
       {/* Scrollable content */}
       <KeyboardAwareScrollView
-             contentContainerStyle={styles.contentContainer}
-             extraScrollHeight={0} // Adjust based on your needs
-             enableOnAndroid={true} // Ensures proper behavior on Android
-             >
+       contentContainerStyle={styles.contentContainer}
+       extraScrollHeight={0} // Adjust based on your needs
+       enableOnAndroid={true} // Ensures proper behavior on Android
+       >
           {/* Back Button */}
           <TouchableOpacity style={styles.backButton} onPress={handleBack}>
             <Text style={styles.backButtonText}>Back</Text>
@@ -82,7 +82,7 @@ const ResetPasswordPage = () => {
             <Text style={styles.passwordRequirementText}>• One special character</Text>
           </View>
 
-          {/* New Password input */}
+          {/* Current Password input */}
           <View style={styles.fieldContainer}>
             <View style={styles.labelContainer}>
                 <Text style={styles.label}>Current Password</Text>
