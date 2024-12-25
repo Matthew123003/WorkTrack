@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.time.LocalDate;
 import java.util.*;
-import com.Tek.Track.Models.Interview;
-import com.Tek.Track.Repositories.InterviewRepository;
-import com.Tek.Track.Services.InterviewService;
+import com.Tek.Track.Models.Interviews;
+import com.Tek.Track.Repositories.InterviewsRepository;
+import com.Tek.Track.Services.InterviewsService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -15,12 +15,12 @@ import org.mockito.MockitoAnnotations;
 
 public class InterviewServiceTests {
     @Mock
-    private InterviewRepository interviewRepository;
+    private InterviewsRepository interviewRepository;
 
     @InjectMocks
-    private InterviewService interviewService;
+    private InterviewsService interviewService;
 
-    private Interview interview;
+    private Interviews interview;
     private Long interviewId;
 
     @Before
@@ -28,7 +28,7 @@ public class InterviewServiceTests {
         MockitoAnnotations.initMocks(this);
 
         interviewId = 1L;
-        interview = new Interview();
+        interview = new Interviews();
         interview.setInterviewId(interviewId);
         interview.setInterviewDate(LocalDate.now());
         interview.setStage("First Round");
@@ -42,10 +42,10 @@ public class InterviewServiceTests {
 
     @Test
     public void testFindAll() {
-        List<Interview> interviews = Arrays.asList(interview);
+        List<Interviews> interviews = Arrays.asList(interview);
         when(interviewRepository.findAll()).thenReturn(interviews);
 
-        List<Interview> result = interviewService.findAll();
+        List<Interviews> result = interviewService.findAll();
 
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -56,7 +56,7 @@ public class InterviewServiceTests {
     public void testFindByIdSuccess() {
         when(interviewRepository.findById(interviewId)).thenReturn(Optional.of(interview));
 
-        Interview result = interviewService.findById(interviewId);
+        Interviews result = interviewService.findById(interviewId);
 
         assertNotNull(result);
         assertEquals(interviewId, result.getInterviewId());
@@ -67,7 +67,7 @@ public class InterviewServiceTests {
     public void testFindByIdNotFound() {
         when(interviewRepository.findById(interviewId)).thenReturn(Optional.empty());
 
-        Interview result = interviewService.findById(interviewId);
+        Interviews result = interviewService.findById(interviewId);
 
         assertNull(result);
         verify(interviewRepository, times(1)).findById(interviewId);
@@ -77,7 +77,7 @@ public class InterviewServiceTests {
     public void testCreate() {
         when(interviewRepository.save(interview)).thenReturn(interview);
 
-        Interview result = interviewService.create(interview);
+        Interviews result = interviewService.create(interview);
 
         assertNotNull(result);
         assertEquals(interviewId, result.getInterviewId());
@@ -111,7 +111,7 @@ public class InterviewServiceTests {
         when(interviewRepository.findById(interviewId)).thenReturn(Optional.of(interview));
         when(interviewRepository.save(interview)).thenReturn(interview);
 
-        Interview updatedInterview = new Interview();
+        Interviews updatedInterview = new Interviews();
         updatedInterview.setInterviewDate(LocalDate.of(2023, 12, 1));
         updatedInterview.setStage("Final Round");
         updatedInterview.setTyNote(false);
@@ -121,7 +121,7 @@ public class InterviewServiceTests {
         updatedInterview.setInterviewContactName("Jane Smith");
         updatedInterview.setInterviewContactEmail("janesmith@example.com");
 
-        Interview result = interviewService.update(interviewId, updatedInterview);
+        Interviews result = interviewService.update(interviewId, updatedInterview);
 
         assertNotNull(result);
         assertEquals("Final Round", result.getStage());
@@ -134,14 +134,14 @@ public class InterviewServiceTests {
     public void testUpdateNotFound() {
         when(interviewRepository.findById(interviewId)).thenReturn(Optional.empty());
 
-        Interview updatedInterview = new Interview();
+        Interviews updatedInterview = new Interviews();
         updatedInterview.setInterviewDate(LocalDate.of(2023, 12, 1));
         updatedInterview.setStage("Final Round");
 
-        Interview result = interviewService.update(interviewId, updatedInterview);
+        Interviews result = interviewService.update(interviewId, updatedInterview);
 
         assertNull(result);
         verify(interviewRepository, times(1)).findById(interviewId);
-        verify(interviewRepository, never()).save(any(Interview.class));
+        verify(interviewRepository, never()).save(any(Interviews.class));
     }
 }

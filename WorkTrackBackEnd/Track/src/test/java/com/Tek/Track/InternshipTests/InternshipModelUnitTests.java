@@ -2,17 +2,17 @@ package com.Tek.Track.InternshipTests;
 
 import static org.junit.Assert.*;
 import java.time.LocalDate;
-import com.Tek.Track.Models.Internship;
+import com.Tek.Track.Models.Internships;
 import com.Tek.Track.Models.User;
 import org.junit.Before;
 import org.junit.Test;
 
 public class InternshipModelUnitTests {
-    private Internship internship;
+    private Internships internship;
 
     @Before
     public void setUp() {
-        internship = new Internship();
+        internship = new Internships();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class InternshipModelUnitTests {
     @Test
     public void testParameterizedConstructor() {
         LocalDate dateApplied = LocalDate.now();
-        Internship internship = new Internship(
+        Internships internship = new Internships(
                 "Company A", "Software Engineer", dateApplied, "3 months",
                 "Technical Assessment", true, "John Doe", "john.doe@example.com",
                 "123-456-7890", "Job Description", "Pending", true, false,

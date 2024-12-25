@@ -6,9 +6,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import java.time.LocalDate;
 import java.util.*;
-import com.Tek.Track.Controllers.InterviewController;
-import com.Tek.Track.Models.Interview;
-import com.Tek.Track.Services.InterviewService;
+import com.Tek.Track.Controllers.InterviewsController;
+import com.Tek.Track.Models.Interviews;
+import com.Tek.Track.Services.InterviewsService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -21,13 +21,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 public class InterviewControllerTests {
     @Mock
-    private InterviewService interviewService;
+    private InterviewsService interviewService;
 
     @InjectMocks
-    private InterviewController interviewController;
+    private InterviewsController interviewController;
 
     private MockMvc mockMvc;
-    private Interview interview;
+    private Interviews interview;
     private Long interviewId;
 
     @Before
@@ -36,7 +36,7 @@ public class InterviewControllerTests {
         mockMvc = MockMvcBuilders.standaloneSetup(interviewController).build();
 
         interviewId = 1L;
-        interview = new Interview();
+        interview = new Interviews();
         interview.setInterviewId(interviewId);
         interview.setInterviewDate(LocalDate.now());
         interview.setStage("First Round");
@@ -50,7 +50,7 @@ public class InterviewControllerTests {
 
     @Test
     public void testGetAllInterview() throws Exception {
-        List<Interview> interviews = Arrays.asList(interview);
+        List<Interviews> interviews = Arrays.asList(interview);
         when(interviewService.findAll()).thenReturn(interviews);
 
         mockMvc.perform(get("/interview/allInterview"))
@@ -85,7 +85,7 @@ public class InterviewControllerTests {
 
     @Test
     public void testCreateInterview() throws Exception {
-        when(interviewService.create(any(Interview.class))).thenReturn(interview);
+        when(interviewService.create(any(Interviews.class))).thenReturn(interview);
 
         mockMvc.perform(post("/interview/newInterview")
                         .contentType("application/json")
@@ -94,12 +94,12 @@ public class InterviewControllerTests {
                 .andExpect(jsonPath("$.interviewId").value(interviewId))
                 .andExpect(jsonPath("$.stage").value("First Round"));
 
-        verify(interviewService, times(1)).create(any(Interview.class));
+        verify(interviewService, times(1)).create(any(Interviews.class));
     }
 
     @Test
     public void testUpdateInterview() throws Exception {
-        when(interviewService.update(eq(interviewId), any(Interview.class))).thenReturn(interview);
+        when(interviewService.update(eq(interviewId), any(Interviews.class))).thenReturn(interview);
 
         mockMvc.perform(put("/interview/updateInterview/{id}", interviewId)
                         .contentType("application/json")
@@ -108,7 +108,7 @@ public class InterviewControllerTests {
                 .andExpect(jsonPath("$.stage").value("First Round"))
                 .andExpect(jsonPath("$.interviewType").value("Virtual"));
 
-        verify(interviewService, times(1)).update(eq(interviewId), any(Interview.class));
+        verify(interviewService, times(1)).update(eq(interviewId), any(Interviews.class));
     }
 
     @Test

@@ -14,15 +14,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.Tek.Track.Controllers.InternshipController;
-import com.Tek.Track.Models.Internship;
+import com.Tek.Track.Controllers.InternshipsController;
+import com.Tek.Track.Models.Internships;
 import com.Tek.Track.Models.User;
-import com.Tek.Track.Services.InternshipService;
+import com.Tek.Track.Services.InternshipsService;
 import com.Tek.Track.Services.UserService;
 
 public class InternshipControllerTests {
     @Mock
-    private InternshipService internshipService;
+    private InternshipsService internshipService;
 
     @Mock
     private UserService userService;
@@ -37,7 +37,7 @@ public class InternshipControllerTests {
     private UserDetails userDetails;
 
     @InjectMocks
-    private InternshipController internshipController;
+    private InternshipsController internshipController;
 
     @Before
     public void setUp() {
@@ -52,7 +52,7 @@ public class InternshipControllerTests {
         String username = "testuser";
         User user = new User();
         user.setUserId(userId);
-        List<Internship> internships = Arrays.asList(new Internship());
+        List<Internships> internships = Arrays.asList(new Internships());
 
         when(securityContext.getAuthentication()).thenReturn(authentication);
         when(authentication.getPrincipal()).thenReturn(userDetails);
@@ -61,7 +61,7 @@ public class InternshipControllerTests {
         when(internshipService.findJobsByUserId(userId)).thenReturn(internships);
 
         // Act
-        ResponseEntity<List<Internship>> response = internshipController.getJobsForAuthenticatedUser();
+        ResponseEntity<List<Internships>> response = internshipController.getJobsForAuthenticatedUser();
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -73,11 +73,11 @@ public class InternshipControllerTests {
     @Test
     public void testGetAllInternship() {
         // Arrange
-        List<Internship> internships = Arrays.asList(new Internship());
+        List<Internships> internships = Arrays.asList(new Internships());
         when(internshipService.findAll()).thenReturn(internships);
 
         // Act
-        ResponseEntity<List<Internship>> response = internshipController.getAllInternship();
+        ResponseEntity<List<Internships>> response = internshipController.getAllInternship();
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -89,11 +89,11 @@ public class InternshipControllerTests {
     public void testGetInternshipFound() {
         // Arrange
         Long id = 1L;
-        Internship internship = new Internship();
+        Internships internship = new Internships();
         when(internshipService.findById(id)).thenReturn(internship);
 
         // Act
-        ResponseEntity<Internship> response = internshipController.getInternship(id);
+        ResponseEntity<Internships> response = internshipController.getInternship(id);
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -108,7 +108,7 @@ public class InternshipControllerTests {
         when(internshipService.findById(id)).thenReturn(null);
 
         // Act
-        ResponseEntity<Internship> response = internshipController.getInternship(id);
+        ResponseEntity<Internships> response = internshipController.getInternship(id);
 
         // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -118,11 +118,11 @@ public class InternshipControllerTests {
     @Test
     public void testCreateInternship() {
         // Arrange
-        Internship internship = new Internship();
+        Internships internship = new Internships();
         when(internshipService.create(internship)).thenReturn(internship);
 
         // Act
-        ResponseEntity<Internship> response = internshipController.create(internship);
+        ResponseEntity<Internships> response = internshipController.create(internship);
 
         // Assert
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
@@ -134,11 +134,11 @@ public class InternshipControllerTests {
     public void testUpdateInternship() {
         // Arrange
         Long id = 1L;
-        Internship internship = new Internship();
+        Internships internship = new Internships();
         when(internshipService.update(id, internship)).thenReturn(internship);
 
         // Act
-        ResponseEntity<Internship> response = internshipController.update(id, internship);
+        ResponseEntity<Internships> response = internshipController.update(id, internship);
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());

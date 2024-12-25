@@ -1,7 +1,7 @@
 package com.Tek.Track.InterviewTests;
 
-import com.Tek.Track.Models.Internship;
-import com.Tek.Track.Models.Interview;
+import com.Tek.Track.Models.Internships;
+import com.Tek.Track.Models.Interviews;
 import com.Tek.Track.Models.JobInfo;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import static org.junit.Assert.assertFalse;
 
 public class InterviewModelUnitTests {
 
-    private Interview interview;
+    private Interviews interview;
     private LocalDate interviewDate;
     private String stage;
     private Boolean tyNote;
@@ -21,7 +21,7 @@ public class InterviewModelUnitTests {
     private String interviewContactName;
     private String interviewContactEmail;
     private JobInfo jobInfo;
-    private Internship internship;
+    private Internships internship;
 
     @Before
     public void setUp() {
@@ -34,14 +34,14 @@ public class InterviewModelUnitTests {
         interviewContactName = "John Doe";
         interviewContactEmail = "johndoe@example.com";
         jobInfo = new JobInfo();
-        internship = new Internship();
+        internship = new Internships();
 
-        interview = new Interview(interviewDate, stage, tyNote, interviewType, interviewLink, interviewStatus, interviewContactName, interviewContactEmail, jobInfo, internship);
+        interview = new Interviews(interviewDate, stage, tyNote, interviewType, interviewLink, interviewStatus, interviewContactName, interviewContactEmail, jobInfo, internship);
     }
 
     @Test
     public void testConstructor() {
-        Interview interview = new Interview(interviewDate, stage, tyNote, interviewType, interviewLink, interviewStatus, interviewContactName, interviewContactEmail, jobInfo, internship);
+        Interviews interview = new Interviews(interviewDate, stage, tyNote, interviewType, interviewLink, interviewStatus, interviewContactName, interviewContactEmail, jobInfo, internship);
         assertEquals(interviewDate, interview.getInterviewDate());
         assertEquals(stage, interview.getStage());
         assertEquals(tyNote, interview.getTyNote());
@@ -124,7 +124,7 @@ public class InterviewModelUnitTests {
 
     @Test
     public void testSetAndGetInternship() {
-        Internship newInternship = new Internship();
+        Internships newInternship = new Internships();
         interview.setInternship(newInternship);
         assertEquals(newInternship, interview.getInternship());
     }

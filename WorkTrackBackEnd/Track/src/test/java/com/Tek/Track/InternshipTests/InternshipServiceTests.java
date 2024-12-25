@@ -9,16 +9,16 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import com.Tek.Track.Models.Internship;
-import com.Tek.Track.Repositories.InternshipRepository;
-import com.Tek.Track.Services.InternshipService;
+import com.Tek.Track.Models.Internships;
+import com.Tek.Track.Repositories.InternshipsRepository;
+import com.Tek.Track.Services.InternshipsService;
 
 public class InternshipServiceTests {
     @Mock
-    private InternshipRepository internshipRepository;
+    private InternshipsRepository internshipRepository;
 
     @InjectMocks
-    private InternshipService internshipService;
+    private InternshipsService internshipService;
 
     @Before
     public void setUp() {
@@ -28,10 +28,10 @@ public class InternshipServiceTests {
     @Test
     public void testFindJobsByUserId() {
         Long userId = 1L;
-        List<Internship> internships = Arrays.asList(new Internship());
+        List<Internships> internships = Arrays.asList(new Internships());
         when(internshipRepository.findByUserUserId(userId)).thenReturn(internships);
 
-        List<Internship> result = internshipService.findJobsByUserId(userId);
+        List<Internships> result = internshipService.findJobsByUserId(userId);
 
         assertEquals(internships, result);
         verify(internshipRepository, times(1)).findByUserUserId(userId);
@@ -39,10 +39,10 @@ public class InternshipServiceTests {
 
     @Test
     public void testFindAll() {
-        List<Internship> internships = Arrays.asList(new Internship());
+        List<Internships> internships = Arrays.asList(new Internships());
         when(internshipRepository.findAll()).thenReturn(internships);
 
-        List<Internship> result = internshipService.findAll();
+        List<Internships> result = internshipService.findAll();
 
         assertEquals(internships, result);
         verify(internshipRepository, times(1)).findAll();
@@ -51,10 +51,10 @@ public class InternshipServiceTests {
     @Test
     public void testFindByIdFound() {
         Long id = 1L;
-        Internship internship = new Internship();
+        Internships internship = new Internships();
         when(internshipRepository.findById(id)).thenReturn(Optional.of(internship));
 
-        Internship result = internshipService.findById(id);
+        Internships result = internshipService.findById(id);
 
         assertEquals(internship, result);
         verify(internshipRepository, times(1)).findById(id);
@@ -65,7 +65,7 @@ public class InternshipServiceTests {
         Long id = 1L;
         when(internshipRepository.findById(id)).thenReturn(Optional.empty());
 
-        Internship result = internshipService.findById(id);
+        Internships result = internshipService.findById(id);
 
         assertNull(result);
         verify(internshipRepository, times(1)).findById(id);
@@ -73,10 +73,10 @@ public class InternshipServiceTests {
 
     @Test
     public void testCreate() {
-        Internship internship = new Internship();
+        Internships internship = new Internships();
         when(internshipRepository.save(internship)).thenReturn(internship);
 
-        Internship result = internshipService.create(internship);
+        Internships result = internshipService.create(internship);
 
         assertEquals(internship, result);
         verify(internshipRepository, times(1)).save(internship);
@@ -109,8 +109,8 @@ public class InternshipServiceTests {
     @Test
     public void testUpdateFound() {
         Long id = 1L;
-        Internship originalInternship = new Internship();
-        Internship newInternshipData = new Internship(
+        Internships originalInternship = new Internships();
+        Internships newInternshipData = new Internships(
                 "Company B", "Software Engineer", LocalDate.now(), "3 months",
                 "Technical Assessment", true, "Jane Doe", "jane.doe@example.com",
                 "555-555-5555", "Developing applications", "Pending", true, false,
@@ -120,7 +120,7 @@ public class InternshipServiceTests {
         when(internshipRepository.findById(id)).thenReturn(Optional.of(originalInternship));
         when(internshipRepository.save(originalInternship)).thenReturn(originalInternship);
 
-        Internship result = internshipService.update(id, newInternshipData);
+        Internships result = internshipService.update(id, newInternshipData);
 
         assertEquals(originalInternship, result);
         verify(internshipRepository, times(1)).findById(id);
@@ -136,13 +136,13 @@ public class InternshipServiceTests {
     @Test
     public void testUpdateNotFound() {
         Long id = 1L;
-        Internship newInternshipData = new Internship();
+        Internships newInternshipData = new Internships();
         when(internshipRepository.findById(id)).thenReturn(Optional.empty());
 
-        Internship result = internshipService.update(id, newInternshipData);
+        Internships result = internshipService.update(id, newInternshipData);
 
         assertNull(result);
         verify(internshipRepository, times(1)).findById(id);
-        verify(internshipRepository, times(0)).save(any(Internship.class));
+        verify(internshipRepository, times(0)).save(any(Internships.class));
     }
 }
