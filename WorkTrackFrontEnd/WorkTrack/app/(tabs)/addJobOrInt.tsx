@@ -355,6 +355,10 @@ const styles = StyleSheet.create({
   },
   inputText: {
     padding: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+    marginBottom: 5,
   },
 });
 

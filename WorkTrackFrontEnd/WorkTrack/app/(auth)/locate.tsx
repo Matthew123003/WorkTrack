@@ -61,6 +61,10 @@ const LocateAccountPage = () => {
           </TouchableOpacity>
 
           {/* Username input */}
+          <View style={styles.fieldContainer}>
+                      <View style={styles.labelContainer}>
+                          <Text style={styles.label}>Username</Text>
+                      </View>
           <TextInput
             style={styles.input}
             placeholder="Username"
@@ -68,8 +72,13 @@ const LocateAccountPage = () => {
             onChangeText={setUsername}
             autoFocus={true} // Automatically focus this input on page load
           />
+          </View>
 
           {/* Email input */}
+           <View style={styles.fieldContainer}>
+                                <View style={styles.labelContainer}>
+                                    <Text style={styles.label}>Email</Text>
+                                </View>
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -77,8 +86,13 @@ const LocateAccountPage = () => {
             value={email}
             onChangeText={setEmail}
           />
+          </View>
 
           {/* ZIP Code input */}
+          <View style={styles.fieldContainer}>
+                                <View style={styles.labelContainer}>
+                                    <Text style={styles.label}>ZIP Code</Text>
+                                </View>
           <TextInput
             style={styles.input}
             placeholder="ZIP Code"
@@ -86,14 +100,20 @@ const LocateAccountPage = () => {
             value={zipcode}
             onChangeText={setZipcode}
           />
+          </View>
 
           {/* Last Name input */}
+          <View style={styles.fieldContainer}>
+                                <View style={styles.labelContainer}>
+                                    <Text style={styles.label}>Last Name</Text>
+                                </View>
           <TextInput
             style={styles.input}
             placeholder="Last Name"
             value={lastName}
             onChangeText={setLastName}
           />
+          </View>
 
           {/* Submit Button */}
           <TouchableOpacity style={styles.button} onPress={handleSubmit}>
@@ -191,6 +211,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  fieldContainer: {
+      marginBottom: 15,
+      width: '100%',
+      },
+      label: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#555',
+      marginBottom: 5,
+      },
+      labelContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 5,
+      },
 });
 
 export default LocateAccountPage;

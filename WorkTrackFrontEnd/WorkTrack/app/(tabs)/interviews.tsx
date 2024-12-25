@@ -172,7 +172,11 @@ const InterviewsScreen = () => {
       </TouchableOpacity>
 
       {/* Scrollable Area for Interviews */}
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <KeyboardAwareScrollView
+      contentContainerStyle={styles.scrollContainer}
+      extraScrollHeight={0} // Adjust based on your needs
+      enableOnAndroid={true} // Ensures proper behavior on Android
+      >
         {isApplied ? 
         interviews.map(renderInterview) : 
         (
@@ -242,7 +246,7 @@ const InterviewsScreen = () => {
                       </TouchableOpacity>
                     </View>
         )}
-      </ScrollView>
+      </KeyboardAwareScrollView>
 
       {/* Sort Modal */}
       <Modal visible={sortModalVisible} transparent={true} animationType="slide">
@@ -485,6 +489,10 @@ const styles = StyleSheet.create({
   },
   inputText: {
     padding: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+    marginBottom: 5,
   },
 });
 

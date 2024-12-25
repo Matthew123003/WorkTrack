@@ -237,7 +237,11 @@ const JobsScreen = () => {
       </TouchableOpacity>
 
       {/* Scrollable Jobs List */}
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <KeyboardAwareScrollView
+      contentContainerStyle={styles.scrollContainer}
+      extraScrollHeight={0} // Adjust based on your needs
+      enableOnAndroid={true} // Ensures proper behavior on Android
+      >
       {isApplied
           ? filteredJobs.map(renderJob)
           : (
@@ -339,7 +343,7 @@ const JobsScreen = () => {
                       </TouchableOpacity>
                       </View>
           )}
-      </ScrollView>
+      </KeyboardAwareScrollView>
 
 
       {/* Sort Modal */}
@@ -631,6 +635,10 @@ const styles = StyleSheet.create({
   },
   inputText: {
     padding: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+    marginBottom: 5,
   },
 });
 
