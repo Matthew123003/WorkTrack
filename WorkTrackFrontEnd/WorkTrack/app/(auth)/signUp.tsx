@@ -76,7 +76,7 @@ export default function SignUp() {
 
     try {
       // API call to create a new user
-      const response = await axios.post('http://localhost:8080/users/newuser', {
+      const response = await axios.post('http://10.0.2.2:8080/users/newuser', {
         username,
         password,
         firstName,
@@ -94,6 +94,8 @@ export default function SignUp() {
         router.push('/')
       }
     } catch (error) {
+      console.log("Error Response:", error.response.data);
+      console.log("Status Code:", error.response.status);
       console.error('Error creating user:', JSON.stringify(error, null, 2));
       Alert.alert('Error', 'An error occurred while creating your account. Please try again.');
     }
