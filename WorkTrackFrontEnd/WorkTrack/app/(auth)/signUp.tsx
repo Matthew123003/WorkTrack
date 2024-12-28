@@ -88,6 +88,7 @@ export default function SignUp() {
         phoneNumber,
         email,
       });
+        // ADJUST API CALL TO OTHER PROJECT TO VERIFY, STILL GETTING FAILURE
 
       if (response.status === 201) {
         Alert.alert('Success', 'Your data has been submitted successfully! Please now login to the app!');
