@@ -95,8 +95,8 @@ export default function SignUp() {
         router.push('/')
       }
     } catch (error) {
-      console.log("Error Response:", error.response.data);
-      console.log("Status Code:", error.response.status);
+      console.log("Error Response:", error);
+      console.log("Status Code:", error);
       console.error('Error creating user:', JSON.stringify(error, null, 2));
       Alert.alert('Error', 'An error occurred while creating your account. Please try again.');
     }
