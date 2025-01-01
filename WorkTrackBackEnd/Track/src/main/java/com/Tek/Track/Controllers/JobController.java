@@ -9,9 +9,9 @@ import org.springframework.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
 import com.Tek.Track.Models.JobInfo;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/jobs")
 public class JobController {
