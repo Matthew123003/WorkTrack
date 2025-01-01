@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import { View,
-           Text,
-           StyleSheet,
-           TextInput,
-           ScrollView,
-           KeyboardAvoidingView,
-           Platform,
-           TouchableOpacity,
-           Image,
-           Alert  } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Alert  } from 'react-native';
 import axios from 'axios'; // Import Axios for API requests
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useRouter } from 'expo-router'; // Use expo-router's useRouter hook
