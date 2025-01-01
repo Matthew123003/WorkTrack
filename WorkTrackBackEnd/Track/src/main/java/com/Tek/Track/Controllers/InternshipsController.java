@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.Tek.Track.Models.Internships;
 import com.Tek.Track.Services.InternshipsService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/internships")
 public class InternshipsController {
