@@ -67,7 +67,7 @@ export default function SignUp() {
 
     try {
       // API call to create a new user
-      const response = await axios.post('http://10.0.2.2:8080/users/newuser', {
+      const response = await axios.post("http://10.0.2.2:8080/users/newuser", {
         username,
         password,
         firstName,
