@@ -6,6 +6,7 @@
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtTokenService.java
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/JwtUtil.java
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Authentication/SecurityConfig.java
+/Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Config/WebConfig.java
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/InternshipsController.java
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/InterviewsController.java
 /Users/matthew123003/AndroidStudioProjects/WorkTrack/WorkTrackBackEnd/Track/src/main/java/com/Tek/Track/Controllers/JobController.java
