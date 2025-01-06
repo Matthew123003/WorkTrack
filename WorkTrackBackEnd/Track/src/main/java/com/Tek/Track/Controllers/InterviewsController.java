@@ -1,6 +1,8 @@
 package com.Tek.Track.Controllers;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +54,20 @@ public class InterviewsController {
     public ResponseEntity<Interviews> createInterview(@RequestBody Interviews interview) {
         Interviews savedInterview = interviewsService.create(interview);
         return new ResponseEntity<>(savedInterview, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/patchinterview/{id}")
+    public ResponseEntity<Interviews> updateInterview(
+            @PathVariable Long id,
+            @RequestBody Map<String, Object> updates) {
+        try {
+            Interviews updatedInterview = interviewsService.updateInterview(id, updates);
+            return ResponseEntity.ok(updatedInterview);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
     }
 
 }

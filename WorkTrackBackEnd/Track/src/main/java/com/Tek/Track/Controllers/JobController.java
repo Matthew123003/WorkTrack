@@ -68,7 +68,7 @@ public class JobController {
         return new ResponseEntity<>(jobService.deleteById(id), HttpStatus.OK);
     }
 
-    @PatchMapping("patchjob/{id}")
+    @PatchMapping("/patchjob/{id}")
     public ResponseEntity<JobInfo> updateJob(@PathVariable("id") long id, @RequestBody Map<String, Object> updates) {
         try {
             JobInfo updatedJob = jobService.updateJob(id, updates);

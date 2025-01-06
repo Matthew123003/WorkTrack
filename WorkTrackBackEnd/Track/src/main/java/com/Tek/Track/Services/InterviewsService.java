@@ -1,5 +1,6 @@
 package com.Tek.Track.Services;
 
+import java.time.LocalDate;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
@@ -75,4 +76,48 @@ public class InterviewsService {
         return interviewRepository.save(originalInterview);  
     }
 
+    public Interviews updateInterview(Long id, Map<String, Object> updates) {
+        // Fetch the interview by ID
+        Optional<Interviews> optionalInterview = interviewRepository.findById(id);
+        if (!optionalInterview.isPresent()) {
+            throw new IllegalArgumentException("Interview with ID " + id + " not found");
+        }
+
+        Interviews interview = optionalInterview.get();
+
+        // Apply updates
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "interviewDate":
+                    interview.setInterviewDate(LocalDate.parse(value.toString()));
+                    break;
+                case "stage":
+                    interview.setStage(value.toString());
+                    break;
+                case "tyNote":
+                    interview.setTyNote(Boolean.valueOf(value.toString()));
+                    break;
+                case "interviewType":
+                    interview.setInterviewType(value.toString());
+                    break;
+                case "interviewLink":
+                    interview.setInterviewLink(value.toString());
+                    break;
+                case "interviewStatus":
+                    interview.setInterviewStatus(value.toString());
+                    break;
+                case "interviewContactName":
+                    interview.setInterviewContactName(value.toString());
+                    break;
+                case "interviewContactEmail":
+                    interview.setInterviewContactEmail(value.toString());
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid field: " + key);
+            }
+        });
+
+        // Save the updated interview
+        return interviewRepository.save(interview);
+    }
 }
