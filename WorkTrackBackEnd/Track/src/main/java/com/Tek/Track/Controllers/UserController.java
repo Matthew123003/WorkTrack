@@ -1,6 +1,8 @@
 package com.Tek.Track.Controllers;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.UserService;
@@ -68,7 +70,7 @@ public class UserController {
     }
 
     @PatchMapping("/update_user/{id}")
-public ResponseEntity<User> partialUpdateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    public ResponseEntity<User> partialUpdateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
     try {
         // Call the service method to apply partial updates
         User updatedUser = userService.partialUpdate(id, updates);
