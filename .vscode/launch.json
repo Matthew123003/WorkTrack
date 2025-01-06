@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TrackApplication<Track>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.Tek.Track.TrackApplication",
+            "projectName": "Track",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
