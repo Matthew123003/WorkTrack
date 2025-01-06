@@ -105,4 +105,48 @@ public class UserService implements UserDetailsService {
 
         return user;  // Since User implements UserDetails, you can return it directly.
     }
+
+    public User partialUpdate(Long id, Map<String, Object> updates) throws Exception {
+        // Fetch the existing user
+        User user = userRepository.findById(id).orElseThrow(() -> new Exception("User not found"));
+    
+        // Iterate through the updates map and apply changes dynamically
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "firstName":
+                    user.setFirstName((String) value);
+                    break;
+                case "lastName":
+                    user.setLastName((String) value);
+                    break;
+                case "email":
+                    user.setEmail((String) value);
+                    break;
+                case "userName":
+                    user.setUsername((String) value);
+                    break;
+                case "streetAddress":
+                    user.setStreetAddress((String) value);
+                    break;
+                case "city":
+                    user.setCity((String) value);
+                    break;
+                case "state":
+                    user.setState((String) value);
+                    break;
+                case "zipcode":
+                    user.setZipcode((int) value);
+                    break;
+                case "phoneNumber":
+                    user.setPhoneNumber((String) value);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid field: " + key);
+            }
+        });
+    
+        // Save the updated user to the database
+        return userRepository.save(user);
+    }
+    
 }

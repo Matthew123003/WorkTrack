@@ -66,4 +66,16 @@ public class UserController {
     public ResponseEntity<Boolean> deleteByUserName(@PathVariable String userName) {
         return new ResponseEntity<>(userService.deleteByUserName(userName), HttpStatus.OK);
     }
+
+    @PatchMapping("/update_user/{id}")
+public ResponseEntity<User> partialUpdateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    try {
+        // Call the service method to apply partial updates
+        User updatedUser = userService.partialUpdate(id, updates);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    } catch (Exception e) {
+        // Handle potential exceptions (e.g., user not found, invalid updates)
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+}
 }

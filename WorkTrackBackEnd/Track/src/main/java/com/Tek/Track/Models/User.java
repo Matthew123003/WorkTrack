@@ -80,13 +80,17 @@ public class User implements UserDetails {
         this.password = password; // Sets the user's password.
     }
 
-    public User(long userId, String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobList, List<Internships> internshipList) { // Constructor to initialize a User object with `userId`.
+    public User(long userId, String firstName, String lastName, String email, String userName, String password, String streetAddress, String city, String state, int zipcode, String phoneNumber, List<JobInfo> jobList, List<Internships> internshipList) { // Constructor to initialize a User object with `userId`.
         this.userId = userId; // Sets the user's ID.
         this.firstName = firstName; // Sets the user's first name.
         this.lastName = lastName; // Sets the user's last name.
         this.email = email; // Sets the user's email address.
         this.userName = userName; // Sets the user's username.
         this.password = password; // Sets the user's password.
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.phoneNumber = phoneNumber;
         this.jobList = jobList;
         this.internshipList = internshipList;
     }
@@ -171,6 +175,14 @@ public class User implements UserDetails {
 
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public List<JobInfo> getJobList() { // Getter method to retrieve job information.
