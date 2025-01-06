@@ -1,5 +1,6 @@
 package com.Tek.Track.Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class JobInfo {
     private String jobDesc;
 
     @Column(name = "date_applied", length = 50, nullable = false)
-    private Date dateApplied;
+    private LocalDate dateApplied;
 
     @Column(name = "contact_name", length = 100)
     private String contactName;
@@ -63,7 +64,7 @@ public class JobInfo {
     public JobInfo() {
     }
 
-    public JobInfo(String company, String jobTitle, String jobUrlLink, String jobDesc, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
+    public JobInfo(String company, String jobTitle, String jobUrlLink, String jobDesc, LocalDate dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobUrlLink = jobUrlLink;
@@ -78,7 +79,7 @@ public class JobInfo {
         this.user = user;
     }
 
-    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, String jobDesc, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
+    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, String jobDesc, LocalDate dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.jobInfoId = jobInfoId;
         this.company = company;
         this.jobTitle = jobTitle;
@@ -134,11 +135,11 @@ public class JobInfo {
         this.jobDesc = jobDesc;
     }
 
-    public Date getDateApplied() {
+    public LocalDate getDateApplied() {
         return dateApplied;
     }
 
-    public void setDateApplied(Date dateApplied) {
+    public void setDateApplied(LocalDate dateApplied) {
         this.dateApplied = dateApplied;
     }
 

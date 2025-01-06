@@ -1,6 +1,8 @@
 package com.Tek.Track.Services;
 
 import com.Tek.Track.Repositories.JobRepository;
+
+import java.time.LocalDate;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,9 +90,9 @@ public class JobService {
                 case "jobDesc":
                     existingJob.setJobDesc((String) value);
                     break;
-                // case "dateApplied":
-                //     existingJob.setDateApplied(Date.valueOf((String) value));
-                //     break;
+                case "dateApplied":
+                    existingJob.setDateApplied(LocalDate.parse(value.toString()));
+                    break;
                 case "contactName":
                     existingJob.setContactName((String) value);
                     break;
