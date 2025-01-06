@@ -1,6 +1,5 @@
 package com.Tek.Track.Authentication;
 
-// Importing necessary dependencies and classes
 import com.Tek.Track.Services.UserService; // Custom service for user management (currently commented out).
 import org.springframework.context.annotation.Bean; // Annotation to define beans for the Spring context.
 import org.springframework.context.annotation.Configuration; // Marks this class as a configuration class.
