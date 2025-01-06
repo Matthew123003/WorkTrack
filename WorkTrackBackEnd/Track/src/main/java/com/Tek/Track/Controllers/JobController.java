@@ -3,6 +3,9 @@ package com.Tek.Track.Controllers;
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Services.JobService;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+
 import com.Tek.Track.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -50,18 +53,30 @@ public class JobController {
         return new ResponseEntity<>(jobService.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/new_job")
+    @PostMapping("/newjob")
     public ResponseEntity<JobInfo> create(@RequestBody JobInfo jobInfo) {
         return new ResponseEntity<>(jobService.create(jobInfo), HttpStatus.CREATED);
     }
 
-    @PutMapping("/update_job")
+    @PutMapping("/updatejob")
     public ResponseEntity<JobInfo> update(@PathVariable Long id, @RequestBody JobInfo jobInfo) {
         return new ResponseEntity<>(jobService.update(id, jobInfo), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete_job")
+    @DeleteMapping("/deletejob")
     public ResponseEntity<Boolean> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(jobService.deleteById(id), HttpStatus.OK);
+    }
+
+    @PatchMapping("patchjob/{id}")
+    public ResponseEntity<JobInfo> updateJob(@PathVariable("id") long id, @RequestBody Map<String, Object> updates) {
+        try {
+            JobInfo updatedJob = jobService.updateJob(id, updates);
+            return ResponseEntity.ok(updatedJob);
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
     }
 }

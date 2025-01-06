@@ -70,4 +70,51 @@ public class JobService {
         return jobRepository.save(originalJobInfo);
     }
 
+    public JobInfo updateJob(long id, Map<String, Object> updates) {
+        JobInfo existingJob = jobRepository.findById(id).orElseThrow(() ->
+                new NoSuchElementException("Job with ID " + id + " not found."));
+
+        updates.forEach((field, value) -> {
+            switch (field) {
+                case "company":
+                    existingJob.setCompany((String) value);
+                    break;
+                case "jobTitle":
+                    existingJob.setJobTitle((String) value);
+                    break;
+                case "jobUrlLink":
+                    existingJob.setJobUrlLink((String) value);
+                    break;
+                case "jobDesc":
+                    existingJob.setJobDesc((String) value);
+                    break;
+                // case "dateApplied":
+                //     existingJob.setDateApplied(Date.valueOf((String) value));
+                //     break;
+                case "contactName":
+                    existingJob.setContactName((String) value);
+                    break;
+                case "contactEmail":
+                    existingJob.setContactEmail((String) value);
+                    break;
+                case "contactNumber":
+                    existingJob.setContactNumber((String) value);
+                    break;
+                case "referral":
+                    existingJob.setReferral((String) value);
+                    break;
+                case "remote":
+                    existingJob.setRemote((Boolean) value);
+                    break;
+                case "gotResponse":
+                    existingJob.setGotResponse((Boolean) value);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Field " + field + " is not updatable.");
+            }
+        });
+
+        return jobRepository.save(existingJob);
+    }
+
 }

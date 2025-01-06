@@ -3,7 +3,6 @@ package com.Tek.Track.Models;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cache;
