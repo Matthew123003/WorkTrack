@@ -79,10 +79,7 @@ export default function SignUp() {
         phoneNumber,
         email,
       });
-        // CHECK FOR ANDROIDMANIFEST.XML to allow HTTP requests
-        // AndroidManifest.XML path AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/android/app/src/main/AndroidManifest.xml
-        // AndroidManifest.XML path AndroidStudioProjects/WorkTrack/WorkTrackFrontEnd/WorkTrack/android/app/src/debug/AndroidManifest.xml
-        // REFERENCE WHICH ONE I NEED AND WHERE TO ADD to ALLOW HTTP REQUESTS
+       // ANDROIDMANIFEST.XML allows HTTP requests and CORS bean added to Spring Security SecurityConfig
       if (response.status === 201) {
         Alert.alert('Success', 'Your data has been submitted successfully! Please now login to the app!');
         router.push('/')
