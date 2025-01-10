@@ -80,6 +80,7 @@ export default function SignUp() {
         email,
       });
        // ANDROIDMANIFEST.XML allows HTTP requests and CORS bean added to Spring Security SecurityConfig
+       // CORS tested through POSTMAN, working
       if (response.status === 201) {
         Alert.alert('Success', 'Your data has been submitted successfully! Please now login to the app!');
         router.push('/')
